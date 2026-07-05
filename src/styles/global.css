@@ -3,24 +3,28 @@
 @tailwind utilities;
 @layer base {
 *{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-html{scroll-behavior:smooth} body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;letter-spacing:-.011em;background:#fffbeb;color:#0f172a}
-::selection{background:#f59e0b55} :focus-visible{outline:2px solid #f59e0b;outline-offset:2px}
+html{scroll-behavior:smooth} body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.7;letter-spacing:-.012em;background:#fff7ed;color:#1f2937}
+::selection{background:#f59e0b66} :focus-visible{outline:2px solid #f59e0b;outline-offset:3px}
 }
 @layer components {
 .container{@apply max-w-6xl mx-auto px-5 sm:px-6 lg:px-8}
-.btn{@apply inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-150 ease-out}
-.btn-primary{background:#451a03;@apply text-white shadow-lg} .btn-primary:hover{background:#78350f}
-.btn-secondary{@apply bg-white border text-slate-800 hover:bg-slate-50}
-.card{@apply rounded-3xl border bg-white p-6 shadow-sm transition; border-color:#78350f22; box-shadow:0 12px 40px #78350f0f} .card:hover{transform:translateY(-2px)}
-.badge{@apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold; color:#78350f; background:#fffbeb; border-color:#78350f33}
-.hero-title{font-family:'Instrument Serif',Georgia,serif;@apply text-5xl md:text-7xl font-normal tracking-tight text-slate-950}
+.btn{@apply inline-flex items-center justify-center px-5 py-3 text-sm font-black rounded-xl transition-all duration-150 ease-out}
+.btn-primary{background:#d97706;@apply text-white shadow-lg shadow-amber-800/25} .btn-primary:hover{background:#b45309;transform:translateY(-1px)}
+.btn-secondary{@apply border text-amber-50 hover:bg-white/10; border-color:#fcd34d66}
+.card{@apply rounded-3xl border bg-white p-6 shadow-sm transition; border-color:#b4530924; box-shadow:0 18px 55px #92400e10} .card:hover{transform:translateY(-3px)}
+.recovery-card{background:linear-gradient(180deg,#fff,#fffbeb)}
+.dark-card{background:rgba(0,0,0,.24);border-color:rgba(252,211,77,.25)}
+.badge{@apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-black uppercase tracking-wide; color:#92400e; background:#fffbeb; border-color:#d9770633}
+.badge-dark{color:#fde68a;background:rgba(0,0,0,.22);border-color:rgba(252,211,77,.35)}
+.hero-title{font-family:'Instrument Serif',Georgia,serif;@apply text-5xl md:text-7xl font-normal tracking-tight text-slate-950 leading-none}
 .muted{@apply text-slate-600}
 .data-table{@apply w-full text-sm}
-.data-table th{@apply px-4 py-3 text-left text-xs font-bold uppercase tracking-wide; color:#451a03; background:#fffbeb}
-.data-table td{@apply border-t px-4 py-3 text-slate-700; border-color:#78350f22}
-.prose-shopify h2{@apply mt-10 text-3xl font-bold tracking-tight text-slate-950}
-.prose-shopify h3{@apply mt-7 text-xl font-bold text-slate-950}
+.data-table th{@apply px-4 py-3 text-left text-xs font-black uppercase tracking-wide; color:#78350f; background:#fffbeb}
+.data-table td{@apply border-t px-4 py-3 text-slate-700; border-color:#b4530924}
+.prose-shopify{font-size:1.04rem}
+.prose-shopify h2{@apply mt-10 text-3xl font-black tracking-tight text-slate-950}
+.prose-shopify h3{@apply mt-7 text-xl font-black text-slate-950}
 .prose-shopify p{@apply mt-4 text-slate-700}
 .prose-shopify ul{@apply mt-4 list-disc space-y-2 pl-6 text-slate-700}
-.link{font-weight:700;color:#78350f} .link:hover{color:#451a03}
+.link{font-weight:900;color:#b45309} .link:hover{color:#78350f}
 }
