@@ -34,6 +34,60 @@ const recommended = APPS.filter(a => a.channels.includes(site.channel) || a.chan
 
   <section class="container py-16"><div class="mb-8"><span class="badge">Merchant contexts</span><h2 class="mt-3 text-4xl font-black tracking-tight">Recovery strategy by store model</h2></div><div class="grid gap-4 md:grid-cols-3">{SEGMENTS.map(s=><a class="card" href={`/for/${s.slug}`}><h3 class="text-xl font-black">{s.name}</h3><p class="mt-2 text-sm text-slate-600">Cart recovery must account for {s.pain}.</p></a>)}</div></section>
 
+  <section class="bg-amber-50/80 py-16">
+    <div class="container grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+      <div>
+        <span class="badge">Recovery scoring rubric</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">Score abandoned cart apps by control, not by how loudly they promise recovered revenue.</h2>
+        <p class="mt-4 text-slate-700">Every app can send a reminder. Serious Shopify recovery requires a more specific scorecard: checkout data access, delay windows, channel escalation, incentive rules, product context, customer history, consent handling, exit conditions, holdout testing, and margin reporting. A tool that wins on templates but loses on exclusions can quietly damage the list and train shoppers to abandon.</p>
+        <p class="mt-4 text-slate-700">Use the rubric before installing a new recovery app or migrating away from an existing one. Give each criterion a one-to-five score, then weight the scores by the most expensive abandonment pattern. A high-AOV brand may need reassurance, financing education, and expert proof. A replenishment brand may need timing and repeat-buyer recognition. A discount-sensitive brand may need strict coupon governance more than another message channel.</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="card"><h3 class="font-black text-slate-950">1. Intent diagnosis</h3><p class="mt-2 text-sm text-slate-600">Can the app separate first-time shoppers, repeat customers, high-value carts, low-margin carts, subscription carts, discounted carts, and carts containing products that need education?</p></div>
+        <div class="card"><h3 class="font-black text-slate-950">2. Timing and escalation</h3><p class="mt-2 text-sm text-slate-600">Look for flexible delays, channel rules, frequency caps, quiet hours, SMS consent, push eligibility, and immediate exits after purchase or support contact.</p></div>
+        <div class="card"><h3 class="font-black text-slate-950">3. Incentive discipline</h3><p class="mt-2 text-sm text-slate-600">The app should let full-margin reminders run separately from proof messages and discount paths, with rules based on margin, order value, customer status, and prior coupon behavior.</p></div>
+        <div class="card"><h3 class="font-black text-slate-950">4. Incrementality measurement</h3><p class="mt-2 text-sm text-slate-600">Recovered revenue is not enough. Prefer holdouts, discount reporting, repeat-purchase follow-up, unsubscribe tracking, and reports that expose orders that likely would have returned anyway.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <div class="grid gap-8 lg:grid-cols-3">
+      <article class="card lg:col-span-2 prose-shopify">
+        <h2>Implementation plan: build the recovery ladder before turning on discounts</h2>
+        <p><strong>Step 1: diagnose abandonment patterns.</strong> Break carts into groups by customer status, cart value, product type, device, discount code use, shipping threshold, subscription status, and time since last order. A distracted repeat buyer does not need the same sequence as a first-time buyer comparing a premium product. If the app cannot express those differences, the merchant will eventually fall back to a blunt coupon.</p>
+        <p><strong>Step 2: build a no-discount reminder path.</strong> The first message should usually be helpful: saved cart, product image, simple return link, shipping or returns reminder, and customer support access. The goal is to remove friction without lowering price. Measure full-margin recovery separately so the team knows how much revenue comes back without incentives.</p>
+        <p><strong>Step 3: build an objection-handling path.</strong> High-consideration products need proof, sizing help, ingredient details, warranty notes, installation guidance, reviews, comparison charts, or delivery clarity. This path should feel like assistance, not pressure. It is especially important for jewelry, home goods, supplements, beauty routines, gifts, and high-AOV purchases.</p>
+        <p><strong>Step 4: add controlled incentives only where justified.</strong> Use discounts after the merchant understands margin, expected lifetime value, inventory risk, and previous coupon behavior. Exclude low-margin products, customers who recently bought at full price, shoppers already holding a code, and segments that repeatedly abandon to trigger offers.</p>
+        <p><strong>Step 5: review the ladder monthly.</strong> Watch revenue per recovered cart, gross margin after discounts, unsubscribes, SMS opt-outs, complaints, repeat purchase, support tickets, and holdout performance. Recovery should improve the business after costs, not merely increase the revenue number in an attribution dashboard.</p>
+      </article>
+      <aside class="card h-fit">
+        <h3 class="text-2xl font-black text-slate-950">Failure modes to catch early</h3>
+        <ul class="mt-4 space-y-3 text-sm text-slate-700">
+          <li><strong>Coupon reflex.</strong> Sending a discount in the first message teaches customers to leave checkout.</li>
+          <li><strong>Bad exits.</strong> Purchasers, refund requests, and support conversations must leave the sequence immediately.</li>
+          <li><strong>Attribution fog.</strong> Last-click recovered revenue can include buyers who would have returned without the app.</li>
+          <li><strong>Consent shortcuts.</strong> SMS and push escalation need explicit consent, quiet hours, and frequency control.</li>
+          <li><strong>Inventory mismatch.</strong> Recovery messages should not push sold-out variants or products with delayed fulfillment unless the copy explains it.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="container">
+      <div class="max-w-4xl"><span class="badge">Category advice</span><h2 class="mt-3 text-4xl font-black tracking-tight">Abandoned cart strategy changes with the reason shoppers hesitate.</h2><p class="mt-4 text-slate-600">A recovery app is only as useful as the playbook inside it. Use these category patterns to decide what the app needs to support before choosing a vendor.</p></div>
+      <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div class="card"><h3 class="font-black">Fashion and apparel</h3><p class="mt-2 text-sm text-slate-600">Recover around size uncertainty, sell-through urgency, returns confidence, fit reviews, variant availability, and drop timing. Avoid discounts when scarcity and social proof already explain why now matters.</p></div>
+        <div class="card"><h3 class="font-black">Beauty and supplements</h3><p class="mt-2 text-sm text-slate-600">Use routine education, ingredients, shade help, compliance-safe claims, subscription options, and replenishment context. Incentives should not undercut subscriptions or teach routine buyers to delay.</p></div>
+        <div class="card"><h3 class="font-black">High-AOV and jewelry</h3><p class="mt-2 text-sm text-slate-600">Prioritize expert proof, guarantees, financing, gift guidance, warranty, authenticity, and concierge support. The app should support slower consideration windows rather than an immediate countdown code.</p></div>
+        <div class="card"><h3 class="font-black">Food, beverage, and perishables</h3><p class="mt-2 text-sm text-slate-600">Tie reminders to shipping cutoff, seasonal flavors, subscription savings, delivery confidence, and bundle logic. Suppress products that cannot ship fresh or arrive in time.</p></div>
+        <div class="card"><h3 class="font-black">Home goods</h3><p class="mt-2 text-sm text-slate-600">Use room inspiration, dimensions, material details, style matching, delivery expectations, and reviews. Long decision cycles need nurture and comparison help more than rapid-fire reminders.</p></div>
+        <div class="card"><h3 class="font-black">B2B and wholesale</h3><p class="mt-2 text-sm text-slate-600">Cart abandonment may mean approval, payment terms, quantity questions, or rep follow-up. Recovery should route high-value carts to humans and keep wholesale pricing separate from retail promotions.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="bg-[#1c1207] py-16 text-amber-50">
     <div class="container grid gap-10 lg:grid-cols-[.95fr_1.05fr]">
       <div>
