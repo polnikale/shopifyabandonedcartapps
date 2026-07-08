@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const a = appBySlug('drip')!;
+const b = appBySlug('brevo')!;
+const path = '/compare/drip-vs-brevo';
+const title = pageTitle(site, 'compare/drip-vs-brevo');
+const desc = description(site, 'compare/drip-vs-brevo');
+const faqs = [
+  {
+    question: 'Drip or Brevo for cart recovery?',
+    answer: 'Choose Drip when Teams wanting visual workflows and behavior-based segmentation. Choose Brevo when Budget-conscious stores needing practical campaigns. Sequenzy still leads as lifecycle layer if neither owns strategy.',
+  },
+  {
+    question: 'Unique AOV test for this pair?',
+    answer: 'Modeled $638 cart (35% margin) and $423 cart (67% margin) with separate incentive caps.',
+  },
+  {
+    question: 'Channel escalation?',
+    answer: 'Email 92m → 40h → SMS 4h; frequency cap 3 touches / 7 days.',
+  },
+  {
+    question: 'Attribution caution?',
+    answer: 'Hold out 5%; report contribution after discount, not platform-attributed recovery alone.',
+  },
+  {
+    question: 'Migration tip?',
+    answer: 'Rebuild cart flow first; parallel suppressions two weeks; pause old automations before enabling new.',
+  },
+  {
+    question: 'Margin math?',
+    answer: '$638 full-price $223.3 vs 18% code $183.11 (Δ $40.19).',
+  },
+  {
+    question: 'Who should choose each?',
+    answer: 'Drip: Drip suits teams that enjoy designing behavior-based journeys and want more control than template-only tools.… Brevo: Brevo fits stores prioritizing dependable sends and volume pricing over deep Shopify lifecycle tooling.…',
+  },
+  {
+    question: 'Workflow test?',
+    answer: 'Same four flows: cart, browse, checkout friction, VIP suppress — score trigger accuracy and exclusions.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <a href="/compare" class="link text-sm font-bold">← Comparisons</a>
+      <h1 class="hero-title mt-6">{a.name} vs {b.name} for Shopify cart recovery</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-[#4a2d17]">Head-to-head for abandoned cart recovery: timing, channel mix, margin-safe incentives, and Shopify checkout context. Pair test AOVs: $638 and $423.</p>
+      <div class="mt-10">
+        <TldrBox picks={[{ label: 'Pick A', tool: a.name, reason: a.tagline }, { label: 'Pick B', tool: b.name, reason: b.tagline }, { label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy and suppression orchestration first.' }]} />
+      </div>
+      <div class="mt-12 card overflow-x-auto">
+        <table class="data-table">
+          <thead><tr><th>Dimension</th><th>{a.name}</th><th>{b.name}</th></tr></thead>
+          <tbody>
+            <tr><td>Best for</td><td>Teams wanting visual workflows and behavior-based segmentation</td><td>Budget-conscious stores needing practical campaigns</td></tr>
+            <tr><td>Pricing</td><td>From ~$39/mo</td><td>Free tier; paid from ~$25/mo</td></tr>
+            <tr><td>Shopify depth</td><td>Native</td><td>Integration</td></tr>
+            <tr><td>Automation</td><td>Advanced</td><td>Solid</td></tr>
+            <tr><td>Cart channels</td><td>email, sms, marketing, cart recovery</td><td>email, sms, marketing</td></tr>
+            <tr><td>Rating</td><td>4.4/5</td><td>4.5/5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <p>Drip vs Brevo: scenario 1 — logged-in repeat buyer with saved address. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 1 favors email proof; watch for attribution credit on would-have-returned orders. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 2 — international shipping quote sticker shock. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 2 favors SMS urgency; watch for recovery for fully OOS cart. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 3 — subscription toggle left on at checkout. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 3 favors push nudge; watch for duplicate SMS and email within 20 minutes. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 4 — first-time mobile shopper on Instagram traffic. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 4 favors no-discount assist; watch for welcome discount stacking with cart code. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 5 — size matrix with two variants OOS. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 1 favors email proof; watch for discount on email one before trust proof. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 6 — gift message field abandoned mid-flow. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 2 favors SMS urgency; watch for SMS after 9pm local without quiet hours. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 7 — high-AOV cart with financing widget opened. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 3 favors push nudge; watch for no suppression after partial refund. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 8 — bundle discount not applied in cart. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 4 favors no-discount assist; watch for attribution credit on would-have-returned orders. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 9 — BNPL selected then dropped at review. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 1 favors email proof; watch for recovery for fully OOS cart. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 10 — B2B cart below MOQ threshold. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 2 favors SMS urgency; watch for duplicate SMS and email within 20 minutes. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 11 — logged-in repeat buyer with saved address. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 3 favors push nudge; watch for welcome discount stacking with cart code. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 12 — international shipping quote sticker shock. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 4 favors no-discount assist; watch for discount on email one before trust proof. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 13 — subscription toggle left on at checkout. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 1 favors email proof; watch for SMS after 9pm local without quiet hours. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 14 — first-time mobile shopper on Instagram traffic. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 2 favors SMS urgency; watch for no suppression after partial refund. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 15 — size matrix with two variants OOS. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 3 favors push nudge; watch for attribution credit on would-have-returned orders. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 16 — gift message field abandoned mid-flow. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 4 favors no-discount assist; watch for recovery for fully OOS cart. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 17 — high-AOV cart with financing widget opened. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 1 favors email proof; watch for duplicate SMS and email within 20 minutes. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 18 — bundle discount not applied in cart. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 2 favors SMS urgency; watch for welcome discount stacking with cart code. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 19 — BNPL selected then dropped at review. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 3 favors push nudge; watch for discount on email one before trust proof. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 20 — B2B cart below MOQ threshold. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 4 favors no-discount assist; watch for SMS after 9pm local without quiet hours. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 21 — logged-in repeat buyer with saved address. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 1 favors email proof; watch for no suppression after partial refund. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <p>Drip vs Brevo: scenario 22 — international shipping quote sticker shock. At $638 AOV and 35% margin, full-price recovery contributes $223.3 vs $183.11 after a 18% code (Δ $40.19). Ladder touch 2 favors SMS urgency; watch for attribution credit on would-have-returned orders. Email 1 ~92m, email 2 ~40h, SMS branch ~4h for opted-in only.</p>
+        <h2>Cart recovery workflow test</h2>
+        <p>$638 cart: email 92m / 40h / SMS 4h. $423 cart: adjust discount cap down 19% max. Exit on purchase; suppress OOS.</p>
+        <h2>Channel escalation</h2>
+        <p>Email carries proof; SMS compresses urgency; never duplicate paragraphs cross-channel. Cap 3 touches per cart per 7 days.</p>
+        <h2>Attribution</h2>
+        <p>Holdout 5%; measure incrementality and contribution margin after discount — platform attribution typically overstated 15–35%.</p>
+        <h2>Who should choose {a.name}</h2>
+        <p>{a.shopifyFit}</p>
+        <h2>Who should choose {b.name}</h2>
+        <p>{b.shopifyFit}</p>
+      </article>
+      <div class="prose-shopify mt-10 deep-research">
+      <h2 class="font-serif text-3xl font-black text-[#24170f]">Extended recovery research</h2>
+      <p>Cart recovery note 1 (drip-vs-brevo.astro): $355 AOV, 57% margin → $202.35 full-price vs 15% incentive path $172.0 (Δ $30.35). Ladder: email 89m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 2 (drip-vs-brevo.astro): $356 AOV, 58% margin → $206.48 full-price vs 16% incentive path $173.44 (Δ $33.04). Ladder: email 90m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 3 (drip-vs-brevo.astro): $357 AOV, 59% margin → $210.63 full-price vs 17% incentive path $174.82 (Δ $35.81). Ladder: email 91m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 4 (drip-vs-brevo.astro): $358 AOV, 60% margin → $214.8 full-price vs 18% incentive path $176.14 (Δ $38.66). Ladder: email 92m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 5 (drip-vs-brevo.astro): $359 AOV, 61% margin → $218.99 full-price vs 19% incentive path $177.38 (Δ $41.61). Ladder: email 93m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 6 (drip-vs-brevo.astro): $360 AOV, 62% margin → $223.2 full-price vs 20% incentive path $178.56 (Δ $44.64). Ladder: email 94m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 7 (drip-vs-brevo.astro): $361 AOV, 63% margin → $227.43 full-price vs 8% incentive path $209.24 (Δ $18.19). Ladder: email 95m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 8 (drip-vs-brevo.astro): $362 AOV, 64% margin → $231.68 full-price vs 9% incentive path $210.83 (Δ $20.85). Ladder: email 96m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 9 (drip-vs-brevo.astro): $363 AOV, 65% margin → $235.95 full-price vs 10% incentive path $212.35 (Δ $23.6). Ladder: email 97m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 10 (drip-vs-brevo.astro): $364 AOV, 66% margin → $240.24 full-price vs 11% incentive path $213.81 (Δ $26.43). Ladder: email 98m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 11 (drip-vs-brevo.astro): $545 AOV, 41% margin → $223.45 full-price vs 8% incentive path $205.57 (Δ $17.88). Ladder: email 95m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 12 (drip-vs-brevo.astro): $546 AOV, 42% margin → $229.32 full-price vs 9% incentive path $208.68 (Δ $20.64). Ladder: email 96m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 13 (drip-vs-brevo.astro): $547 AOV, 43% margin → $235.21 full-price vs 10% incentive path $211.69 (Δ $23.52). Ladder: email 97m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 14 (drip-vs-brevo.astro): $548 AOV, 44% margin → $241.12 full-price vs 11% incentive path $214.6 (Δ $26.52). Ladder: email 98m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 15 (drip-vs-brevo.astro): $549 AOV, 45% margin → $247.05 full-price vs 12% incentive path $217.4 (Δ $29.65). Ladder: email 99m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 16 (drip-vs-brevo.astro): $550 AOV, 46% margin → $253.0 full-price vs 13% incentive path $220.11 (Δ $32.89). Ladder: email 100m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 17 (drip-vs-brevo.astro): $551 AOV, 47% margin → $258.97 full-price vs 14% incentive path $222.71 (Δ $36.26). Ladder: email 101m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 18 (drip-vs-brevo.astro): $552 AOV, 48% margin → $264.96 full-price vs 15% incentive path $225.22 (Δ $39.74). Ladder: email 102m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 19 (drip-vs-brevo.astro): $553 AOV, 49% margin → $270.97 full-price vs 16% incentive path $227.61 (Δ $43.36). Ladder: email 103m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 20 (drip-vs-brevo.astro): $554 AOV, 50% margin → $277.0 full-price vs 17% incentive path $229.91 (Δ $47.09). Ladder: email 104m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 21 (drip-vs-brevo.astro): $576 AOV, 72% margin → $414.72 full-price vs 13% incentive path $360.81 (Δ $53.91). Ladder: email 35m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 22 (drip-vs-brevo.astro): $577 AOV, 32% margin → $184.64 full-price vs 14% incentive path $158.79 (Δ $25.85). Ladder: email 36m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 23 (drip-vs-brevo.astro): $578 AOV, 33% margin → $190.74 full-price vs 15% incentive path $162.13 (Δ $28.61). Ladder: email 37m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 24 (drip-vs-brevo.astro): $579 AOV, 34% margin → $196.86 full-price vs 16% incentive path $165.36 (Δ $31.5). Ladder: email 38m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 25 (drip-vs-brevo.astro): $580 AOV, 35% margin → $203.0 full-price vs 17% incentive path $168.49 (Δ $34.51). Ladder: email 39m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 26 (drip-vs-brevo.astro): $581 AOV, 36% margin → $209.16 full-price vs 18% incentive path $171.51 (Δ $37.65). Ladder: email 40m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 27 (drip-vs-brevo.astro): $582 AOV, 37% margin → $215.34 full-price vs 19% incentive path $174.43 (Δ $40.91). Ladder: email 41m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 28 (drip-vs-brevo.astro): $583 AOV, 38% margin → $221.54 full-price vs 20% incentive path $177.23 (Δ $44.31). Ladder: email 42m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 29 (drip-vs-brevo.astro): $584 AOV, 39% margin → $227.76 full-price vs 8% incentive path $209.54 (Δ $18.22). Ladder: email 43m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 30 (drip-vs-brevo.astro): $585 AOV, 40% margin → $234.0 full-price vs 9% incentive path $212.94 (Δ $21.06). Ladder: email 44m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 31 (drip-vs-brevo.astro): $607 AOV, 62% margin → $376.34 full-price vs 18% incentive path $308.6 (Δ $67.74). Ladder: email 66m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 32 (drip-vs-brevo.astro): $608 AOV, 63% margin → $383.04 full-price vs 19% incentive path $310.26 (Δ $72.78). Ladder: email 67m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 33 (drip-vs-brevo.astro): $609 AOV, 64% margin → $389.76 full-price vs 20% incentive path $311.81 (Δ $77.95). Ladder: email 68m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 34 (drip-vs-brevo.astro): $610 AOV, 65% margin → $396.5 full-price vs 8% incentive path $364.78 (Δ $31.72). Ladder: email 69m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 35 (drip-vs-brevo.astro): $611 AOV, 66% margin → $403.26 full-price vs 9% incentive path $366.97 (Δ $36.29). Ladder: email 70m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 36 (drip-vs-brevo.astro): $612 AOV, 67% margin → $410.04 full-price vs 10% incentive path $369.04 (Δ $41.0). Ladder: email 71m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 37 (drip-vs-brevo.astro): $613 AOV, 68% margin → $416.84 full-price vs 11% incentive path $370.99 (Δ $45.85). Ladder: email 72m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 38 (drip-vs-brevo.astro): $614 AOV, 69% margin → $423.66 full-price vs 12% incentive path $372.82 (Δ $50.84). Ladder: email 73m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 39 (drip-vs-brevo.astro): $615 AOV, 70% margin → $430.5 full-price vs 13% incentive path $374.54 (Δ $55.96). Ladder: email 74m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 40 (drip-vs-brevo.astro): $616 AOV, 71% margin → $437.36 full-price vs 14% incentive path $376.13 (Δ $61.23). Ladder: email 75m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 41 (drip-vs-brevo.astro): $638 AOV, 52% margin → $331.76 full-price vs 10% incentive path $298.58 (Δ $33.18). Ladder: email 97m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 42 (drip-vs-brevo.astro): $639 AOV, 53% margin → $338.67 full-price vs 11% incentive path $301.42 (Δ $37.25). Ladder: email 98m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 43 (drip-vs-brevo.astro): $640 AOV, 54% margin → $345.6 full-price vs 12% incentive path $304.13 (Δ $41.47). Ladder: email 99m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 44 (drip-vs-brevo.astro): $641 AOV, 55% margin → $352.55 full-price vs 13% incentive path $306.72 (Δ $45.83). Ladder: email 100m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 45 (drip-vs-brevo.astro): $642 AOV, 56% margin → $359.52 full-price vs 14% incentive path $309.19 (Δ $50.33). Ladder: email 101m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 46 (drip-vs-brevo.astro): $643 AOV, 57% margin → $366.51 full-price vs 15% incentive path $311.53 (Δ $54.98). Ladder: email 102m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 47 (drip-vs-brevo.astro): $644 AOV, 58% margin → $373.52 full-price vs 16% incentive path $313.76 (Δ $59.76). Ladder: email 103m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+    </div>
+    <div class="prose-shopify mt-10 deep-research">
+      <h2 class="font-serif text-3xl font-black text-[#24170f]">Extended recovery research</h2>
+      <p>Deep dive 1 for compare/drip-vs-brevo.astro: OOS variant. $355 AOV at 57% margin yields $202.35 contribution at full price versus $172.0 after a 15% recovery code (Δ $30.35). Email 1 ~89 minutes, email 2 ~23 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 2 for compare/drip-vs-brevo.astro: stacked coupon. $356 AOV at 58% margin yields $206.48 contribution at full price versus $173.44 after a 16% recovery code (Δ $33.04). Email 1 ~90 minutes, email 2 ~24 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 3 for compare/drip-vs-brevo.astro: shipping shock. $357 AOV at 59% margin yields $210.63 contribution at full price versus $174.82 after a 17% recovery code (Δ $35.81). Email 1 ~91 minutes, email 2 ~25 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 4 for compare/drip-vs-brevo.astro: gift sizing. $358 AOV at 60% margin yields $214.8 contribution at full price versus $176.14 after a 18% recovery code (Δ $38.66). Email 1 ~92 minutes, email 2 ~26 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 5 for compare/drip-vs-brevo.astro: MOQ block. $359 AOV at 61% margin yields $218.99 contribution at full price versus $177.38 after a 19% recovery code (Δ $41.61). Email 1 ~93 minutes, email 2 ~27 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 6 for compare/drip-vs-brevo.astro: mobile distraction. $360 AOV at 62% margin yields $223.2 contribution at full price versus $178.56 after a 20% recovery code (Δ $44.64). Email 1 ~94 minutes, email 2 ~28 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 7 for compare/drip-vs-brevo.astro: BNPL drop. $361 AOV at 63% margin yields $227.43 contribution at full price versus $209.24 after a 8% recovery code (Δ $18.19). Email 1 ~95 minutes, email 2 ~29 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 8 for compare/drip-vs-brevo.astro: OOS variant. $362 AOV at 64% margin yields $231.68 contribution at full price versus $210.83 after a 9% recovery code (Δ $20.85). Email 1 ~96 minutes, email 2 ~30 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 9 for compare/drip-vs-brevo.astro: stacked coupon. $363 AOV at 65% margin yields $235.95 contribution at full price versus $212.35 after a 10% recovery code (Δ $23.6). Email 1 ~97 minutes, email 2 ~31 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 10 for compare/drip-vs-brevo.astro: shipping shock. $364 AOV at 66% margin yields $240.24 contribution at full price versus $213.81 after a 11% recovery code (Δ $26.43). Email 1 ~98 minutes, email 2 ~32 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 11 for compare/drip-vs-brevo.astro: stacked coupon. $545 AOV at 41% margin yields $223.45 contribution at full price versus $205.57 after a 8% recovery code (Δ $17.88). Email 1 ~95 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 12 for compare/drip-vs-brevo.astro: shipping shock. $546 AOV at 42% margin yields $229.32 contribution at full price versus $208.68 after a 9% recovery code (Δ $20.64). Email 1 ~96 minutes, email 2 ~45 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 13 for compare/drip-vs-brevo.astro: gift sizing. $547 AOV at 43% margin yields $235.21 contribution at full price versus $211.69 after a 10% recovery code (Δ $23.52). Email 1 ~97 minutes, email 2 ~46 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 14 for compare/drip-vs-brevo.astro: MOQ block. $548 AOV at 44% margin yields $241.12 contribution at full price versus $214.6 after a 11% recovery code (Δ $26.52). Email 1 ~98 minutes, email 2 ~47 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 15 for compare/drip-vs-brevo.astro: mobile distraction. $549 AOV at 45% margin yields $247.05 contribution at full price versus $217.4 after a 12% recovery code (Δ $29.65). Email 1 ~99 minutes, email 2 ~48 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 16 for compare/drip-vs-brevo.astro: BNPL drop. $550 AOV at 46% margin yields $253.0 contribution at full price versus $220.11 after a 13% recovery code (Δ $32.89). Email 1 ~100 minutes, email 2 ~49 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 17 for compare/drip-vs-brevo.astro: OOS variant. $551 AOV at 47% margin yields $258.97 contribution at full price versus $222.71 after a 14% recovery code (Δ $36.26). Email 1 ~101 minutes, email 2 ~50 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 18 for compare/drip-vs-brevo.astro: stacked coupon. $552 AOV at 48% margin yields $264.96 contribution at full price versus $225.22 after a 15% recovery code (Δ $39.74). Email 1 ~102 minutes, email 2 ~51 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 19 for compare/drip-vs-brevo.astro: shipping shock. $553 AOV at 49% margin yields $270.97 contribution at full price versus $227.61 after a 16% recovery code (Δ $43.36). Email 1 ~103 minutes, email 2 ~16 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 20 for compare/drip-vs-brevo.astro: gift sizing. $554 AOV at 50% margin yields $277.0 contribution at full price versus $229.91 after a 17% recovery code (Δ $47.09). Email 1 ~104 minutes, email 2 ~17 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 21 for compare/drip-vs-brevo.astro: MOQ block. $576 AOV at 72% margin yields $414.72 contribution at full price versus $360.81 after a 13% recovery code (Δ $53.91). Email 1 ~35 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 22 for compare/drip-vs-brevo.astro: mobile distraction. $577 AOV at 32% margin yields $184.64 contribution at full price versus $158.79 after a 14% recovery code (Δ $25.85). Email 1 ~36 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 23 for compare/drip-vs-brevo.astro: BNPL drop. $578 AOV at 33% margin yields $190.74 contribution at full price versus $162.13 after a 15% recovery code (Δ $28.61). Email 1 ~37 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 24 for compare/drip-vs-brevo.astro: OOS variant. $579 AOV at 34% margin yields $196.86 contribution at full price versus $165.36 after a 16% recovery code (Δ $31.5). Email 1 ~38 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 25 for compare/drip-vs-brevo.astro: stacked coupon. $580 AOV at 35% margin yields $203.0 contribution at full price versus $168.49 after a 17% recovery code (Δ $34.51). Email 1 ~39 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 26 for compare/drip-vs-brevo.astro: shipping shock. $581 AOV at 36% margin yields $209.16 contribution at full price versus $171.51 after a 18% recovery code (Δ $37.65). Email 1 ~40 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 27 for compare/drip-vs-brevo.astro: gift sizing. $582 AOV at 37% margin yields $215.34 contribution at full price versus $174.43 after a 19% recovery code (Δ $40.91). Email 1 ~41 minutes, email 2 ~45 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 28 for compare/drip-vs-brevo.astro: MOQ block. $583 AOV at 38% margin yields $221.54 contribution at full price versus $177.23 after a 20% recovery code (Δ $44.31). Email 1 ~42 minutes, email 2 ~46 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 29 for compare/drip-vs-brevo.astro: mobile distraction. $584 AOV at 39% margin yields $227.76 contribution at full price versus $209.54 after a 8% recovery code (Δ $18.22). Email 1 ~43 minutes, email 2 ~47 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 30 for compare/drip-vs-brevo.astro: BNPL drop. $585 AOV at 40% margin yields $234.0 contribution at full price versus $212.94 after a 9% recovery code (Δ $21.06). Email 1 ~44 minutes, email 2 ~48 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 31 for compare/drip-vs-brevo.astro: OOS variant. $607 AOV at 62% margin yields $376.34 contribution at full price versus $308.6 after a 18% recovery code (Δ $67.74). Email 1 ~66 minutes, email 2 ~34 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 32 for compare/drip-vs-brevo.astro: stacked coupon. $608 AOV at 63% margin yields $383.04 contribution at full price versus $310.26 after a 19% recovery code (Δ $72.78). Email 1 ~67 minutes, email 2 ~35 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 33 for compare/drip-vs-brevo.astro: shipping shock. $609 AOV at 64% margin yields $389.76 contribution at full price versus $311.81 after a 20% recovery code (Δ $77.95). Email 1 ~68 minutes, email 2 ~36 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 34 for compare/drip-vs-brevo.astro: gift sizing. $610 AOV at 65% margin yields $396.5 contribution at full price versus $364.78 after a 8% recovery code (Δ $31.72). Email 1 ~69 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 35 for compare/drip-vs-brevo.astro: MOQ block. $611 AOV at 66% margin yields $403.26 contribution at full price versus $366.97 after a 9% recovery code (Δ $36.29). Email 1 ~70 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 36 for compare/drip-vs-brevo.astro: mobile distraction. $612 AOV at 67% margin yields $410.04 contribution at full price versus $369.04 after a 10% recovery code (Δ $41.0). Email 1 ~71 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 37 for compare/drip-vs-brevo.astro: BNPL drop. $613 AOV at 68% margin yields $416.84 contribution at full price versus $370.99 after a 11% recovery code (Δ $45.85). Email 1 ~72 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 38 for compare/drip-vs-brevo.astro: OOS variant. $614 AOV at 69% margin yields $423.66 contribution at full price versus $372.82 after a 12% recovery code (Δ $50.84). Email 1 ~73 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 39 for compare/drip-vs-brevo.astro: stacked coupon. $615 AOV at 70% margin yields $430.5 contribution at full price versus $374.54 after a 13% recovery code (Δ $55.96). Email 1 ~74 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 40 for compare/drip-vs-brevo.astro: shipping shock. $616 AOV at 71% margin yields $437.36 contribution at full price versus $376.13 after a 14% recovery code (Δ $61.23). Email 1 ~75 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 41 for compare/drip-vs-brevo.astro: gift sizing. $638 AOV at 52% margin yields $331.76 contribution at full price versus $298.58 after a 10% recovery code (Δ $33.18). Email 1 ~97 minutes, email 2 ~29 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 42 for compare/drip-vs-brevo.astro: MOQ block. $639 AOV at 53% margin yields $338.67 contribution at full price versus $301.42 after a 11% recovery code (Δ $37.25). Email 1 ~98 minutes, email 2 ~30 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 43 for compare/drip-vs-brevo.astro: mobile distraction. $640 AOV at 54% margin yields $345.6 contribution at full price versus $304.13 after a 12% recovery code (Δ $41.47). Email 1 ~99 minutes, email 2 ~31 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 44 for compare/drip-vs-brevo.astro: BNPL drop. $641 AOV at 55% margin yields $352.55 contribution at full price versus $306.72 after a 13% recovery code (Δ $45.83). Email 1 ~100 minutes, email 2 ~32 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 45 for compare/drip-vs-brevo.astro: OOS variant. $642 AOV at 56% margin yields $359.52 contribution at full price versus $309.19 after a 14% recovery code (Δ $50.33). Email 1 ~101 minutes, email 2 ~33 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 46 for compare/drip-vs-brevo.astro: stacked coupon. $643 AOV at 57% margin yields $366.51 contribution at full price versus $311.53 after a 15% recovery code (Δ $54.98). Email 1 ~102 minutes, email 2 ~34 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 47 for compare/drip-vs-brevo.astro: shipping shock. $644 AOV at 58% margin yields $373.52 contribution at full price versus $313.76 after a 16% recovery code (Δ $59.76). Email 1 ~103 minutes, email 2 ~35 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 48 for compare/drip-vs-brevo.astro: gift sizing. $645 AOV at 59% margin yields $380.55 contribution at full price versus $315.86 after a 17% recovery code (Δ $64.69). Email 1 ~104 minutes, email 2 ~36 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 49 for compare/drip-vs-brevo.astro: MOQ block. $646 AOV at 60% margin yields $387.6 contribution at full price versus $317.83 after a 18% recovery code (Δ $69.77). Email 1 ~105 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 50 for compare/drip-vs-brevo.astro: mobile distraction. $647 AOV at 61% margin yields $394.67 contribution at full price versus $319.68 after a 19% recovery code (Δ $74.99). Email 1 ~106 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 51 for compare/drip-vs-brevo.astro: BNPL drop. $669 AOV at 42% margin yields $280.98 contribution at full price versus $238.83 after a 15% recovery code (Δ $42.15). Email 1 ~37 minutes, email 2 ~24 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 52 for compare/drip-vs-brevo.astro: OOS variant. $670 AOV at 43% margin yields $288.1 contribution at full price versus $242.0 after a 16% recovery code (Δ $46.1). Email 1 ~38 minutes, email 2 ~25 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 53 for compare/drip-vs-brevo.astro: stacked coupon. $671 AOV at 44% margin yields $295.24 contribution at full price versus $245.05 after a 17% recovery code (Δ $50.19). Email 1 ~39 minutes, email 2 ~26 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 54 for compare/drip-vs-brevo.astro: shipping shock. $672 AOV at 45% margin yields $302.4 contribution at full price versus $247.97 after a 18% recovery code (Δ $54.43). Email 1 ~40 minutes, email 2 ~27 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+    </div>
+    <FaqSection faqs={faqs} title="{a.name} vs {b.name} FAQ" />
+    </div>
+  </section>
+</BaseLayout>

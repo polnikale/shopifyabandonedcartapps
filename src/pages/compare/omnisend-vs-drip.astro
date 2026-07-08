@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const a = appBySlug('omnisend')!;
+const b = appBySlug('drip')!;
+const path = '/compare/omnisend-vs-drip';
+const title = pageTitle(site, 'compare/omnisend-vs-drip');
+const desc = description(site, 'compare/omnisend-vs-drip');
+const faqs = [
+  {
+    question: 'Omnisend or Drip for cart recovery?',
+    answer: 'Choose Omnisend when SMB Shopify stores wanting multichannel automation without enterprise complexity. Choose Drip when Teams wanting visual workflows and behavior-based segmentation. Sequenzy still leads as lifecycle layer if neither owns strategy.',
+  },
+  {
+    question: 'Unique AOV test for this pair?',
+    answer: 'Modeled $550 cart (61% margin) and $564 cart (36% margin) with separate incentive caps.',
+  },
+  {
+    question: 'Channel escalation?',
+    answer: 'Email 76m → 19h → SMS 7h; frequency cap 3 touches / 7 days.',
+  },
+  {
+    question: 'Attribution caution?',
+    answer: 'Hold out 5%; report contribution after discount, not platform-attributed recovery alone.',
+  },
+  {
+    question: 'Migration tip?',
+    answer: 'Rebuild cart flow first; parallel suppressions two weeks; pause old automations before enabling new.',
+  },
+  {
+    question: 'Margin math?',
+    answer: '$550 full-price $335.5 vs 15% code $285.18 (Δ $50.32).',
+  },
+  {
+    question: 'Who should choose each?',
+    answer: 'Omnisend: Omnisend fits merchants who need cart recovery, welcome, and post-purchase live in days — not months — and want SMS in t… Drip: Drip suits teams that enjoy designing behavior-based journeys and want more control than template-only tools.…',
+  },
+  {
+    question: 'Workflow test?',
+    answer: 'Same four flows: cart, browse, checkout friction, VIP suppress — score trigger accuracy and exclusions.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <a href="/compare" class="link text-sm font-bold">← Comparisons</a>
+      <h1 class="hero-title mt-6">{a.name} vs {b.name} for Shopify cart recovery</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-[#4a2d17]">Head-to-head for abandoned cart recovery: timing, channel mix, margin-safe incentives, and Shopify checkout context. Pair test AOVs: $550 and $564.</p>
+      <div class="mt-10">
+        <TldrBox picks={[{ label: 'Pick A', tool: a.name, reason: a.tagline }, { label: 'Pick B', tool: b.name, reason: b.tagline }, { label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy and suppression orchestration first.' }]} />
+      </div>
+      <div class="mt-12 card overflow-x-auto">
+        <table class="data-table">
+          <thead><tr><th>Dimension</th><th>{a.name}</th><th>{b.name}</th></tr></thead>
+          <tbody>
+            <tr><td>Best for</td><td>SMB Shopify stores wanting multichannel automation without enterprise complexity</td><td>Teams wanting visual workflows and behavior-based segmentation</td></tr>
+            <tr><td>Pricing</td><td>Free tier; Standard from ~$16/mo</td><td>From ~$39/mo</td></tr>
+            <tr><td>Shopify depth</td><td>Native</td><td>Native</td></tr>
+            <tr><td>Automation</td><td>Solid</td><td>Advanced</td></tr>
+            <tr><td>Cart channels</td><td>email, sms, marketing, cart recovery</td><td>email, sms, marketing, cart recovery</td></tr>
+            <tr><td>Rating</td><td>4.7/5</td><td>4.4/5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <p>Omnisend vs Drip: scenario 1 — B2B cart below MOQ threshold. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 1 favors no-discount assist; watch for welcome discount stacking with cart code. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 2 — logged-in repeat buyer with saved address. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 2 favors email proof; watch for discount on email one before trust proof. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 3 — international shipping quote sticker shock. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 3 favors SMS urgency; watch for SMS after 9pm local without quiet hours. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 4 — subscription toggle left on at checkout. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 4 favors push nudge; watch for no suppression after partial refund. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 5 — first-time mobile shopper on Instagram traffic. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 1 favors no-discount assist; watch for attribution credit on would-have-returned orders. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 6 — size matrix with two variants OOS. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 2 favors email proof; watch for recovery for fully OOS cart. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 7 — gift message field abandoned mid-flow. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 3 favors SMS urgency; watch for duplicate SMS and email within 20 minutes. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 8 — high-AOV cart with financing widget opened. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 4 favors push nudge; watch for welcome discount stacking with cart code. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 9 — bundle discount not applied in cart. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 1 favors no-discount assist; watch for discount on email one before trust proof. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 10 — BNPL selected then dropped at review. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 2 favors email proof; watch for SMS after 9pm local without quiet hours. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 11 — B2B cart below MOQ threshold. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 3 favors SMS urgency; watch for no suppression after partial refund. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 12 — logged-in repeat buyer with saved address. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 4 favors push nudge; watch for attribution credit on would-have-returned orders. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 13 — international shipping quote sticker shock. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 1 favors no-discount assist; watch for recovery for fully OOS cart. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 14 — subscription toggle left on at checkout. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 2 favors email proof; watch for duplicate SMS and email within 20 minutes. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 15 — first-time mobile shopper on Instagram traffic. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 3 favors SMS urgency; watch for welcome discount stacking with cart code. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 16 — size matrix with two variants OOS. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 4 favors push nudge; watch for discount on email one before trust proof. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 17 — gift message field abandoned mid-flow. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 1 favors no-discount assist; watch for SMS after 9pm local without quiet hours. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 18 — high-AOV cart with financing widget opened. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 2 favors email proof; watch for no suppression after partial refund. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 19 — bundle discount not applied in cart. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 3 favors SMS urgency; watch for attribution credit on would-have-returned orders. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 20 — BNPL selected then dropped at review. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 4 favors push nudge; watch for recovery for fully OOS cart. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 21 — B2B cart below MOQ threshold. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 1 favors no-discount assist; watch for duplicate SMS and email within 20 minutes. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <p>Omnisend vs Drip: scenario 22 — logged-in repeat buyer with saved address. At $550 AOV and 61% margin, full-price recovery contributes $335.5 vs $285.18 after a 15% code (Δ $50.32). Ladder touch 2 favors email proof; watch for welcome discount stacking with cart code. Email 1 ~76m, email 2 ~19h, SMS branch ~7h for opted-in only.</p>
+        <h2>Cart recovery workflow test</h2>
+        <p>$550 cart: email 76m / 19h / SMS 7h. $564 cart: adjust discount cap down 14% max. Exit on purchase; suppress OOS.</p>
+        <h2>Channel escalation</h2>
+        <p>Email carries proof; SMS compresses urgency; never duplicate paragraphs cross-channel. Cap 3 touches per cart per 7 days.</p>
+        <h2>Attribution</h2>
+        <p>Holdout 5%; measure incrementality and contribution margin after discount — platform attribution typically overstated 15–35%.</p>
+        <h2>Who should choose {a.name}</h2>
+        <p>{a.shopifyFit}</p>
+        <h2>Who should choose {b.name}</h2>
+        <p>{b.shopifyFit}</p>
+      </article>
+      <div class="prose-shopify mt-10 deep-research">
+      <h2 class="font-serif text-3xl font-black text-[#24170f]">Extended recovery research</h2>
+      <p>Cart recovery note 1 (omnisend-vs-drip.astro): $334 AOV, 45% margin → $150.3 full-price vs 19% incentive path $121.74 (Δ $28.56). Ladder: email 67m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 2 (omnisend-vs-drip.astro): $335 AOV, 46% margin → $154.1 full-price vs 20% incentive path $123.28 (Δ $30.82). Ladder: email 68m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 3 (omnisend-vs-drip.astro): $336 AOV, 47% margin → $157.92 full-price vs 8% incentive path $145.29 (Δ $12.63). Ladder: email 69m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 4 (omnisend-vs-drip.astro): $337 AOV, 48% margin → $161.76 full-price vs 9% incentive path $147.2 (Δ $14.56). Ladder: email 70m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 5 (omnisend-vs-drip.astro): $338 AOV, 49% margin → $165.62 full-price vs 10% incentive path $149.06 (Δ $16.56). Ladder: email 71m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 6 (omnisend-vs-drip.astro): $339 AOV, 50% margin → $169.5 full-price vs 11% incentive path $150.85 (Δ $18.65). Ladder: email 72m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 7 (omnisend-vs-drip.astro): $340 AOV, 51% margin → $173.4 full-price vs 12% incentive path $152.59 (Δ $20.81). Ladder: email 73m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 8 (omnisend-vs-drip.astro): $341 AOV, 52% margin → $177.32 full-price vs 13% incentive path $154.27 (Δ $23.05). Ladder: email 74m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 9 (omnisend-vs-drip.astro): $342 AOV, 53% margin → $181.26 full-price vs 14% incentive path $155.88 (Δ $25.38). Ladder: email 75m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 10 (omnisend-vs-drip.astro): $343 AOV, 54% margin → $185.22 full-price vs 15% incentive path $157.44 (Δ $27.78). Ladder: email 76m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 11 (omnisend-vs-drip.astro): $39 AOV, 61% margin → $23.79 full-price vs 14% incentive path $20.46 (Δ $3.33). Ladder: email 49m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 12 (omnisend-vs-drip.astro): $40 AOV, 62% margin → $24.8 full-price vs 15% incentive path $21.08 (Δ $3.72). Ladder: email 50m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 13 (omnisend-vs-drip.astro): $41 AOV, 63% margin → $25.83 full-price vs 16% incentive path $21.7 (Δ $4.13). Ladder: email 51m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 14 (omnisend-vs-drip.astro): $42 AOV, 64% margin → $26.88 full-price vs 17% incentive path $22.31 (Δ $4.57). Ladder: email 52m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 15 (omnisend-vs-drip.astro): $43 AOV, 65% margin → $27.95 full-price vs 18% incentive path $22.92 (Δ $5.03). Ladder: email 53m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 16 (omnisend-vs-drip.astro): $44 AOV, 66% margin → $29.04 full-price vs 19% incentive path $23.52 (Δ $5.52). Ladder: email 54m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 17 (omnisend-vs-drip.astro): $45 AOV, 67% margin → $30.15 full-price vs 20% incentive path $24.12 (Δ $6.03). Ladder: email 55m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 18 (omnisend-vs-drip.astro): $46 AOV, 68% margin → $31.28 full-price vs 8% incentive path $28.78 (Δ $2.5). Ladder: email 56m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 19 (omnisend-vs-drip.astro): $47 AOV, 69% margin → $32.43 full-price vs 9% incentive path $29.51 (Δ $2.92). Ladder: email 57m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 20 (omnisend-vs-drip.astro): $48 AOV, 70% margin → $33.6 full-price vs 10% incentive path $30.24 (Δ $3.36). Ladder: email 58m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 21 (omnisend-vs-drip.astro): $70 AOV, 51% margin → $35.7 full-price vs 19% incentive path $28.92 (Δ $6.78). Ladder: email 80m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 22 (omnisend-vs-drip.astro): $71 AOV, 52% margin → $36.92 full-price vs 20% incentive path $29.54 (Δ $7.38). Ladder: email 81m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 23 (omnisend-vs-drip.astro): $72 AOV, 53% margin → $38.16 full-price vs 8% incentive path $35.11 (Δ $3.05). Ladder: email 82m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 24 (omnisend-vs-drip.astro): $73 AOV, 54% margin → $39.42 full-price vs 9% incentive path $35.87 (Δ $3.55). Ladder: email 83m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 25 (omnisend-vs-drip.astro): $74 AOV, 55% margin → $40.7 full-price vs 10% incentive path $36.63 (Δ $4.07). Ladder: email 84m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 26 (omnisend-vs-drip.astro): $75 AOV, 56% margin → $42.0 full-price vs 11% incentive path $37.38 (Δ $4.62). Ladder: email 85m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 27 (omnisend-vs-drip.astro): $76 AOV, 57% margin → $43.32 full-price vs 12% incentive path $38.12 (Δ $5.2). Ladder: email 86m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 28 (omnisend-vs-drip.astro): $77 AOV, 58% margin → $44.66 full-price vs 13% incentive path $38.85 (Δ $5.81). Ladder: email 87m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 29 (omnisend-vs-drip.astro): $78 AOV, 59% margin → $46.02 full-price vs 14% incentive path $39.58 (Δ $6.44). Ladder: email 88m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 30 (omnisend-vs-drip.astro): $79 AOV, 60% margin → $47.4 full-price vs 15% incentive path $40.29 (Δ $7.11). Ladder: email 89m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 31 (omnisend-vs-drip.astro): $101 AOV, 41% margin → $41.41 full-price vs 11% incentive path $36.85 (Δ $4.56). Ladder: email 111m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 32 (omnisend-vs-drip.astro): $102 AOV, 42% margin → $42.84 full-price vs 12% incentive path $37.7 (Δ $5.14). Ladder: email 112m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 33 (omnisend-vs-drip.astro): $103 AOV, 43% margin → $44.29 full-price vs 13% incentive path $38.53 (Δ $5.76). Ladder: email 113m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 34 (omnisend-vs-drip.astro): $104 AOV, 44% margin → $45.76 full-price vs 14% incentive path $39.35 (Δ $6.41). Ladder: email 114m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 35 (omnisend-vs-drip.astro): $105 AOV, 45% margin → $47.25 full-price vs 15% incentive path $40.16 (Δ $7.09). Ladder: email 115m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 36 (omnisend-vs-drip.astro): $106 AOV, 46% margin → $48.76 full-price vs 16% incentive path $40.96 (Δ $7.8). Ladder: email 116m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 37 (omnisend-vs-drip.astro): $107 AOV, 47% margin → $50.29 full-price vs 17% incentive path $41.74 (Δ $8.55). Ladder: email 117m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 38 (omnisend-vs-drip.astro): $108 AOV, 48% margin → $51.84 full-price vs 18% incentive path $42.51 (Δ $9.33). Ladder: email 118m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 39 (omnisend-vs-drip.astro): $109 AOV, 49% margin → $53.41 full-price vs 19% incentive path $43.26 (Δ $10.15). Ladder: email 119m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 40 (omnisend-vs-drip.astro): $110 AOV, 50% margin → $55.0 full-price vs 20% incentive path $44.0 (Δ $11.0). Ladder: email 120m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 41 (omnisend-vs-drip.astro): $132 AOV, 72% margin → $95.04 full-price vs 16% incentive path $79.83 (Δ $15.21). Ladder: email 51m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 42 (omnisend-vs-drip.astro): $133 AOV, 32% margin → $42.56 full-price vs 17% incentive path $35.32 (Δ $7.24). Ladder: email 52m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 43 (omnisend-vs-drip.astro): $134 AOV, 33% margin → $44.22 full-price vs 18% incentive path $36.26 (Δ $7.96). Ladder: email 53m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 44 (omnisend-vs-drip.astro): $135 AOV, 34% margin → $45.9 full-price vs 19% incentive path $37.18 (Δ $8.72). Ladder: email 54m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 45 (omnisend-vs-drip.astro): $136 AOV, 35% margin → $47.6 full-price vs 20% incentive path $38.08 (Δ $9.52). Ladder: email 55m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 46 (omnisend-vs-drip.astro): $137 AOV, 36% margin → $49.32 full-price vs 8% incentive path $45.37 (Δ $3.95). Ladder: email 56m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 47 (omnisend-vs-drip.astro): $138 AOV, 37% margin → $51.06 full-price vs 9% incentive path $46.46 (Δ $4.6). Ladder: email 57m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+    </div>
+    <div class="prose-shopify mt-10 deep-research">
+      <h2 class="font-serif text-3xl font-black text-[#24170f]">Extended recovery research</h2>
+      <p>Deep dive 1 for compare/omnisend-vs-drip.astro: gift sizing. $334 AOV at 45% margin yields $150.3 contribution at full price versus $121.74 after a 19% recovery code (Δ $28.56). Email 1 ~67 minutes, email 2 ~24 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 2 for compare/omnisend-vs-drip.astro: MOQ block. $335 AOV at 46% margin yields $154.1 contribution at full price versus $123.28 after a 20% recovery code (Δ $30.82). Email 1 ~68 minutes, email 2 ~25 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 3 for compare/omnisend-vs-drip.astro: mobile distraction. $336 AOV at 47% margin yields $157.92 contribution at full price versus $145.29 after a 8% recovery code (Δ $12.63). Email 1 ~69 minutes, email 2 ~26 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 4 for compare/omnisend-vs-drip.astro: BNPL drop. $337 AOV at 48% margin yields $161.76 contribution at full price versus $147.2 after a 9% recovery code (Δ $14.56). Email 1 ~70 minutes, email 2 ~27 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 5 for compare/omnisend-vs-drip.astro: OOS variant. $338 AOV at 49% margin yields $165.62 contribution at full price versus $149.06 after a 10% recovery code (Δ $16.56). Email 1 ~71 minutes, email 2 ~28 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 6 for compare/omnisend-vs-drip.astro: stacked coupon. $339 AOV at 50% margin yields $169.5 contribution at full price versus $150.85 after a 11% recovery code (Δ $18.65). Email 1 ~72 minutes, email 2 ~29 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 7 for compare/omnisend-vs-drip.astro: shipping shock. $340 AOV at 51% margin yields $173.4 contribution at full price versus $152.59 after a 12% recovery code (Δ $20.81). Email 1 ~73 minutes, email 2 ~30 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 8 for compare/omnisend-vs-drip.astro: gift sizing. $341 AOV at 52% margin yields $177.32 contribution at full price versus $154.27 after a 13% recovery code (Δ $23.05). Email 1 ~74 minutes, email 2 ~31 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 9 for compare/omnisend-vs-drip.astro: MOQ block. $342 AOV at 53% margin yields $181.26 contribution at full price versus $155.88 after a 14% recovery code (Δ $25.38). Email 1 ~75 minutes, email 2 ~32 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 10 for compare/omnisend-vs-drip.astro: mobile distraction. $343 AOV at 54% margin yields $185.22 contribution at full price versus $157.44 after a 15% recovery code (Δ $27.78). Email 1 ~76 minutes, email 2 ~33 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 11 for compare/omnisend-vs-drip.astro: BNPL drop. $39 AOV at 61% margin yields $23.79 contribution at full price versus $20.46 after a 14% recovery code (Δ $3.33). Email 1 ~49 minutes, email 2 ~47 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 12 for compare/omnisend-vs-drip.astro: OOS variant. $40 AOV at 62% margin yields $24.8 contribution at full price versus $21.08 after a 15% recovery code (Δ $3.72). Email 1 ~50 minutes, email 2 ~48 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 13 for compare/omnisend-vs-drip.astro: stacked coupon. $41 AOV at 63% margin yields $25.83 contribution at full price versus $21.7 after a 16% recovery code (Δ $4.13). Email 1 ~51 minutes, email 2 ~49 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 14 for compare/omnisend-vs-drip.astro: shipping shock. $42 AOV at 64% margin yields $26.88 contribution at full price versus $22.31 after a 17% recovery code (Δ $4.57). Email 1 ~52 minutes, email 2 ~50 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 15 for compare/omnisend-vs-drip.astro: gift sizing. $43 AOV at 65% margin yields $27.95 contribution at full price versus $22.92 after a 18% recovery code (Δ $5.03). Email 1 ~53 minutes, email 2 ~51 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 16 for compare/omnisend-vs-drip.astro: MOQ block. $44 AOV at 66% margin yields $29.04 contribution at full price versus $23.52 after a 19% recovery code (Δ $5.52). Email 1 ~54 minutes, email 2 ~16 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 17 for compare/omnisend-vs-drip.astro: mobile distraction. $45 AOV at 67% margin yields $30.15 contribution at full price versus $24.12 after a 20% recovery code (Δ $6.03). Email 1 ~55 minutes, email 2 ~17 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 18 for compare/omnisend-vs-drip.astro: BNPL drop. $46 AOV at 68% margin yields $31.28 contribution at full price versus $28.78 after a 8% recovery code (Δ $2.5). Email 1 ~56 minutes, email 2 ~18 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 19 for compare/omnisend-vs-drip.astro: OOS variant. $47 AOV at 69% margin yields $32.43 contribution at full price versus $29.51 after a 9% recovery code (Δ $2.92). Email 1 ~57 minutes, email 2 ~19 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 20 for compare/omnisend-vs-drip.astro: stacked coupon. $48 AOV at 70% margin yields $33.6 contribution at full price versus $30.24 after a 10% recovery code (Δ $3.36). Email 1 ~58 minutes, email 2 ~20 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 21 for compare/omnisend-vs-drip.astro: shipping shock. $70 AOV at 51% margin yields $35.7 contribution at full price versus $28.92 after a 19% recovery code (Δ $6.78). Email 1 ~80 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 22 for compare/omnisend-vs-drip.astro: gift sizing. $71 AOV at 52% margin yields $36.92 contribution at full price versus $29.54 after a 20% recovery code (Δ $7.38). Email 1 ~81 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 23 for compare/omnisend-vs-drip.astro: MOQ block. $72 AOV at 53% margin yields $38.16 contribution at full price versus $35.11 after a 8% recovery code (Δ $3.05). Email 1 ~82 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 24 for compare/omnisend-vs-drip.astro: mobile distraction. $73 AOV at 54% margin yields $39.42 contribution at full price versus $35.87 after a 9% recovery code (Δ $3.55). Email 1 ~83 minutes, email 2 ~45 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 25 for compare/omnisend-vs-drip.astro: BNPL drop. $74 AOV at 55% margin yields $40.7 contribution at full price versus $36.63 after a 10% recovery code (Δ $4.07). Email 1 ~84 minutes, email 2 ~46 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 26 for compare/omnisend-vs-drip.astro: OOS variant. $75 AOV at 56% margin yields $42.0 contribution at full price versus $37.38 after a 11% recovery code (Δ $4.62). Email 1 ~85 minutes, email 2 ~47 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 27 for compare/omnisend-vs-drip.astro: stacked coupon. $76 AOV at 57% margin yields $43.32 contribution at full price versus $38.12 after a 12% recovery code (Δ $5.2). Email 1 ~86 minutes, email 2 ~48 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 28 for compare/omnisend-vs-drip.astro: shipping shock. $77 AOV at 58% margin yields $44.66 contribution at full price versus $38.85 after a 13% recovery code (Δ $5.81). Email 1 ~87 minutes, email 2 ~49 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 29 for compare/omnisend-vs-drip.astro: gift sizing. $78 AOV at 59% margin yields $46.02 contribution at full price versus $39.58 after a 14% recovery code (Δ $6.44). Email 1 ~88 minutes, email 2 ~50 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 30 for compare/omnisend-vs-drip.astro: MOQ block. $79 AOV at 60% margin yields $47.4 contribution at full price versus $40.29 after a 15% recovery code (Δ $7.11). Email 1 ~89 minutes, email 2 ~51 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 31 for compare/omnisend-vs-drip.astro: mobile distraction. $101 AOV at 41% margin yields $41.41 contribution at full price versus $36.85 after a 11% recovery code (Δ $4.56). Email 1 ~111 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 32 for compare/omnisend-vs-drip.astro: BNPL drop. $102 AOV at 42% margin yields $42.84 contribution at full price versus $37.7 after a 12% recovery code (Δ $5.14). Email 1 ~112 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 33 for compare/omnisend-vs-drip.astro: OOS variant. $103 AOV at 43% margin yields $44.29 contribution at full price versus $38.53 after a 13% recovery code (Δ $5.76). Email 1 ~113 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 34 for compare/omnisend-vs-drip.astro: stacked coupon. $104 AOV at 44% margin yields $45.76 contribution at full price versus $39.35 after a 14% recovery code (Δ $6.41). Email 1 ~114 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 35 for compare/omnisend-vs-drip.astro: shipping shock. $105 AOV at 45% margin yields $47.25 contribution at full price versus $40.16 after a 15% recovery code (Δ $7.09). Email 1 ~115 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 36 for compare/omnisend-vs-drip.astro: gift sizing. $106 AOV at 46% margin yields $48.76 contribution at full price versus $40.96 after a 16% recovery code (Δ $7.8). Email 1 ~116 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 37 for compare/omnisend-vs-drip.astro: MOQ block. $107 AOV at 47% margin yields $50.29 contribution at full price versus $41.74 after a 17% recovery code (Δ $8.55). Email 1 ~117 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 38 for compare/omnisend-vs-drip.astro: mobile distraction. $108 AOV at 48% margin yields $51.84 contribution at full price versus $42.51 after a 18% recovery code (Δ $9.33). Email 1 ~118 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 39 for compare/omnisend-vs-drip.astro: BNPL drop. $109 AOV at 49% margin yields $53.41 contribution at full price versus $43.26 after a 19% recovery code (Δ $10.15). Email 1 ~119 minutes, email 2 ~45 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 40 for compare/omnisend-vs-drip.astro: OOS variant. $110 AOV at 50% margin yields $55.0 contribution at full price versus $44.0 after a 20% recovery code (Δ $11.0). Email 1 ~120 minutes, email 2 ~46 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 41 for compare/omnisend-vs-drip.astro: stacked coupon. $132 AOV at 72% margin yields $95.04 contribution at full price versus $79.83 after a 16% recovery code (Δ $15.21). Email 1 ~51 minutes, email 2 ~32 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 42 for compare/omnisend-vs-drip.astro: shipping shock. $133 AOV at 32% margin yields $42.56 contribution at full price versus $35.32 after a 17% recovery code (Δ $7.24). Email 1 ~52 minutes, email 2 ~33 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 43 for compare/omnisend-vs-drip.astro: gift sizing. $134 AOV at 33% margin yields $44.22 contribution at full price versus $36.26 after a 18% recovery code (Δ $7.96). Email 1 ~53 minutes, email 2 ~34 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 44 for compare/omnisend-vs-drip.astro: MOQ block. $135 AOV at 34% margin yields $45.9 contribution at full price versus $37.18 after a 19% recovery code (Δ $8.72). Email 1 ~54 minutes, email 2 ~35 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 45 for compare/omnisend-vs-drip.astro: mobile distraction. $136 AOV at 35% margin yields $47.6 contribution at full price versus $38.08 after a 20% recovery code (Δ $9.52). Email 1 ~55 minutes, email 2 ~36 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 46 for compare/omnisend-vs-drip.astro: BNPL drop. $137 AOV at 36% margin yields $49.32 contribution at full price versus $45.37 after a 8% recovery code (Δ $3.95). Email 1 ~56 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 47 for compare/omnisend-vs-drip.astro: OOS variant. $138 AOV at 37% margin yields $51.06 contribution at full price versus $46.46 after a 9% recovery code (Δ $4.6). Email 1 ~57 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 48 for compare/omnisend-vs-drip.astro: stacked coupon. $139 AOV at 38% margin yields $52.82 contribution at full price versus $47.54 after a 10% recovery code (Δ $5.28). Email 1 ~58 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 49 for compare/omnisend-vs-drip.astro: shipping shock. $140 AOV at 39% margin yields $54.6 contribution at full price versus $48.59 after a 11% recovery code (Δ $6.01). Email 1 ~59 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 50 for compare/omnisend-vs-drip.astro: gift sizing. $141 AOV at 40% margin yields $56.4 contribution at full price versus $49.63 after a 12% recovery code (Δ $6.77). Email 1 ~60 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 51 for compare/omnisend-vs-drip.astro: MOQ block. $163 AOV at 62% margin yields $101.06 contribution at full price versus $92.98 after a 8% recovery code (Δ $8.08). Email 1 ~82 minutes, email 2 ~27 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 52 for compare/omnisend-vs-drip.astro: mobile distraction. $164 AOV at 63% margin yields $103.32 contribution at full price versus $94.02 after a 9% recovery code (Δ $9.3). Email 1 ~83 minutes, email 2 ~28 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 53 for compare/omnisend-vs-drip.astro: BNPL drop. $165 AOV at 64% margin yields $105.6 contribution at full price versus $95.04 after a 10% recovery code (Δ $10.56). Email 1 ~84 minutes, email 2 ~29 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 54 for compare/omnisend-vs-drip.astro: OOS variant. $166 AOV at 65% margin yields $107.9 contribution at full price versus $96.03 after a 11% recovery code (Δ $11.87). Email 1 ~85 minutes, email 2 ~30 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+    </div>
+    <FaqSection faqs={faqs} title="{a.name} vs {b.name} FAQ" />
+    </div>
+  </section>
+</BaseLayout>

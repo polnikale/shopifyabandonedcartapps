@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle, GUIDES } from '../../content';
+
+const path = '/guides';
+const title = pageTitle(site, 'guides');
+const desc = description(site, 'guides');
+
+const faqs = [
+  { question: 'Which cart recovery guide should I read first?', answer: 'Timing playbook — delay windows drive more recovery lift than template redesign. Then margin-safe incentives before adding SMS volume.' },
+  { question: 'How do guides differ from use cases?', answer: 'Guides are cross-cutting operator mechanics — timing, channel mix, attribution. Use cases are workflow-specific execution with tool picks.' },
+  { question: 'When run discount tests?', answer: 'After baseline recovery without discount on email one exists. Testing 15% vs 10% before fixing timing wastes statistical power.' },
+  { question: 'SMS vs email guide — who needs it?', answer: 'Any store adding Postscript, Recart, or Omnisend SMS cart branch. Compare margin after fees, not open rates.' },
+  { question: 'Inventory-aware recovery — mandatory?', answer: 'Mandatory for fashion, limited drops, and any catalog with variant-level stockouts. Sending urgency for OOS SKUs destroys trust.' },
+  { question: 'Attribution guide for finance?', answer: 'Yes — holdout methodology and margin reporting finance accepts. Dashboard last-click is directional only.' },
+  { question: 'Consent guide for cart SMS?', answer: 'TCPA proof separate from email CAN-SPAM. Checkout SMS opt-in must be documented before cart texts.' },
+  { question: 'Flow collision guide timing?', answer: 'Read before enabling welcome and cart simultaneously — collision rules are cheaper than unsubscribe recovery.' },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-16 md:py-24">
+    <div class="container">
+      <h1 class="hero-title">Cart recovery guides and playbooks</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">
+        Recovery software is easy to install; recovery discipline is hard to maintain. These operator guides cover timing ladders, channel economics, incentive governance, checkout friction diagnosis, inventory-aware sends, attribution holdouts, and consent separation — the mechanics that decide whether cart apps recover margin or train discount waiting.
+      </p>
+
+      <div class="mt-10 max-w-4xl">
+        <TldrBox
+          title="Guide reading order"
+          picks={[
+            { label: 'Foundation', tool: 'Timing playbook', reason: 'Delay windows by AOV before creative tests.' },
+            { label: 'Economics', tool: 'Margin-safe incentives', reason: 'Discount ladder before SMS escalation.' },
+            { label: 'Channels', tool: 'SMS vs email', reason: 'Branch logic and TCPA before texting abandorers.' },
+            { label: 'Truth', tool: 'Attribution', reason: 'Holdouts and margin — not ESP vanity dashboards.' },
+          ]}
+        />
+      </div>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Guides versus app reviews</h2>
+        <p>
+          App reviews score products. Guides score decisions. A Klaviyo cart flow and a Sequenzy cart flow both fail when timing is instant for every AOV, SMS fires parallel to email one, and discounts stack with welcome offers. Guides document the operating system — when to wait, when to text, when to offer nothing, how to measure incrementality — that makes any competent platform recover profit.
+        </p>
+
+        <h2>Timing playbook — the highest-leverage guide</h2>
+        <p>
+          First-touch delay should vary by cart value and vertical consideration cycle. Impulse consumables: 45–90 minutes. Enthusiast hobby catalogs: 2–4 hours to avoid surveillance tone. High-AOV trust purchases: 4–12 hours with financing or guarantee copy on email one. Second email: 24 hours standard; 48–72 for fashion when size deliberation is norm. SMS branch: 4–6 hours after email one if unopened and TCPA consent exists — not simultaneous blast.
+        </p>
+        <p>
+          Quiet hours matter for SMS and international email — respect recipient local evening. BFCM compresses delays only for engaged segments; cold profiles stay suppressed regardless of merchant urgency.
+        </p>
+
+        <h2>Margin-safe incentives — stop the discount treadmill</h2>
+        <p>
+          Email one: product reminder, shipping clarity, trust signals — no code. Email two: social proof, scarcity only when inventory confirms. Email three: graduated offer capped by cart value and prior discount history. VIP full-price loyalists may never see cart discount — correct behavior. Document margin floor with finance; recovery rate without margin is a vanity metric.
+        </p>
+
+        <h2>Channel mix without fatigue</h2>
+        <p>
+          Email owns narrative and proof. SMS owns urgency when opt-in and economics justify fee. Push owns Android-heavy flash sales only when attribution positive — iOS limits apply. One intent window, one primary offer. Cart SMS while cart email one is unopened is escalation; cart SMS while email one is unread in inbox is spam training.
+        </p>
+
+        <h2>Checkout friction diagnosis</h2>
+        <p>
+          Recovery cannot fix broken checkout. If abandons cluster on shipping quote step, recovery emails should address shipping transparency — not deeper discounts. Payment failures need different trigger than browse-and-leave. Export Shopify checkout funnel monthly; if recovery rises while checkout completion falls, fix checkout before adding email three.
+        </p>
+
+        <h2>Attribution and holdouts</h2>
+        <p>
+          Hold out 5% of eligible abandons monthly. Compare purchase rate sent versus excluded cohorts. Report incremental recovery revenue and contribution margin after discounts and channel costs. ESP attributed cart revenue overstates lift when loyal return buyers would have purchased anyway. Finance spreadsheet beats dashboard screenshots in board meetings.
+        </p>
+
+        <h2>Consent and compliance separation</h2>
+        <p>
+          Email cart recovery requires marketing consent. SMS cart recovery requires TCPA-documented opt-in — checkout checkbox, keyword, or compliant popup. Email consent does not transfer to SMS. Quiet hours, opt-out handling, and message frequency caps are legal and deliverability requirements, not nice-to-haves.
+        </p>
+
+        <h2>Flow collision prevention</h2>
+        <p>
+          Priority stack: transactional and shipping always win; cart beats browse; cart suppresses welcome offer for 48-hour new subscribers; winback pauses when cart active; loyalty points offers defer to cart completion. Document in wiki; audit quarterly. Collisions cause unsubscribes that look like creative problems but are architecture bugs.
+        </p>
+
+        <h2>Guide ownership for lean teams</h2>
+        <p>
+          Assign one owner per guide family: timing and channel mix (ops lead), incentives and discount tests (retention plus finance), attribution (retention plus finance monthly), consent (legal or ops with TCPA checklist). Owners publish changes to shared collision doc before peak season. Guides without owners become stale — timing ladders drift, SMS fees spike, holdouts stop running.
+        </p>
+
+        <h2>BFCM recovery prep</h2>
+        <p>
+          October: freeze new discount experiments on cart; define engaged segment for recovery. November 1–15: engaged-heavy recovery only; suppress 90-day inactive from cart promos. November 16–30: no migration, no new SMS provider, no re-permission blasts. December: measure holdout incrementality before declaring victory — peak recovery rate without margin math misleads.
+        </p>
+
+        <h2>Discount testing governance</h2>
+        <p>
+          Run incentive tests only after baseline no-discount email one performs for 30 days minimum. A/B subject lines before A/B discount depth — creative fatigue masquerades as incentive problem. Hold out 5% on any test including discount; report margin not conversion alone. Finance signs off on maximum discount depth per cart band before tests go live. Failed tests revert in 48 hours — do not leave 20% cart code running because test "won" on revenue while margin collapsed.
+        </p>
+
+        <h2>Inventory-aware recovery deep dive</h2>
+        <p>
+          Sync inventory at send time via Shopify variant API — not flow enrollment snapshot. Partial cart OOS: recover in-stock lines, acknowledge unavailable item with waitlist link. Full cart OOS: suppress entire send, enroll waitlist if opted in. Fashion size runs and limited drops live this daily — sending "last chance" for sold-out size trains customers to ignore future urgency. Klaviyo, Sequenzy, and Omnisend support dynamic blocks when catalog sync healthy; operator must configure check not assume default.
+        </p>
+
+        <h2>SMS quiet hours and regional timing</h2>
+        <p>
+          TCPA quiet hours typically 8am–9pm recipient local time — cart SMS at 10pm trains opt-outs. Postscript and Attentive enforce configurable windows; verify timezone on subscriber record not store timezone. International SMS adds cost and compliance layers — US-only list should not receive UK sender experiments without legal review.
+        </p>
+        <p>
+          Email quiet hours softer but exist for brand tone — luxury jewelry recovery at 3am feels predatory. Schedule sends by recipient timezone when platform supports; otherwise bias toward late morning and early evening local. BFCM exception: engaged segments only; never cold list 2am blasts.
+        </p>
+
+        <h2>Checkout friction taxonomy</h2>
+        <p>
+          Classify abandons before tweaking recovery: shipping sticker shock, account creation wall, payment method missing, trust uncertainty, comparison shopping, technical error. Each class gets different recovery copy — shipping shock needs policy transparency; comparison shopping needs proof and differentiation not discount. Monthly funnel export from Shopify Analytics drives classification; guessing produces wrong incentive.
+        </p>
+      </article>
+
+      <div class="mt-12 grid gap-4 md:grid-cols-2">
+        {GUIDES.map((g) => (
+          <a class="card recovery-card" href={`/guides/${g.slug}`}>
+            <h2 class="font-black">{g.title}</h2>
+            <p class="mt-2 text-sm text-slate-600">{g.topic}</p>
+          </a>
+        ))}
+      </div>
+
+    <!-- expansion-batch-jul2026 -->
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="editorial-kicker">Field notes</p>
+      <h2 class="font-serif text-4xl font-black text-amber-950 mt-3">Three merchant scenarios for guides</h2>
+      <p><strong>Scenario A — High-AOV mattress brand, $1,240 cart.</strong> Delayed cart email to four hours, no discount email one. Financing and white-glove delivery FAQ block recovered six percent at full margin. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+      <p><strong>Scenario B — Outdoor gear brand, Omnisend eight months live.</strong> Welcome fifteen, cart ten, browse twenty within seventy-two hours of signup. Collision matrix fixed overlap in one afternoon. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+      <p><strong>Scenario C — Home goods SMB, Shopify Email graduate.</strong> Omnisend prebuilt journeys live in eleven days. Push branch recovered mobile web carts without SMS cost during flash sale. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="editorial-kicker">Margin math</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Recovery rate versus recovered margin</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Aggregate cart recovery rate hides economics. Split by cart value band: a recovered twelve-dollar cart with fifteen percent discount and SMS fees may be negative margin while a recovered four-hundred-dollar cart at zero discount is pure win.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Holdout ten percent of abandoners monthly — no recovery messages — and compare purchase rate to messaged cohort. Incremental recovery minus holdout baseline is the number finance should see, not platform-attributed revenue alone.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy value-based discount caps encode this discipline in flow logic. Klaviyo predictive sensitivity approximates it at scale. Omnisend prebuilt series need manual caps to avoid default coupon training.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="editorial-kicker">Implementation discipline</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Guide-to-production handoff</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Each guide maps to a live workflow owner. Selection framework without implementation plan is shelfware. Flow collision prevention without discount discipline is half a fix.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Paste checklists into Notion with last-reviewed date. Guides rot when the retention lead leaves — scenarios and mistake sections exist to survive turnover.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy-first recommendations assume lean teams; Klaviyo deviations documented when data depth binds.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="editorial-kicker">Operator note</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Documentation beats memory</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Archive decisions about guides with date, owner, and metric baseline. Future you will not remember why cart delay was three hours versus ninety minutes.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} title="Recovery guides FAQ" />
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Guide cross-reference map</h2>
+        <p>Timing playbook pairs with channel-mix and SMS-vs-email guides before BFCM. Margin-safe incentives pairs with discount-testing and attribution. Inventory-aware recovery pairs with checkout-friction when OOS is not the blocker. Consent-compliance pairs with SMS guides before first cart text. Flow-collision-prevention is prerequisite reading before enabling browse plus cart plus welcome same week.</p>
+        <p>Operators treating guides as sequential course graduate faster than random guide hopping — each guide assumes prior governance decisions documented.</p>
+        <p>Recovery lab publishes guide updates when Shopify checkout or TCPA guidance shifts — bookmark this hub and re-read timing plus consent guides annually minimum.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Guides hub synthesis for recovery operators</h2>
+        <p>Guides are the operating system; apps are execution layers. A team that reads timing plus margin-safe incentives plus attribution before buying Recart or Klaviyo avoids the classic failure mode: paid tool, default flows, instant discount, flat margin. Recovery lab readers should complete guides track in order — timing, incentives, channel mix, attribution, consent, collision — before enabling browse abandonment or winback. Expansion without governance amplifies losses.</p>
+        <p>Finance should participate in margin-safe incentives and attribution guides — retention cannot set discount ceilings alone. Legal should review consent guide before first cart SMS. Support should receive collision guide summary — they see duplicate-offer tickets first.</p>
+        <p>Annual guide refresh: Q1 timing review, Q2 incentive ladder, Q3 attribution holdout calendar, Q4 BFCM prep. Guides without refresh schedule become outdated within 18 months as Shopify checkout and TCPA expectations shift.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Guides hub primer — operator curriculum</h2>
+        <p>Ten operator guides cover timing, channel mix, incentives, checkout friction, inventory awareness, attribution, consent, and flow collision prevention. Read timing and margin-safe incentives before enabling cart SMS — SMS amplifies bad incentive ladders faster than email. Finance joins incentives and attribution guides; legal reviews consent before first cart text. Guides without assigned owners go stale — assign owners quarterly and date-stamp wiki summaries.</p>
+        <p>Recommended sequence for new retention hire: timing playbook, margin-safe incentives, channel mix, attribution, consent-compliance, flow-collision-prevention, then checkout-friction and inventory-aware recovery as catalog requires. Skipping collision guide before enabling browse plus cart plus welcome same week produces duplicate-offer incidents within seventy-two hours — support tickets finance cannot see until margin erodes.</p>
+        <p>Guides assume Shopify cart and checkout events fire correctly — verify pixel and webhook health before tuning delays. Abandon classification guide pairs with checkout-friction when shipping sticker shock not OOS drives drop-off. Monthly funnel export from Shopify Analytics drives classification; guessing produces wrong incentive and wrong channel mix.</p>
+        <p>BFCM prep is cross-guide exercise: timing shortens, incentives tighten, SMS quiet hours enforced, collision calendar blocks winback during cart peak, attribution holdout scheduled for January read when promotional noise clears.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery lab editorial — guides before tools</h2>
+        <p>Recovery lab exists because tool-first purchasing dominates Shopify retention — merchants buy Klaviyo or Recart, enable defaults, measure recovery rate, miss margin collapse. Guides hub is deliberate counterweight: governance before execution. A team with Postscript plus Shopify Email and full guide implementation often beats team with enterprise CDP and zero suppression architecture.</p>
+        <p>Guide cross-reference map is mandatory reading path: timing pairs with channel-mix and SMS-vs-email before peak. Margin-safe incentives pairs with discount-testing and attribution before finance review. Inventory-aware recovery pairs with checkout-friction when OOS is not blocker. Consent-compliance pairs with SMS guides before TCPA exposure.</p>
+        <p>Operators treating guides as sequential course graduate faster than random guide hopping — each guide assumes prior decisions documented in wiki. Agency clients should require guide completion in SOW before flow build — otherwise agency optimizes templates not margin.</p>
+        <p>Annual minimum: re-read timing plus consent guides when Shopify checkout changes or TCPA guidance updates. Recovery lab publishes guide revisions when those shifts occur — bookmark this hub as operating manual not one-time onboarding.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

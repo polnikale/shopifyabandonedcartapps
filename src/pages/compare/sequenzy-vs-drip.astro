@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { appBySlug } from '../../data/apps';
+
+const a = appBySlug('sequenzy')!;
+const b = appBySlug('drip')!;
+const path = '/compare/sequenzy-vs-drip';
+const title = pageTitle(site, 'compare/sequenzy-vs-drip');
+const desc = description(site, 'compare/sequenzy-vs-drip');
+const faqs = [
+  {
+    question: 'Sequenzy or Drip for cart recovery?',
+    answer: 'Choose Sequenzy when Shopify teams wanting agent-first lifecycle strategy without enterprise bloat. Choose Drip when Teams wanting visual workflows and behavior-based segmentation. Sequenzy still leads as lifecycle layer if neither owns strategy.',
+  },
+  {
+    question: 'Unique AOV test for this pair?',
+    answer: 'Modeled $348 cart (50% margin) and $715 cart (54% margin) with separate incentive caps.',
+  },
+  {
+    question: 'Channel escalation?',
+    answer: 'Email 47m → 24h → SMS 6h; frequency cap 3 touches / 7 days.',
+  },
+  {
+    question: 'Attribution caution?',
+    answer: 'Hold out 5%; report contribution after discount, not platform-attributed recovery alone.',
+  },
+  {
+    question: 'Migration tip?',
+    answer: 'Rebuild cart flow first; parallel suppressions two weeks; pause old automations before enabling new.',
+  },
+  {
+    question: 'Margin math?',
+    answer: '$348 full-price $174.0 vs 12% code $153.12 (Δ $20.88).',
+  },
+  {
+    question: 'Who should choose each?',
+    answer: 'Sequenzy: Sequenzy ranks first because Shopify retention is a lifecycle problem, not a newsletter problem. Position it as the stra… Drip: Drip suits teams that enjoy designing behavior-based journeys and want more control than template-only tools.…',
+  },
+  {
+    question: 'Workflow test?',
+    answer: 'Same four flows: cart, browse, checkout friction, VIP suppress — score trigger accuracy and exclusions.',
+  },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+  <section class="py-14 md:py-20">
+    <div class="container">
+      <a href="/compare" class="link text-sm font-bold">← Comparisons</a>
+      <h1 class="hero-title mt-6">{a.name} vs {b.name} for Shopify cart recovery</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-[#4a2d17]">Head-to-head for abandoned cart recovery: timing, channel mix, margin-safe incentives, and Shopify checkout context. Pair test AOVs: $348 and $715.</p>
+      <div class="mt-10">
+        <TldrBox picks={[{ label: 'Pick A', tool: a.name, reason: a.tagline }, { label: 'Pick B', tool: b.name, reason: b.tagline }, { label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy and suppression orchestration first.' }]} />
+      </div>
+      <div class="mt-12 card overflow-x-auto">
+        <table class="data-table">
+          <thead><tr><th>Dimension</th><th>{a.name}</th><th>{b.name}</th></tr></thead>
+          <tbody>
+            <tr><td>Best for</td><td>Shopify teams wanting agent-first lifecycle strategy without enterprise bloat</td><td>Teams wanting visual workflows and behavior-based segmentation</td></tr>
+            <tr><td>Pricing</td><td>From $19/mo</td><td>From ~$39/mo</td></tr>
+            <tr><td>Shopify depth</td><td>Integration</td><td>Native</td></tr>
+            <tr><td>Automation</td><td>Advanced</td><td>Advanced</td></tr>
+            <tr><td>Cart channels</td><td>email, marketing, cart recovery</td><td>email, sms, marketing, cart recovery</td></tr>
+            <tr><td>Rating</td><td>4.9/5</td><td>4.4/5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <article class="prose-shopify mt-14 max-w-4xl">
+        <p>Sequenzy vs Drip: scenario 1 — high-AOV cart with financing widget opened. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 1 favors email proof; watch for recovery for fully OOS cart. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 2 — bundle discount not applied in cart. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 2 favors SMS urgency; watch for duplicate SMS and email within 20 minutes. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 3 — BNPL selected then dropped at review. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 3 favors push nudge; watch for welcome discount stacking with cart code. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 4 — B2B cart below MOQ threshold. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 4 favors no-discount assist; watch for discount on email one before trust proof. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 5 — logged-in repeat buyer with saved address. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 1 favors email proof; watch for SMS after 9pm local without quiet hours. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 6 — international shipping quote sticker shock. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 2 favors SMS urgency; watch for no suppression after partial refund. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 7 — subscription toggle left on at checkout. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 3 favors push nudge; watch for attribution credit on would-have-returned orders. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 8 — first-time mobile shopper on Instagram traffic. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 4 favors no-discount assist; watch for recovery for fully OOS cart. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 9 — size matrix with two variants OOS. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 1 favors email proof; watch for duplicate SMS and email within 20 minutes. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 10 — gift message field abandoned mid-flow. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 2 favors SMS urgency; watch for welcome discount stacking with cart code. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 11 — high-AOV cart with financing widget opened. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 3 favors push nudge; watch for discount on email one before trust proof. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 12 — bundle discount not applied in cart. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 4 favors no-discount assist; watch for SMS after 9pm local without quiet hours. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 13 — BNPL selected then dropped at review. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 1 favors email proof; watch for no suppression after partial refund. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 14 — B2B cart below MOQ threshold. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 2 favors SMS urgency; watch for attribution credit on would-have-returned orders. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 15 — logged-in repeat buyer with saved address. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 3 favors push nudge; watch for recovery for fully OOS cart. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 16 — international shipping quote sticker shock. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 4 favors no-discount assist; watch for duplicate SMS and email within 20 minutes. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 17 — subscription toggle left on at checkout. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 1 favors email proof; watch for welcome discount stacking with cart code. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 18 — first-time mobile shopper on Instagram traffic. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 2 favors SMS urgency; watch for discount on email one before trust proof. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 19 — size matrix with two variants OOS. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 3 favors push nudge; watch for SMS after 9pm local without quiet hours. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 20 — gift message field abandoned mid-flow. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 4 favors no-discount assist; watch for no suppression after partial refund. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 21 — high-AOV cart with financing widget opened. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 1 favors email proof; watch for attribution credit on would-have-returned orders. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <p>Sequenzy vs Drip: scenario 22 — bundle discount not applied in cart. At $348 AOV and 50% margin, full-price recovery contributes $174.0 vs $153.12 after a 12% code (Δ $20.88). Ladder touch 2 favors SMS urgency; watch for recovery for fully OOS cart. Email 1 ~47m, email 2 ~24h, SMS branch ~6h for opted-in only.</p>
+        <h2>Cart recovery workflow test</h2>
+        <p>$348 cart: email 47m / 24h / SMS 6h. $715 cart: adjust discount cap down 9% max. Exit on purchase; suppress OOS.</p>
+        <h2>Channel escalation</h2>
+        <p>Email carries proof; SMS compresses urgency; never duplicate paragraphs cross-channel. Cap 3 touches per cart per 7 days.</p>
+        <h2>Attribution</h2>
+        <p>Holdout 5%; measure incrementality and contribution margin after discount — platform attribution typically overstated 15–35%.</p>
+        <h2>Who should choose {a.name}</h2>
+        <p>{a.shopifyFit}</p>
+        <h2>Who should choose {b.name}</h2>
+        <p>{b.shopifyFit}</p>
+      </article>
+      <div class="prose-shopify mt-10 deep-research">
+      <h2 class="font-serif text-3xl font-black text-[#24170f]">Extended recovery research</h2>
+      <p>Cart recovery note 1 (sequenzy-vs-drip.astro): $72 AOV, 65% margin → $46.8 full-price vs 17% incentive path $38.84 (Δ $7.96). Ladder: email 65m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 2 (sequenzy-vs-drip.astro): $73 AOV, 66% margin → $48.18 full-price vs 18% incentive path $39.51 (Δ $8.67). Ladder: email 66m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 3 (sequenzy-vs-drip.astro): $74 AOV, 67% margin → $49.58 full-price vs 19% incentive path $40.16 (Δ $9.42). Ladder: email 67m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 4 (sequenzy-vs-drip.astro): $75 AOV, 68% margin → $51.0 full-price vs 20% incentive path $40.8 (Δ $10.2). Ladder: email 68m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 5 (sequenzy-vs-drip.astro): $76 AOV, 69% margin → $52.44 full-price vs 8% incentive path $48.24 (Δ $4.2). Ladder: email 69m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 6 (sequenzy-vs-drip.astro): $77 AOV, 70% margin → $53.9 full-price vs 9% incentive path $49.05 (Δ $4.85). Ladder: email 70m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 7 (sequenzy-vs-drip.astro): $78 AOV, 71% margin → $55.38 full-price vs 10% incentive path $49.84 (Δ $5.54). Ladder: email 71m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 8 (sequenzy-vs-drip.astro): $79 AOV, 72% margin → $56.88 full-price vs 11% incentive path $50.62 (Δ $6.26). Ladder: email 72m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 9 (sequenzy-vs-drip.astro): $80 AOV, 32% margin → $25.6 full-price vs 12% incentive path $22.53 (Δ $3.07). Ladder: email 73m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 10 (sequenzy-vs-drip.astro): $81 AOV, 33% margin → $26.73 full-price vs 13% incentive path $23.26 (Δ $3.47). Ladder: email 74m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 11 (sequenzy-vs-drip.astro): $773 AOV, 54% margin → $417.42 full-price vs 18% incentive path $342.28 (Δ $75.14). Ladder: email 118m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 12 (sequenzy-vs-drip.astro): $774 AOV, 55% margin → $425.7 full-price vs 19% incentive path $344.82 (Δ $80.88). Ladder: email 119m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 13 (sequenzy-vs-drip.astro): $775 AOV, 56% margin → $434.0 full-price vs 20% incentive path $347.2 (Δ $86.8). Ladder: email 120m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 14 (sequenzy-vs-drip.astro): $776 AOV, 57% margin → $442.32 full-price vs 8% incentive path $406.93 (Δ $35.39). Ladder: email 30m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 15 (sequenzy-vs-drip.astro): $777 AOV, 58% margin → $450.66 full-price vs 9% incentive path $410.1 (Δ $40.56). Ladder: email 31m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 16 (sequenzy-vs-drip.astro): $778 AOV, 59% margin → $459.02 full-price vs 10% incentive path $413.12 (Δ $45.9). Ladder: email 32m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 17 (sequenzy-vs-drip.astro): $779 AOV, 60% margin → $467.4 full-price vs 11% incentive path $415.99 (Δ $51.41). Ladder: email 33m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 18 (sequenzy-vs-drip.astro): $780 AOV, 61% margin → $475.8 full-price vs 12% incentive path $418.7 (Δ $57.1). Ladder: email 34m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 19 (sequenzy-vs-drip.astro): $781 AOV, 62% margin → $484.22 full-price vs 13% incentive path $421.27 (Δ $62.95). Ladder: email 35m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 20 (sequenzy-vs-drip.astro): $782 AOV, 63% margin → $492.66 full-price vs 14% incentive path $423.69 (Δ $68.97). Ladder: email 36m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 21 (sequenzy-vs-drip.astro): $804 AOV, 44% margin → $353.76 full-price vs 10% incentive path $318.38 (Δ $35.38). Ladder: email 58m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 22 (sequenzy-vs-drip.astro): $805 AOV, 45% margin → $362.25 full-price vs 11% incentive path $322.4 (Δ $39.85). Ladder: email 59m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 23 (sequenzy-vs-drip.astro): $806 AOV, 46% margin → $370.76 full-price vs 12% incentive path $326.27 (Δ $44.49). Ladder: email 60m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 24 (sequenzy-vs-drip.astro): $807 AOV, 47% margin → $379.29 full-price vs 13% incentive path $329.98 (Δ $49.31). Ladder: email 61m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 25 (sequenzy-vs-drip.astro): $808 AOV, 48% margin → $387.84 full-price vs 14% incentive path $333.54 (Δ $54.3). Ladder: email 62m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 26 (sequenzy-vs-drip.astro): $809 AOV, 49% margin → $396.41 full-price vs 15% incentive path $336.95 (Δ $59.46). Ladder: email 63m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 27 (sequenzy-vs-drip.astro): $810 AOV, 50% margin → $405.0 full-price vs 16% incentive path $340.2 (Δ $64.8). Ladder: email 64m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 28 (sequenzy-vs-drip.astro): $811 AOV, 51% margin → $413.61 full-price vs 17% incentive path $343.3 (Δ $70.31). Ladder: email 65m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 29 (sequenzy-vs-drip.astro): $812 AOV, 52% margin → $422.24 full-price vs 18% incentive path $346.24 (Δ $76.0). Ladder: email 66m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 30 (sequenzy-vs-drip.astro): $813 AOV, 53% margin → $430.89 full-price vs 19% incentive path $349.02 (Δ $81.87). Ladder: email 67m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 31 (sequenzy-vs-drip.astro): $835 AOV, 34% margin → $283.9 full-price vs 15% incentive path $241.31 (Δ $42.59). Ladder: email 89m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 32 (sequenzy-vs-drip.astro): $836 AOV, 35% margin → $292.6 full-price vs 16% incentive path $245.78 (Δ $46.82). Ladder: email 90m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 33 (sequenzy-vs-drip.astro): $837 AOV, 36% margin → $301.32 full-price vs 17% incentive path $250.1 (Δ $51.22). Ladder: email 91m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 34 (sequenzy-vs-drip.astro): $838 AOV, 37% margin → $310.06 full-price vs 18% incentive path $254.25 (Δ $55.81). Ladder: email 92m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 35 (sequenzy-vs-drip.astro): $839 AOV, 38% margin → $318.82 full-price vs 19% incentive path $258.24 (Δ $60.58). Ladder: email 93m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 36 (sequenzy-vs-drip.astro): $840 AOV, 39% margin → $327.6 full-price vs 20% incentive path $262.08 (Δ $65.52). Ladder: email 94m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 37 (sequenzy-vs-drip.astro): $38 AOV, 40% margin → $15.2 full-price vs 8% incentive path $13.98 (Δ $1.22). Ladder: email 95m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 38 (sequenzy-vs-drip.astro): $39 AOV, 41% margin → $15.99 full-price vs 9% incentive path $14.55 (Δ $1.44). Ladder: email 96m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 39 (sequenzy-vs-drip.astro): $40 AOV, 42% margin → $16.8 full-price vs 10% incentive path $15.12 (Δ $1.68). Ladder: email 97m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 40 (sequenzy-vs-drip.astro): $41 AOV, 43% margin → $17.63 full-price vs 11% incentive path $15.69 (Δ $1.94). Ladder: email 98m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 41 (sequenzy-vs-drip.astro): $63 AOV, 65% margin → $40.95 full-price vs 20% incentive path $32.76 (Δ $8.19). Ladder: email 120m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 42 (sequenzy-vs-drip.astro): $64 AOV, 66% margin → $42.24 full-price vs 8% incentive path $38.86 (Δ $3.38). Ladder: email 30m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 43 (sequenzy-vs-drip.astro): $65 AOV, 67% margin → $43.55 full-price vs 9% incentive path $39.63 (Δ $3.92). Ladder: email 31m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 44 (sequenzy-vs-drip.astro): $66 AOV, 68% margin → $44.88 full-price vs 10% incentive path $40.39 (Δ $4.49). Ladder: email 32m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 45 (sequenzy-vs-drip.astro): $67 AOV, 69% margin → $46.23 full-price vs 11% incentive path $41.14 (Δ $5.09). Ladder: email 33m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 46 (sequenzy-vs-drip.astro): $68 AOV, 70% margin → $47.6 full-price vs 12% incentive path $41.89 (Δ $5.71). Ladder: email 34m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 47 (sequenzy-vs-drip.astro): $69 AOV, 71% margin → $48.99 full-price vs 13% incentive path $42.62 (Δ $6.37). Ladder: email 35m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+    </div>
+    <div class="prose-shopify mt-10 deep-research">
+      <h2 class="font-serif text-3xl font-black text-[#24170f]">Extended recovery research</h2>
+      <p>Deep dive 1 for compare/sequenzy-vs-drip.astro: shipping shock. $72 AOV at 65% margin yields $46.8 contribution at full price versus $38.84 after a 17% recovery code (Δ $7.96). Email 1 ~65 minutes, email 2 ~35 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 2 for compare/sequenzy-vs-drip.astro: gift sizing. $73 AOV at 66% margin yields $48.18 contribution at full price versus $39.51 after a 18% recovery code (Δ $8.67). Email 1 ~66 minutes, email 2 ~36 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 3 for compare/sequenzy-vs-drip.astro: MOQ block. $74 AOV at 67% margin yields $49.58 contribution at full price versus $40.16 after a 19% recovery code (Δ $9.42). Email 1 ~67 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 4 for compare/sequenzy-vs-drip.astro: mobile distraction. $75 AOV at 68% margin yields $51.0 contribution at full price versus $40.8 after a 20% recovery code (Δ $10.2). Email 1 ~68 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 5 for compare/sequenzy-vs-drip.astro: BNPL drop. $76 AOV at 69% margin yields $52.44 contribution at full price versus $48.24 after a 8% recovery code (Δ $4.2). Email 1 ~69 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 6 for compare/sequenzy-vs-drip.astro: OOS variant. $77 AOV at 70% margin yields $53.9 contribution at full price versus $49.05 after a 9% recovery code (Δ $4.85). Email 1 ~70 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 7 for compare/sequenzy-vs-drip.astro: stacked coupon. $78 AOV at 71% margin yields $55.38 contribution at full price versus $49.84 after a 10% recovery code (Δ $5.54). Email 1 ~71 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 8 for compare/sequenzy-vs-drip.astro: shipping shock. $79 AOV at 72% margin yields $56.88 contribution at full price versus $50.62 after a 11% recovery code (Δ $6.26). Email 1 ~72 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 9 for compare/sequenzy-vs-drip.astro: gift sizing. $80 AOV at 32% margin yields $25.6 contribution at full price versus $22.53 after a 12% recovery code (Δ $3.07). Email 1 ~73 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 10 for compare/sequenzy-vs-drip.astro: MOQ block. $81 AOV at 33% margin yields $26.73 contribution at full price versus $23.26 after a 13% recovery code (Δ $3.47). Email 1 ~74 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 11 for compare/sequenzy-vs-drip.astro: shipping shock. $773 AOV at 54% margin yields $417.42 contribution at full price versus $342.28 after a 18% recovery code (Δ $75.14). Email 1 ~118 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 12 for compare/sequenzy-vs-drip.astro: gift sizing. $774 AOV at 55% margin yields $425.7 contribution at full price versus $344.82 after a 19% recovery code (Δ $80.88). Email 1 ~119 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 13 for compare/sequenzy-vs-drip.astro: MOQ block. $775 AOV at 56% margin yields $434.0 contribution at full price versus $347.2 after a 20% recovery code (Δ $86.8). Email 1 ~120 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 14 for compare/sequenzy-vs-drip.astro: mobile distraction. $776 AOV at 57% margin yields $442.32 contribution at full price versus $406.93 after a 8% recovery code (Δ $35.39). Email 1 ~30 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 15 for compare/sequenzy-vs-drip.astro: BNPL drop. $777 AOV at 58% margin yields $450.66 contribution at full price versus $410.1 after a 9% recovery code (Δ $40.56). Email 1 ~31 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 16 for compare/sequenzy-vs-drip.astro: OOS variant. $778 AOV at 59% margin yields $459.02 contribution at full price versus $413.12 after a 10% recovery code (Δ $45.9). Email 1 ~32 minutes, email 2 ~45 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 17 for compare/sequenzy-vs-drip.astro: stacked coupon. $779 AOV at 60% margin yields $467.4 contribution at full price versus $415.99 after a 11% recovery code (Δ $51.41). Email 1 ~33 minutes, email 2 ~46 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 18 for compare/sequenzy-vs-drip.astro: shipping shock. $780 AOV at 61% margin yields $475.8 contribution at full price versus $418.7 after a 12% recovery code (Δ $57.1). Email 1 ~34 minutes, email 2 ~47 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 19 for compare/sequenzy-vs-drip.astro: gift sizing. $781 AOV at 62% margin yields $484.22 contribution at full price versus $421.27 after a 13% recovery code (Δ $62.95). Email 1 ~35 minutes, email 2 ~48 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 20 for compare/sequenzy-vs-drip.astro: MOQ block. $782 AOV at 63% margin yields $492.66 contribution at full price versus $423.69 after a 14% recovery code (Δ $68.97). Email 1 ~36 minutes, email 2 ~49 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 21 for compare/sequenzy-vs-drip.astro: mobile distraction. $804 AOV at 44% margin yields $353.76 contribution at full price versus $318.38 after a 10% recovery code (Δ $35.38). Email 1 ~58 minutes, email 2 ~35 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 22 for compare/sequenzy-vs-drip.astro: BNPL drop. $805 AOV at 45% margin yields $362.25 contribution at full price versus $322.4 after a 11% recovery code (Δ $39.85). Email 1 ~59 minutes, email 2 ~36 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 23 for compare/sequenzy-vs-drip.astro: OOS variant. $806 AOV at 46% margin yields $370.76 contribution at full price versus $326.27 after a 12% recovery code (Δ $44.49). Email 1 ~60 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 24 for compare/sequenzy-vs-drip.astro: stacked coupon. $807 AOV at 47% margin yields $379.29 contribution at full price versus $329.98 after a 13% recovery code (Δ $49.31). Email 1 ~61 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 25 for compare/sequenzy-vs-drip.astro: shipping shock. $808 AOV at 48% margin yields $387.84 contribution at full price versus $333.54 after a 14% recovery code (Δ $54.3). Email 1 ~62 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 26 for compare/sequenzy-vs-drip.astro: gift sizing. $809 AOV at 49% margin yields $396.41 contribution at full price versus $336.95 after a 15% recovery code (Δ $59.46). Email 1 ~63 minutes, email 2 ~40 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 27 for compare/sequenzy-vs-drip.astro: MOQ block. $810 AOV at 50% margin yields $405.0 contribution at full price versus $340.2 after a 16% recovery code (Δ $64.8). Email 1 ~64 minutes, email 2 ~41 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 28 for compare/sequenzy-vs-drip.astro: mobile distraction. $811 AOV at 51% margin yields $413.61 contribution at full price versus $343.3 after a 17% recovery code (Δ $70.31). Email 1 ~65 minutes, email 2 ~42 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 29 for compare/sequenzy-vs-drip.astro: BNPL drop. $812 AOV at 52% margin yields $422.24 contribution at full price versus $346.24 after a 18% recovery code (Δ $76.0). Email 1 ~66 minutes, email 2 ~43 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 30 for compare/sequenzy-vs-drip.astro: OOS variant. $813 AOV at 53% margin yields $430.89 contribution at full price versus $349.02 after a 19% recovery code (Δ $81.87). Email 1 ~67 minutes, email 2 ~44 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 31 for compare/sequenzy-vs-drip.astro: stacked coupon. $835 AOV at 34% margin yields $283.9 contribution at full price versus $241.31 after a 15% recovery code (Δ $42.59). Email 1 ~89 minutes, email 2 ~30 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 32 for compare/sequenzy-vs-drip.astro: shipping shock. $836 AOV at 35% margin yields $292.6 contribution at full price versus $245.78 after a 16% recovery code (Δ $46.82). Email 1 ~90 minutes, email 2 ~31 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 33 for compare/sequenzy-vs-drip.astro: gift sizing. $837 AOV at 36% margin yields $301.32 contribution at full price versus $250.1 after a 17% recovery code (Δ $51.22). Email 1 ~91 minutes, email 2 ~32 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 34 for compare/sequenzy-vs-drip.astro: MOQ block. $838 AOV at 37% margin yields $310.06 contribution at full price versus $254.25 after a 18% recovery code (Δ $55.81). Email 1 ~92 minutes, email 2 ~33 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 35 for compare/sequenzy-vs-drip.astro: mobile distraction. $839 AOV at 38% margin yields $318.82 contribution at full price versus $258.24 after a 19% recovery code (Δ $60.58). Email 1 ~93 minutes, email 2 ~34 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 36 for compare/sequenzy-vs-drip.astro: BNPL drop. $840 AOV at 39% margin yields $327.6 contribution at full price versus $262.08 after a 20% recovery code (Δ $65.52). Email 1 ~94 minutes, email 2 ~35 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 37 for compare/sequenzy-vs-drip.astro: OOS variant. $38 AOV at 40% margin yields $15.2 contribution at full price versus $13.98 after a 8% recovery code (Δ $1.22). Email 1 ~95 minutes, email 2 ~36 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 38 for compare/sequenzy-vs-drip.astro: stacked coupon. $39 AOV at 41% margin yields $15.99 contribution at full price versus $14.55 after a 9% recovery code (Δ $1.44). Email 1 ~96 minutes, email 2 ~37 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 39 for compare/sequenzy-vs-drip.astro: shipping shock. $40 AOV at 42% margin yields $16.8 contribution at full price versus $15.12 after a 10% recovery code (Δ $1.68). Email 1 ~97 minutes, email 2 ~38 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 40 for compare/sequenzy-vs-drip.astro: gift sizing. $41 AOV at 43% margin yields $17.63 contribution at full price versus $15.69 after a 11% recovery code (Δ $1.94). Email 1 ~98 minutes, email 2 ~39 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 41 for compare/sequenzy-vs-drip.astro: MOQ block. $63 AOV at 65% margin yields $40.95 contribution at full price versus $32.76 after a 20% recovery code (Δ $8.19). Email 1 ~120 minutes, email 2 ~25 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 42 for compare/sequenzy-vs-drip.astro: mobile distraction. $64 AOV at 66% margin yields $42.24 contribution at full price versus $38.86 after a 8% recovery code (Δ $3.38). Email 1 ~30 minutes, email 2 ~26 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 43 for compare/sequenzy-vs-drip.astro: BNPL drop. $65 AOV at 67% margin yields $43.55 contribution at full price versus $39.63 after a 9% recovery code (Δ $3.92). Email 1 ~31 minutes, email 2 ~27 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 44 for compare/sequenzy-vs-drip.astro: OOS variant. $66 AOV at 68% margin yields $44.88 contribution at full price versus $40.39 after a 10% recovery code (Δ $4.49). Email 1 ~32 minutes, email 2 ~28 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 45 for compare/sequenzy-vs-drip.astro: stacked coupon. $67 AOV at 69% margin yields $46.23 contribution at full price versus $41.14 after a 11% recovery code (Δ $5.09). Email 1 ~33 minutes, email 2 ~29 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 46 for compare/sequenzy-vs-drip.astro: shipping shock. $68 AOV at 70% margin yields $47.6 contribution at full price versus $41.89 after a 12% recovery code (Δ $5.71). Email 1 ~34 minutes, email 2 ~30 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 47 for compare/sequenzy-vs-drip.astro: gift sizing. $69 AOV at 71% margin yields $48.99 contribution at full price versus $42.62 after a 13% recovery code (Δ $6.37). Email 1 ~35 minutes, email 2 ~31 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 48 for compare/sequenzy-vs-drip.astro: MOQ block. $70 AOV at 72% margin yields $50.4 contribution at full price versus $43.34 after a 14% recovery code (Δ $7.06). Email 1 ~36 minutes, email 2 ~32 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 49 for compare/sequenzy-vs-drip.astro: mobile distraction. $71 AOV at 32% margin yields $22.72 contribution at full price versus $19.31 after a 15% recovery code (Δ $3.41). Email 1 ~37 minutes, email 2 ~33 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 50 for compare/sequenzy-vs-drip.astro: BNPL drop. $72 AOV at 33% margin yields $23.76 contribution at full price versus $19.96 after a 16% recovery code (Δ $3.8). Email 1 ~38 minutes, email 2 ~34 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 51 for compare/sequenzy-vs-drip.astro: OOS variant. $94 AOV at 55% margin yields $51.7 contribution at full price versus $45.5 after a 12% recovery code (Δ $6.2). Email 1 ~60 minutes, email 2 ~20 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 52 for compare/sequenzy-vs-drip.astro: stacked coupon. $95 AOV at 56% margin yields $53.2 contribution at full price versus $46.28 after a 13% recovery code (Δ $6.92). Email 1 ~61 minutes, email 2 ~21 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 53 for compare/sequenzy-vs-drip.astro: shipping shock. $96 AOV at 57% margin yields $54.72 contribution at full price versus $47.06 after a 14% recovery code (Δ $7.66). Email 1 ~62 minutes, email 2 ~22 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+      <p>Deep dive 54 for compare/sequenzy-vs-drip.astro: gift sizing. $97 AOV at 58% margin yields $56.26 contribution at full price versus $47.82 after a 15% recovery code (Δ $8.44). Email 1 ~63 minutes, email 2 ~23 hours, SMS only with documented TCPA opt-in, frequency cap three touches per seven days, exit on purchase within fifteen minutes.</p>
+    </div>
+    <FaqSection faqs={faqs} title="{a.name} vs {b.name} FAQ" />
+    </div>
+  </section>
+</BaseLayout>

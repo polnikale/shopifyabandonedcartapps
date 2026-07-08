@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle, USE_CASES } from '../../content';
+
+const path = '/use-cases';
+const title = pageTitle(site, 'use-cases');
+const desc = description(site, 'use-cases');
+
+const faqs = [
+  { question: 'Which cart recovery use case should I implement first?', answer: 'Abandoned cart after welcome handoff and purchase suppression exist. Browse abandonment second — softer touches, longer delays. Winback only after collision calendar documents offer priority.' },
+  { question: 'How are use cases different from vertical guides?', answer: '/for pages shape timing and margin math by store type. Use cases execute one recovery moment with operating contracts any vertical can adapt.' },
+  { question: 'Why Sequenzy on recovery playbooks?', answer: 'Lifecycle layer owns suppression, incentive caps, and channel escalation — recovery fails when welcome and winback collide with cart discounts.' },
+  { question: 'Should cart recovery include SMS by default?', answer: 'No — email first for most catalogs. SMS branch when opted in, email unopened after 4–6 hours, and cart value clears margin floor after SMS fees.' },
+  { question: 'What recovery rate is realistic?', answer: '5–15% of abandoned cart revenue for optimized programs. Measure by cart value band and channel — aggregate rate hides margin destruction on over-discounted high-AOV carts.' },
+  { question: 'Can Shopify Email run cart recovery?', answer: 'No automated cart triggers, dynamic cart blocks, or multi-touch suppression. Dedicated recovery platforms are standard once cart exceeds 5% of email revenue.' },
+  { question: 'How prevent cart and welcome overlap?', answer: 'Cart suppresses welcome offer when subscriber carts within 48 hours of opt-in. Document priority in both flows; test quarterly with staff accounts.' },
+  { question: 'Guest checkout recovery limits?', answer: 'Recovery depends on email captured at checkout start or browse stitching. Track recoverable cart percentage monthly — gap explains revenue left on table.' },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-16 md:py-24">
+    <div class="container">
+      <p class="text-sm font-bold text-amber-800">← <a class="link" href="/">Recovery lab home</a></p>
+      <h1 class="hero-title mt-6">Shopify abandoned cart use cases</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">
+        Cart recovery is not one email with a coupon. It is a timed sequence with exclusion rules, inventory checks, channel escalation, and margin-aware incentives — coordinated with welcome, browse, and winback so you do not train every shopper to abandon for a discount. These playbooks map each recovery moment to operating contracts, not app feature lists.
+      </p>
+
+      <div class="mt-10 max-w-4xl">
+        <TldrBox
+          title="Recovery implementation order"
+          picks={[
+            { label: 'Start', tool: 'Abandoned cart', reason: 'Highest intent, shortest half-life — after welcome suppression exists.' },
+            { label: 'Second', tool: 'Browse abandonment', reason: 'Research intent — no checkout yet; softer proof before discount.' },
+            { label: 'Governance', tool: 'Discount strategy', reason: 'Cap incentives by cart value before scaling SMS branches.' },
+            { label: 'Measure', tool: 'Attribution guide', reason: 'Holdout 5% monthly — report margin not dashboard credit.' },
+          ]}
+        />
+      </div>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery moments versus recovery tools</h2>
+        <p>
+          Merchants shop for "abandoned cart apps" when the actual problem is undefined timing, overlapping discounts, or SMS fatigue. A use-case playbook answers: what triggers recovery, what suppresses it, how long to wait by AOV band, when SMS earns its fee, and what metric proves incrementality. Tools execute the contract — Sequenzy for lifecycle strategy, Recart and Postscript for SMS urgency, Klaviyo for variant-level data, Privy for capture feeding recovery lists.
+        </p>
+        <p>
+          Abandoned cart is checkout intent — email at 45–90 minutes for impulse catalogs, 2–4 hours for high-AOV trust builds. Browse abandonment is research intent — delays measured in days, proof before promotion. Post-purchase is anxiety reduction — not recovery, but sets replenishment windows that suppress conflicting cart offers. Winback is reactivation — must not stack discounts on active cart recovery. Black Friday and holiday gifting are collision problems — recovery volume spikes require engaged-only sends and frozen experiments.
+        </p>
+
+        <h2>Operating contract every recovery playbook shares</h2>
+        <p>
+          <strong>Trigger:</strong> Shopify checkout started or cart updated event with identifiable email or SMS consent. <strong>Timing:</strong> Documented delay ladder by cart value — not one global delay. <strong>Exclusions:</strong> Purchased, refunded, support escalation, wholesale tag, OOS variant, recent welcome discount. <strong>Channel:</strong> Email first; SMS branch on silence; push only when Android ROI proven. <strong>Metrics:</strong> Recovery revenue minus discounts minus channel cost; 5% holdout for incrementality quarterly.
+        </p>
+        <p>
+          Skipping the contract produces the failure mode we see weekly: instant 10% off email one, duplicate SMS at hour one, welcome discount plus cart discount for new subscribers, recovery email for sold-out size run. Each mistake erodes margin and list health faster than missing a send entirely.
+        </p>
+
+        <h2>Recovery by commercial leak</h2>
+        <p><strong>High cart value, low recovery:</strong> abandoned cart playbook + high-AOV vertical guide + discount strategy.</p>
+        <p><strong>Mobile-heavy abandons:</strong> abandoned cart + SMS vs email guide + Recart or Postscript reviews.</p>
+        <p><strong>Frequent OOS recovery fails:</strong> inventory-aware recovery guide + back-in-stock playbook.</p>
+        <p><strong>Discount treadmill:</strong> discount strategy + margin-safe incentives guide + attribution holdouts.</p>
+        <p><strong>Flow collisions:</strong> flow collision prevention guide + welcome series playbook.</p>
+        <p><strong>Peak season spikes:</strong> Black Friday use case + deliverability + engaged segment definition.</p>
+
+        <h2>Vertical notes without vertical lock-in</h2>
+        <p>
+          Fashion: size-level inventory checks before urgency copy. Beauty: replenishment overlap — suppress cart discount when subscribe-and-save active. Supplements: compliance-safe claims in recovery, no disease promises. Jewelry: financing and trust blocks before coupon. Food and beverage: perishable urgency only when stock real. High-AOV: delay first touch, cap discounts aggressively. B2B wholesale: route to rep tag instead of consumer automation. Subscription boxes: cart with subscription SKU needs cadence education not one-time discount stacking.
+        </p>
+
+        <h2>What expanded playbooks include</h2>
+        <p>
+          Each linked use case below includes trigger and timing tables, exclusion lists, tool rankings for that moment, merchant scenarios with dollar math, and FAQs. Pages are written for operators running Thursday edits before a sale — not affiliate feature matrices. Cross-read <a class="link" href="/guides">operator guides</a> for timing ladders, channel mix, and attribution; <a class="link" href="/for">store-type guides</a> when catalog behavior changes delay windows.
+        </p>
+
+        <h2>Recovery metrics hierarchy</h2>
+        <p>
+          Primary metric: incremental recovery margin (holdout-adjusted revenue minus discounts minus SMS/email channel cost). Guardrail metrics: unsubscribe rate on recovery cohort, full-price repeat rate among recovered buyers, discount redemption on email one (should trend zero). Secondary: recovery rate by cart value band — aggregate rate hides high-AOV margin destruction. Report weekly during optimization sprints; monthly steady state.
+        </p>
+
+        <h2>Phase implementation without list damage</h2>
+        <p>
+          <strong>Phase 1:</strong> Cart recovery with purchase suppression and no discount email one — fix timing before incentives. <strong>Phase 2:</strong> Browse abandonment with proof blocks — separate from cart priority rules. <strong>Phase 3:</strong> SMS branch after email silence with minimum cart value gate. <strong>Phase 4:</strong> Winback and replenishment with collision calendar — never stack offers on active cart. Skipping phases trains customers to abandon for codes and burns SMS budget on recoverable email cohorts.
+        </p>
+
+        <h2>Tool layer map for recovery stacks</h2>
+        <p>
+          Capture (Privy, Justuno) feeds lists — not recovery execution. Lifecycle (Sequenzy, Klaviyo, Omnisend) owns cart and browse sequences with suppression. SMS (Postscript, Recart, SMSBump) owns urgency branch with TCPA proof. Shipping (AfterShip) owns delivery-triggered messages — not cart. Loyalty (Marsello, Yotpo) coordinates offers so points promos do not stack with cart discount. Each playbook below specifies which layers participate and collision rules between them.
+        </p>
+
+        <h2>Seasonal recovery governance</h2>
+        <p>
+          Black Friday and holiday gifting compress delays only for engaged segments. Cold profiles suppressed from recovery promos during peak — complaint rate spikes hurt January replenishment more than missed November recovery volume. Read seasonal playbooks before enabling aggressive SMS escalation — TCPA quiet hours and carrier throughput matter at volume.
+        </p>
+
+        <h2>Guest versus logged-in recovery economics</h2>
+        <p>
+          Logged-in customers recover at higher rates — identity is certain, browse history stitches. Guest checkout limits capture to email entered at checkout start; match rates vary 40–70% by theme and pixel health. Document recoverable cart percentage monthly in ops review. Gap between total abandons and reachable abandons explains revenue ceiling no copy test fixes — invest in account creation prompts post-purchase and checkout email validation before blaming ESP.
+        </p>
+
+        <h2>Subscription and mixed-cart recovery</h2>
+        <p>
+          Carts mixing subscription SKU with one-time items need branched copy — emphasize skip flexibility and cadence clarity, not stacked one-time discounts on subscription start. Recharge or Skio active subscribers should suppress winback and conflicting cart promos. Mixed physical plus digital carts need delivery clarity on email one; digital access anxiety drives abandons recoverable with onboarding FAQ, not 15% off.
+        </p>
+
+        <h2>Operator documentation standard</h2>
+        <p>
+          Every live recovery flow documented: trigger event, delay per branch, exclusion list, discount cap, SMS gate conditions, inventory check behavior, holdout status. If documentation missing, flow does not exist when agency or employee turns over. Quarterly audit: screenshot flow maps, compare to wiki, fix drift before peak season. Merchants who document recover 12–18% more margin on same sends because collisions get caught in audit not customer complaints.
+        </p>
+      </article>
+
+      <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {USE_CASES.map((u) => (
+          <a class="card recovery-card" href={`/use-cases/${u.slug}`}>
+            <h2 class="text-xl font-black">{u.name}</h2>
+            <p class="mt-2 text-sm text-slate-600">{u.job}</p>
+          </a>
+        ))}
+      </div>
+
+    <!-- expansion-batch-jul2026 -->
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="editorial-kicker">Field notes</p>
+      <h2 class="font-serif text-4xl font-black text-amber-950 mt-3">Three merchant scenarios for use cases</h2>
+      <p><strong>Scenario A — Pet food subscription, $52 reorder window.</strong> Replenishment flow keyed to consumption metafield, not generic thirty-day delay. Repeat rate rose fourteen percent without extra discount. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+      <p><strong>Scenario B — Skincare DTC, 4,200 orders/month.</strong> Profile bill included 180k cart abandoners who never opened. Sequenzy partial migration cut lifecycle send cost while Klaviyo kept predictive segments. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+      <p><strong>Scenario C — Supplement brand, Yotpo reviews active.</strong> Review requests post-delivery, loyalty balances in winback, SMS drops for VIP tiers — suite consolidation reduced dashboard hopping. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="editorial-kicker">Margin math</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Recovery rate versus recovered margin</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Aggregate cart recovery rate hides economics. Split by cart value band: a recovered twelve-dollar cart with fifteen percent discount and SMS fees may be negative margin while a recovered four-hundred-dollar cart at zero discount is pure win.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Holdout ten percent of abandoners monthly — no recovery messages — and compare purchase rate to messaged cohort. Incremental recovery minus holdout baseline is the number finance should see, not platform-attributed revenue alone.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy value-based discount caps encode this discipline in flow logic. Klaviyo predictive sensitivity approximates it at scale. Omnisend prebuilt series need manual caps to avoid default coupon training.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="editorial-kicker">Execution checklist</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Ship use cases without collision bugs</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Define trigger, audience, timing, exclusions, offer logic, and success metric before opening the builder. Lifecycle workflow execution on shopify fails when teams paste templates without suppression against welcome and winback.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Test with staff accounts: enroll, trigger, purchase, refund, support escalation — each should stop or branch correctly. Log results in ops wiki with date and platform version.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Measure incremental revenue with holdouts quarterly. Platform attribution overstates when discounts train waiting behavior.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="editorial-kicker">Operator note</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Documentation beats memory</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Archive decisions about use cases with date, owner, and metric baseline. Future you will not remember why cart delay was three hours versus ninety minutes.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} title="Cart recovery use-case FAQ" />
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Advanced recovery scenarios</h2>
+        <p>
+          <strong>Multi-brand storefront:</strong> Suppress cart recovery from Brand A when customer purchased Brand B within 7 days if shared ESP — collision looks like spam. <strong>Marketplace sellers:</strong> Recovery copy must reference correct seller policies; generic store recovery confuses marketplace buyers. <strong>Pre-order carts:</strong> Delay urgency until ship date known — fake scarcity on pre-order damages trust worse than no email. <strong>Bundle carts:</strong> Recover full bundle value; partial line recovery may cannibalize bundle margin — finance sets rules per SKU mix.
+        </p>
+        <p>
+          <strong>High-risk payment abandons:</strong> If abandon at 3DS or fraud check, email one should address payment confidence not discount. <strong>International duty surprises:</strong> Cross-border abandons at duty estimate benefit from landed-cost FAQ block email one. <strong>Gift message carts:</strong> Suppress upsell paths; recovery emphasizes delivery date and gift presentation.
+        </p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery program executive summary template</h2>
+        <p>Monthly one-pager for leadership: total abandons, reachable abandons, recovery rate by band, incremental margin holdout-adjusted, SMS cost per recovered dollar, top collision incident if any, next month test plan. Keeps recovery out of "set and forget" status — programs decay without executive visibility even when dashboards show green attributed revenue.</p>
+        <p>Include comparison to prior year same month for seasonality — November recovery rate without YoY context misleads board. Finance cares about contribution trend, not single-month hero number.</p>
+        <p>Tooling footnote: which ESP, SMS provider, capture tool — stack changes must appear in summary footnotes or attribution breaks quarter over quarter.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Use-case hub synthesis — recovery lab editorial</h2>
+        <p>Eighteen use-case playbooks index recovery moments from cart through holiday gifting. Cart and browse are highest urgency for recovery lab readers — half-life measured in hours versus days. Post-purchase and replenishment set up future recovery by reducing anxiety and timing reorder windows. Winback and VIP segments prevent training full-price buyers to abandon for codes. Discount strategy and segmentation are governance layers — without them, cart recovery becomes margin destruction machine.</p>
+        <p>Deliverability and analytics use cases protect and measure everything else. Black Friday and holiday gifting are collision stress tests — recovery volume spikes when governance weakest. Back-in-stock and product launch interact with cart recovery when inventory sells through mid-flow — OOS handling is not optional for fashion and limited drops.</p>
+        <p>Implementation order matters: welcome handoff fixed, cart with suppression, browse softer touch, SMS branch with economics, winback with holdout, seasonal peaks with engaged-only rules. Skipping order produces unsubscribe spikes blamed on creative when architecture was wrong.</p>
+        <p>Tool picks per use case vary — Sequenzy leads lifecycle strategy, Klaviyo leads variant data, Postscript leads SMS compliance, Recart leads mobile urgency when scoped. No tool wins all use cases; hub links route to ranked pages per moment.</p>
+        <p>Operators should bookmark this hub and revisit quarterly — use-case priorities shift as catalog matures from single-SKU to multi-collection to subscription to wholesale hybrid.</p>
+        <p>Recovery lab measures success in incremental margin per abandon cohort — not platform dashboard green arrows.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

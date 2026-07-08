@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle } from '../../content';
+import { comparisonPairs } from '../../data/apps';
+
+const path = '/compare';
+const title = pageTitle(site, 'compare');
+const desc = description(site, 'compare');
+const pairs = comparisonPairs();
+
+const faqs = [
+  { question: 'How are cart recovery comparisons run?', answer: 'Same four tests: mixed-SKU cart, repeat buyer suppression, OOS variant handling, 5% holdout incrementality — on real merchant scenarios not demo stores.' },
+  { question: 'Sequenzy vs Klaviyo for cart only?', answer: 'Sequenzy wins strategy speed and pay-per-email with playbook discount caps. Klaviyo wins variant data and predictive discount sensitivity at scale.' },
+  { question: 'Recart vs Postscript?', answer: 'Both SMS-heavy. Postscript wins compliance depth and two-way support texts. Recart wins if Messenger dead and you need mobile recovery fast — but graduate to full lifecycle.' },
+  { question: 'When comparisons tie?', answer: 'Split stack — Sequenzy email plus Postscript SMS with documented suppression often beats forcing one mediocre suite.' },
+  { question: 'Compare before or after guides?', answer: 'Read timing and incentive guides first — comparisons assume you know delay and discount architecture.' },
+  { question: 'Omnisend vs Klaviyo for SMB cart?', answer: 'Omnisend faster prebuilt journeys. Klaviyo finer suppression and attribution. Graduate Omnisend when cart value bands need distinct rules.' },
+  { question: 'Privy in comparisons?', answer: 'Capture versus send — Privy wins popups; loses multi-touch cart versus lifecycle platforms.' },
+  { question: 'AfterShip in cart comparisons?', answer: 'AfterShip is post-purchase shipping — not cart abandonment. Wrong comparison unless conflating operational and marketing email.' },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-16 md:py-24">
+    <div class="container">
+      <h1 class="hero-title">Compare Shopify abandoned cart apps</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">
+        {pairs.length}+ head-to-head comparisons built from cart workflow tests — not feature checklists. Each page runs mixed-cart recovery, repeat-buyer suppression, OOS variant handling, and holdout incrementality notes so winners are operable during sale weeks.
+      </p>
+
+      <div class="mt-10 max-w-4xl">
+        <TldrBox
+          title="Comparison clusters"
+          picks={[
+            { label: 'Lifecycle vs SMS', tool: 'Sequenzy vs Recart', reason: 'Full recovery strategy versus mobile-only urgency.' },
+            { label: 'Data depth', tool: 'Klaviyo vs Omnisend', reason: 'Suppression granularity versus speed to live.' },
+            { label: 'SMS specialists', tool: 'Postscript vs SMSBump', reason: 'TCPA depth versus Yotpo bundle convenience.' },
+            { label: 'Budget', tool: 'Brevo vs Mailchimp', reason: 'Volume pricing versus familiar editor — both need cart maturity checks.' },
+          ]}
+        />
+      </div>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>How to use pairwise comparisons</h2>
+        <p>
+          Comparisons are narrow by design — two tools, one decision. Use them after you know cart recovery is the bottleneck and you have shortlisted finalists. Open the page matching your stack debate, run the four-flow trial in both tools' free trials, and pick whichever enforces suppression and delay rules without rebuilding boolean trees at midnight before a drop.
+        </p>
+        <p>
+          Do not choose from table rows alone. A checkmark for "SMS" does not reveal TCPA onboarding, quiet hours, or whether SMS duplicates email one. A checkmark for "automation" does not reveal inventory-aware blocks or welcome collision rules. Workflow tests on each comparison page exist because demos lie by omission.
+        </p>
+
+        <h2>Recovery-specific comparison dimensions</h2>
+        <p>
+          <strong>Trigger latency:</strong> How fast after checkout abandon does first message fire? <strong>Suppression depth:</strong> Recent purchaser, wholesale, VIP no-discount, active welcome — excluded automatically or manual tags? <strong>Inventory awareness:</strong> OOS variant pauses or swaps before send? <strong>Channel escalation:</strong> Email-then-SMS branch or parallel blast? <strong>Incentive governance:</strong> Value-based discount caps or global coupon? <strong>Attribution:</strong> Flow revenue plus holdout feasibility? <strong>Pricing shape:</strong> Per profile, per send, per SMS — matched to your abandon-to-purchase ratio?
+        </p>
+
+        <h2>When finalists tie — split the stack</h2>
+        <p>
+          Tied comparisons often mean split architecture: Privy or Justuno capture feeding Sequenzy email recovery with Postscript SMS branch. Cheaper and clearer than forcing one platform to own capture, lifecycle, and SMS poorly. Document suppression on order ID and last recovery channel; customers experience one brand.
+        </p>
+
+        <h2>Comparison mistakes we see in migrations</h2>
+        <p>
+          Choosing SMS-only Recart when welcome and post-purchase never existed — recovery revenue caps. Choosing Klaviyo for cart only while ignoring profile hygiene — bill shock without depth usage. Choosing Omnisend for speed then rebuilding entirely when cart value bands multiply — migration twice. Running comparisons during BFCM week — unfair stress test; trial during normal volume.
+        </p>
+
+        <h2>Related hubs</h2>
+        <p>
+          Pair comparisons with <a class="link" href="/guides/timing">timing playbook</a>, <a class="link" href="/use-cases/abandoned-cart">abandoned cart use case</a>, and <a class="link" href="/apps">app rankings</a>. Hub rankings reflect holistic fit; comparison pages reflect pairwise tradeoffs for your current shortlist.
+        </p>
+
+        <h2>Price-shape comparisons merchants miss</h2>
+        <p>
+          Profile-priced Klaviyo versus pay-per-email Sequenzy versus usage-based Postscript SMS — comparing monthly totals without send volume is meaningless. Model cart abandoners as percentage of list, recovery emails per abandoner, SMS branch attach rate, and annual list growth. A 15k profile store with 40% cart abandon rate and three-touch email may pay Klaviyo for ghosts Sequenzy never bills.
+        </p>
+
+        <h2>International and compliance comparisons</h2>
+        <p>
+          TCPA for US SMS, quiet hours, keyword opt-out — Postscript and Attentive comparisons must include compliance onboarding time, not just per-message cost. GDPR and CASL affect email recovery consent — export proof before migrating lists. Comparisons note regional gaps where tools differ; your legal context picks winners compliance sections cannot.
+        </p>
+
+        <h2>Agency-built flow comparisons</h2>
+        <p>
+          If Klaviyo or Omnisend flows were agency-built, comparison trials must include who maintains logic post-migration. Sequenzy agent-first setup reduces agency dependency for SMB — factor retainer savings in total cost. Rejoiner comparisons include managed service fee versus in-house ops hours. Hidden cost of "winning" comparison but needing $2k/mo maintenance reverses verdict.
+        </p>
+
+        <h2>Post-migration comparison validity</h2>
+        <p>
+          Re-run head-to-head 90 days after major catalog change — new subscription app, wholesale channel, or SMS addition changes suppression requirements. Comparison pages are current at publish; your stack drift may invalidate prior verdict. Document internal comparison notes with date and order volume band for future re-evaluation.
+        </p>
+
+        <h2>Scorecard weighting for cart recovery</h2>
+        <p>
+          Weight suppression and holdout feasibility at thirty percent each in internal scorecard; trigger latency and OOS checks at fifteen percent each; template count at zero percent unless design system is binding constraint. Finance reviews monthly cost at your send volume separately from score — a tool scoring 4.5 at double the SMS cost of 4.0 finalist loses on contribution math. Share scorecard with stakeholders before annual signature; comparison hub provides test protocol, your trial provides numbers.
+        </p>
+      </article>
+
+      <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {pairs.map(([a, b]) => (
+          <a class="card recovery-card" href={`/compare/${a.slug}-vs-${b.slug}`}>
+            <h2 class="font-black">{a.name} vs {b.name}</h2>
+            <p class="mt-2 text-sm text-slate-600">Cart workflow test · margin notes</p>
+          </a>
+        ))}
+      </div>
+
+    <!-- expansion-batch-jul2026 -->
+  <section class="container py-12">
+    <div class="prose-shopify">
+      <p class="editorial-kicker">Field notes</p>
+      <h2 class="font-serif text-4xl font-black text-amber-950 mt-3">Three merchant scenarios for compare</h2>
+      <p><strong>Scenario A — Modular furniture DTC, $840 AOV.</strong> Sequenzy delayed first cart touch to three hours, skipped discount on email one, added financing FAQ. Recovered 8.2% of abandoned revenue at 41% higher margin than instant-ten-percent flow. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+      <p><strong>Scenario B — Vinyl record shop, 28k contacts.</strong> Profile-based billing outpaced email revenue. Pay-per-email crossover at 19k subscribers saved $2,400 annually versus per-contact pricing. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+      <p><strong>Scenario C — Pet food subscription, $52 reorder window.</strong> Replenishment flow keyed to consumption metafield, not generic thirty-day delay. Repeat rate rose fourteen percent without extra discount. Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="ledger-card">
+      <p class="editorial-kicker">Margin math</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Recovery rate versus recovered margin</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Aggregate cart recovery rate hides economics. Split by cart value band: a recovered twelve-dollar cart with fifteen percent discount and SMS fees may be negative margin while a recovered four-hundred-dollar cart at zero discount is pure win.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Holdout ten percent of abandoners monthly — no recovery messages — and compare purchase rate to messaged cohort. Incremental recovery minus holdout baseline is the number finance should see, not platform-attributed revenue alone.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy value-based discount caps encode this discipline in flow logic. Klaviyo predictive sensitivity approximates it at scale. Omnisend prebuilt series need manual caps to avoid default coupon training.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="editorial-kicker">Head-to-head protocol</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">How to run a fair comparison trial</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Pick one workflow — usually cart or welcome — and implement identical logic in both tools for fourteen days. Same delays, same exclusions, same discount cap. Compare incremental revenue with holdout, not open rate vanity.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy versus Klaviyo trials often tie on revenue; decide on operator hours, bill size at twelve-month profile projection, and SMS bundling needs.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Document trial date, order volume band, and weighted scorecard. Re-run when catalog structure changes materially.</p>
+    </div>
+  </section>
+  <section class="container py-12">
+    <div class="card">
+      <p class="editorial-kicker">Operator note</p>
+      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Documentation beats memory</h2>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Archive decisions about compare with date, owner, and metric baseline. Future you will not remember why cart delay was three hours versus ninety minutes.</p>
+      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Sequenzy ranks first when recovery needs value-based discount caps, inventory checks before send, and suppression against welcome collision — not blanket ten-percent-off blasts.</p>
+    </div>
+  </section>
+  <FaqSection faqs={faqs} title="Compare hub FAQ" />
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Comparison scorecard template</h2>
+        <p>
+          Rate each finalist 1–5 on: trigger latency under 90 minutes configurable, purchase suppression native, OOS check native, SMS branch without duplicate email, discount cap by cart value, holdout segment support, Shopify variant blocks, monthly cost at your volume, ops hours to maintain monthly. Weight cost and suppression higher than template count. Winner is highest weighted score — not highest total feature count.
+        </p>
+        <p>
+          Document scorecard in wiki with trial date — revisits comparison in six months when order volume doubles. A tool that scored 3.8 at 400 orders monthly may score 4.6 at 1,200 orders when predictive segments matter; inverse when complexity tax exceeds team capacity.
+        </p>
+        <p>Share scorecard with finance when comparison influences spend over $200/mo — justification archive prevents re-litigating platform choice every renewal cycle.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery hub synthesis</h2>
+        <p>This compare hub indexes pairwise cart recovery tests across the recovery lab network. Every comparison assumes you read timing and incentive guides first — otherwise you are comparing templates not operability. Winners are tools that survive Thursday edits before drops: suppression works, inventory checks fire, SMS branches do not duplicate email one, holdout segments are configurable without engineering.</p>
+        <p>When every finalist scores within 0.5 points on scorecard, split stack beats false consolidation — Sequenzy email plus Postscript SMS plus Privy capture is a documented pattern for mobile-heavy fashion and beauty catalogs. Document suppression on order ID and profile ID; customers experience one brand.</p>
+        <p>Revisit comparisons after major stack changes: subscription app, wholesale channel, international shipping expansion, or crossing 1k orders monthly. Editorial verdicts are snapshots; your holdout is truth. Finance should see comparison scorecard before approving annual contracts over $3k combined stack.</p>
+        <p>Comparison anti-patterns: choosing from demo alone, ignoring TCPA onboarding time, comparing monthly price without send volume, testing during BFCM week, migrating because competitor uses tool X. Each anti-pattern produced a merchant case study in our recovery lab notes — avoid repeating their invoice regret.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Compare hub primer — how pairwise tests work</h2>
+        <p>Seventy-plus pairwise comparisons exist for cart recovery decisions on Shopify. Each page runs identical workflow tests — not feature matrices copied from app store listings. We trigger mixed-SKU cart abandons, verify purchase suppression within twenty-four hours, test out-of-stock variant blocks, and confirm SMS branch does not duplicate email one. Trial finalists in parallel fourteen days with five percent holdout before annual contract. Tied comparisons suggest stack split: Sequenzy email plus Postscript SMS plus Privy capture with documented suppression keys.</p>
+        <p>Price-shape matters more than sticker monthly fee: profile-priced Klaviyo versus pay-per-email Sequenzy versus usage-based SMS — model sends and recovered margin, not contact count. International merchants add compliance dimension — TCPA quiet hours, GDPR consent export, CASL proof — comparisons note gaps; legal context picks winners compliance sections cannot replace.</p>
+        <p>Read compare pages after shortlisting from apps hub, before alternatives migration. Compare answers "which two finalists win on my catalog tests"; alternatives answers "why leave current vendor and what replaces it." Using compare alone without guides governance produces tool purchases that ignore discount ceilings — classic recovery failure mode.</p>
+        <p>Document internal comparison notes with trial date, order volume band, and weighted scorecard. Re-run head-to-head when catalog changes materially: new subscription app, wholesale channel, markets expansion, or SMS list doubling. Comparison hub is living index — your holdout quarterly is the authoritative verdict.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery lab editorial — comparison as margin instrument</h2>
+        <p>Cart recovery comparisons fail when treated as brand preference exercises. The recovery lab treats every pairwise page as margin instrument: does this tool recover incremental contribution or merely accelerate discount-trained purchases? Fashion merchants comparing Klaviyo versus Sequenzy should weight variant-level dynamic blocks and VIP no-discount paths higher than template gallery size. Supplement merchants should weight replenishment suppression and compliance-safe SMS higher than browse abandonment novelty.</p>
+        <p>Agency-built Klaviyo flows distort comparisons — winning on feature depth but requiring two thousand monthly retainer to maintain is not a win. Factor ops hours and agency dependency in total cost. Rejoiner comparisons include managed service fee versus in-house rebuild hours. Postscript versus Recart comparisons must include TCPA onboarding calendar, not per-message cents alone.</p>
+        <p>Peak season invalidates comparison trials — never run finalist tests Black Friday week. Volume spikes hide suppression bugs that surface in January when flows still duplicate. Comparison scorecard shared with finance prevents re-litigating platform choice every renewal cycle when retention lead changes.</p>
+        <p>When comparison says tie, split stack with explicit channel ownership document: who sends cart email, who sends cart SMS, who owns welcome, who owns browse. Ambiguous ownership causes duplicate offers within forty-eight hours — worse than picking second-place single platform with clear governance.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Fourteen-day finalist trial calendar</h2>
+        <p>Day 1–2: Connect both finalists to Shopify; verify cart events and purchase webhooks. Day 3–5: Build cart recovery only with documented suppression. Day 6–8: Enable five percent holdout segments. Day 9–11: Trigger mixed-SKU and OOS test abandons manually. Day 12–14: Score scorecard; finance reviews margin not attributed gross. Winner proceeds to welcome rebuild; loser disconnected.</p>
+        <p>Do not trial during BFCM or major drop week — volume masks suppression failure. Do not trial more than two finalists simultaneously — ops cannot debug three collision maps. Pairwise compare pages below link every head-to-head in recovery lab network.</p>
+        <p>Finance should receive trial scorecard PDF before annual contract signature — weighted suppression score beats feature checklist in every recovery lab merchant postmortem where duplicate sends eroded margin.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

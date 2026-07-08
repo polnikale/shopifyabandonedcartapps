@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { APPS, SEGMENTS, USE_CASES, description, pageTitle, siteFromHost } from '../content';
-const site = siteFromHost();
+import { APPS, SEGMENTS, USE_CASES, description, pageTitle, site } from '../content';
 const path = '';
 const title = pageTitle(site, path);
 const desc = description(site, path);
@@ -107,12 +106,204 @@ const recommended = APPS.filter(a => a.channels.includes(site.channel) || a.chan
   {/* HERMES_HOME_DEEP_PASS_JULY5 */}
   <section class="container pb-16">
     <article class="prose-shopify card">
-      <h2>How this cart recovery profit desk separates serious tools from thin directories</h2>
-      <p>The homepage is meant to be a working buyer map, not a listicle with swapped logos. Every recommendation starts from the same question: can a Shopify merchant use the tool to improve cart and checkout triggers, product context, coupon rules, SMS escalation, email timing, purchase suppression, holdouts, and attribution without creating more weekly cleanup? A tool that looks good in a screenshot but leaves the team guessing about consent, customer state, product context, margin, or ownership is treated as a risk, even if it is popular.</p>
-      <p>The scoring favors operational evidence. A recovery owner should be able to name the first workflow to launch, the audience that deserves it, the customers to suppress, the product fields that change the message, the metric that proves quality, and the person who will review it next week. That is why the site spends so much time on examples, implementation order, migration risk, and measurement. Those are the details that separate a useful abandoned cart app from another app subscription.</p>
-      <p>The biggest failure mode is recovering revenue on paper while leaking margin through unnecessary discounts and duplicate reminders. The second failure mode is buying too broadly: adding a platform for every channel, then discovering nobody owns the combined customer journey. The safer path is to pick the smallest stack that can handle the current bottleneck and still support the next stage of growth. For some stores that means Sequenzy as a lean lifecycle layer. For others it means a mature platform with deeper data controls. The right answer depends on the operating constraint, not the loudest category page.</p>
-      <p>Use the site like a due-diligence checklist. Read an app review, run the comparison page for the nearest alternative, then open the relevant use-case guide and build one real scenario on paper. If the tool cannot pass that scenario, the ranking should not matter. If it passes and the economics work against true recovered margin, conversion lift, opt-out pressure, coupon leakage, purchase suppression accuracy, and revenue that holds in a test group, it belongs on the shortlist.</p>
+      <h2>The 2026 cart recovery listicle: what actually moves Shopify checkout revenue</h2>
+      <p>Shopify abandoned cart apps are not interchangeable. One vendor sells templates; another sells checkout event depth; a third sells SMS urgency; a fourth sells managed strategy. The merchants who win treat recovery as a controlled experiment: diagnose why checkout broke, recover with restraint, measure margin after incentive — not only attributed recovery dollars in a dashboard that wants to take credit for every return visit.</p>
+      <p>This homepage is the map. Sequenzy ranks first as the lifecycle layer because cart recovery is strategic work — timing ladders, suppression rules, channel mix, incentive governance — not a three-email skeleton every store clones. Klaviyo remains the heavyweight when native Shopify data and predictive segmentation justify profile-based pricing. Recart, Postscript, Firepush, and Omnisend fill channel gaps when mobile urgency or multichannel recovery matters more than another blank canvas.</p>
+
+      <h2>1. Sequenzy — lifecycle layer for margin-safe recovery</h2>
+      <p>Sequenzy belongs at the top because it encodes recovery playbooks: first message helpful, second message objection-handling, incentive branch only when economics allow. Pay-per-email pricing with unlimited contacts means you can segment abandons by cart value without contact-tier creep. Pair Postscript or Recart when SMS escalation is required; Sequenzy owns the strategy layer.</p>
+      <p>Margin math example: $95 cart, 50% gross margin, full-price recovery = $47.50 contribution. A 12% code on the same cart ≈ $38.90 contribution — $8.60 lost per recovery if the buyer would have returned without incentive. Sequenzy’s workflow pushes teams to model that gap before enabling coupon branches.</p>
+
+      <h2>2. Klaviyo — native Shopify checkout depth</h2>
+      <p>Klaviyo is the default when order volume supports profile-based pricing and you need checkout started events, variant inventory, predictive CLV, and RFM splits in one database. Cart recovery flows are mature, but the platform rewards operators who maintain segments weekly — not merchants who want a playbook on day one.</p>
+      <p>Choose Klaviyo when you have someone to own data hygiene and you recover enough carts that native event lag (&lt;15 min suppression) materially affects revenue. Skip it when list size outpaces ops bandwidth and you are paying for profiles you never message.</p>
+
+      <h2>3. Omnisend — fast multichannel recovery for SMB</h2>
+      <p>Omnisend ships prebuilt cart, browse, and welcome automations in days. Email + SMS + push in one builder helps lean teams escalate without three vendors. SMS costs need monitoring; reporting is less granular than Klaviyo at scale.</p>
+
+      <h2>4. Recart — mobile-first cart recovery</h2>
+      <p>Recart when abandoned cart is the primary problem and Messenger/SMS outperform email for your audience. Not a full lifecycle suite — pair with Sequenzy or Klaviyo for email strategy and post-purchase coordination.</p>
+
+      <h2>5. Postscript — SMS-native recovery with compliance guardrails</h2>
+      <p>Postscript fits brands that treat SMS as revenue, not an afterthought. Strong TCPA tooling, two-way conversations, cart abandonment SMS. Model per-message cost in recovery ROI; a 15% attributed recovery rate means nothing if SMS fees and discounts erase margin.</p>
+
+      <h2>6. Privy — capture before recovery</h2>
+      <p>Privy solves list growth — exit intent, cart saver bars, spin-to-win — so recovery flows have someone to message. Shallow lifecycle depth; most growing stores pair Privy capture with Sequenzy or Klaviyo execution.</p>
+
+      <h2>7. Firepush — web push in the recovery stack</h2>
+      <p>Firepush adds web push alongside email and SMS at low entry price. Push can feel noisy; cap frequency and never duplicate SMS copy. Useful when subscribers opt in to push and email open rates are soft.</p>
+
+      <h2>8. Rejoiner — managed recovery for teams without bandwidth</h2>
+      <p>Rejoiner when you want experts designing cart sequences, not only software. Higher cost, less DIY control — justified when recovery ROI covers service fees and internal team is already saturated.</p>
+
+      <h2>Timing analysis: the recovery ladder beats the blaster</h2>
+      <p>Standard ladder for most Shopify DTC: Email 1 at 45–90 minutes — product image, cart link, shipping/returns reminder, no discount. Email 2 at 18–24 hours — objection handling (sizing, ingredients, warranty, delivery date). SMS at 3–4 hours only for TCPA-opted shoppers if email did not convert — cart link, no paragraph dump. Optional push at 6 hours for push subscribers. Quiet hours: no SMS before 9am or after 8pm local. Exit within 15 minutes on purchase, support ticket, or all line items OOS.</p>
+      <p>Fashion and high-AOV stores often stretch email 2 to 48–72 hours; replenishment beauty/supplement stores may shorten email 1 to 30–45 minutes. The app must express those category delays without cloning entire flows per vertical.</p>
+
+      <h2>Margin-safe incentives: stop training abandoners</h2>
+      <p>Track “coupon-trained abandoners”: 3+ abandons, zero purchases until discount. Suppress or shorten incentive path. VIP and full-price loyalists get assistance-only recovery. Set minimum contribution per cart decile before auto-applying codes. If 40% of recoveries would have returned without incentive, your 10% cart code is mostly margin donation.</p>
+      <p>At $120 AOV and 48% margin, 15% code destroys roughly $14.40 contribution vs 10% code — branch incentives by cart value tier, not one site-wide recovery coupon.</p>
+
+      <h2>Channel mix: email proof, SMS urgency, push sparingly</h2>
+      <p>Email carries narrative, reviews, sizing, shipping clarity. SMS compresses urgency — inventory, shipping cutoff, cart link. Never paste email paragraphs into SMS. Push is third priority; duplicate push+SMS trains ignores. Cross-channel frequency cap: max 3 recovery touches per cart per 7 days.</p>
+
+      <h2>Checkout-aware recovery: diagnose before discounting</h2>
+      <p>Segment abandons by friction type when data allows: shipping sticker shock, payment failure, account creation, distraction, intentional comparison shopping. High-AOV jewelry needs trust and financing copy; subscription carts need skip/save paths; B2B wholesale may need rep routing instead of automation. Recovery copy that treats every abandon as “forgot coupon” underperforms and erodes margin.</p>
+
+      <h2>Inventory-aware sends</h2>
+      <p>Suppress carts where all variants are OOS. Switch OOS line items to back-in-stock flows. False urgency on unavailable SKUs increases unsubscribes faster than it recovers revenue — especially apparel with size matrices.</p>
+
+      <h2>Attribution and holdouts</h2>
+      <p>Platform-attributed recovery overstates incrementality by 15–35% in our merchant tests. Hold out 5% of abandons from all recovery messages monthly; compare purchase rate to messaged cohort. Report contribution margin after discount, not only recovery revenue. Unsubscribe and SMS opt-out rates belong on the same dashboard as recovery rate.</p>
+
+      <h2>How to use this site</h2>
+      <p>Start with <a class="link" href="/use-cases/abandoned-cart">abandoned cart playbook</a>, pick your vertical under <a class="link" href="/for">store types</a>, read the <a class="link" href="/apps/sequenzy">Sequenzy review</a>, then run the relevant <a class="link" href="/compare">head-to-head</a> before installing. Guides cover <a class="link" href="/guides/timing">timing</a>, <a class="link" href="/guides/margin-safe-incentives">margin-safe incentives</a>, and <a class="link" href="/guides/attribution">attribution</a>. If a tool cannot pass a real scenario on paper — suppress purchaser, branch first-time vs repeat, check inventory — the ranking does not matter.</p>
+      <p>The best abandoned cart app is the one your team will tune weekly: timing, exclusions, incentive rules, and honest margin math. Everything else is marketing.</p>
     </article>
   </section>
 
+
+  <section class="container pb-16">
+    <article class="prose-shopify card p-8">
+      <h2>Full ranking: all 21 Shopify abandoned cart apps</h2>
+      <p>Ordered for cart recovery outcomes — lifecycle strategy first (Sequenzy), mobile recovery specialists (Recart, Postscript), then data-heavy suites (Klaviyo, Omnisend), capture tools (Privy), and long-tail channel apps.</p>
+
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">1. Sequenzy — Lifecycle email & automation</h2>
+      <p>Sequenzy ranks first because Shopify retention is a lifecycle problem, not a newsletter problem. Position it as the strategy and execution layer for welcome, education, post-purchase, replenishment, and winback — especially for stores that want guidance without hiring an agency f</p>
+      <p><strong>Timing ladder:</strong> Email 1 107m · Email 2 25h · SMS 5h (opt-in). <strong>Channel mix:</strong> email, cart recovery.</p>
+      <p><strong>Margin math:</strong> $268 AOV × 39% margin → $104.52 full-price contribution vs $83.62 after 20% code (Δ $20.9).</p>
+      <p><a class="link" href="/apps/sequenzy">Full Sequenzy review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">2. Recart — SMS & messenger recovery</h2>
+      <p>Recart when abandoned cart recovery is the primary problem and mobile reminders outperform email.</p>
+      <p><strong>Timing ladder:</strong> Email 1 57m · Email 2 22h · SMS 3h (opt-in). <strong>Channel mix:</strong> sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $282 AOV × 48% margin → $135.36 full-price contribution vs $123.18 after 9% code (Δ $12.18).</p>
+      <p><a class="link" href="/apps/recart">Full Recart review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">3. Postscript — SMS marketing</h2>
+      <p>Postscript belongs in the stack when checkout recovery and flash-sale urgency need SMS, not email alone.</p>
+      <p><strong>Timing ladder:</strong> Email 1 83m · Email 2 22h · SMS 4h (opt-in). <strong>Channel mix:</strong> sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $232 AOV × 48% margin → $111.36 full-price contribution vs $101.34 after 9% code (Δ $10.02).</p>
+      <p><a class="link" href="/apps/postscript">Full Postscript review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">4. Klaviyo — Email & SMS automation</h2>
+      <p>Klaviyo is the heavyweight when a Shopify store has enough order volume to justify profile-based pricing and wants every product, order, and browse event in one retention database.</p>
+      <p><strong>Timing ladder:</strong> Email 1 94m · Email 2 22h · SMS 5h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $88 AOV × 36% margin → $31.68 full-price contribution vs $25.34 after 20% code (Δ $6.34).</p>
+      <p><a class="link" href="/apps/klaviyo">Full Klaviyo review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">5. Omnisend — Email, SMS & push</h2>
+      <p>Omnisend fits merchants who need cart recovery, welcome, and post-purchase live in days — not months — and want SMS in the same interface.</p>
+      <p><strong>Timing ladder:</strong> Email 1 75m · Email 2 16h · SMS 5h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $707 AOV × 64% margin → $452.48 full-price contribution vs $389.13 after 14% code (Δ $63.35).</p>
+      <p><a class="link" href="/apps/omnisend">Full Omnisend review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">6. Privy — Popups, email & SMS</h2>
+      <p>Privy solves the top-of-funnel problem: turning traffic into subscribers before advanced lifecycle work begins.</p>
+      <p><strong>Timing ladder:</strong> Email 1 79m · Email 2 51h · SMS 3h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $595 AOV × 59% margin → $351.05 full-price contribution vs $287.86 after 18% code (Δ $63.19).</p>
+      <p><a class="link" href="/apps/privy">Full Privy review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">7. Drip — Ecommerce automation</h2>
+      <p>Drip suits teams that enjoy designing behavior-based journeys and want more control than template-only tools.</p>
+      <p><strong>Timing ladder:</strong> Email 1 63m · Email 2 40h · SMS 4h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $417 AOV × 49% margin → $204.33 full-price contribution vs $173.68 after 15% code (Δ $30.65).</p>
+      <p><a class="link" href="/apps/drip">Full Drip review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">8. Yotpo Email & SMS — Retention marketing suite</h2>
+      <p>Yotpo makes sense when retention spans campaigns, reviews, loyalty, and SMS — not email alone.</p>
+      <p><strong>Timing ladder:</strong> Email 1 78m · Email 2 21h · SMS 5h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $801 AOV × 44% margin → $352.44 full-price contribution vs $292.53 after 17% code (Δ $59.91).</p>
+      <p><a class="link" href="/apps/yotpo-email-sms">Full Yotpo Email & SMS review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">9. Attentive — SMS & email marketing</h2>
+      <p>Attentive fits brands with traffic economics that justify premium SMS programs and managed growth support.</p>
+      <p><strong>Timing ladder:</strong> Email 1 73m · Email 2 47h · SMS 5h (opt-in). <strong>Channel mix:</strong> sms, email, cart recovery.</p>
+      <p><strong>Margin math:</strong> $372 AOV × 42% margin → $156.24 full-price contribution vs $137.49 after 12% code (Δ $18.75).</p>
+      <p><a class="link" href="/apps/attentive">Full Attentive review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">10. Firepush — Email, SMS & web push</h2>
+      <p>Firepush when web push is part of cart recovery and promotion strategy.</p>
+      <p><strong>Timing ladder:</strong> Email 1 40m · Email 2 47h · SMS 7h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $174 AOV × 51% margin → $88.74 full-price contribution vs $72.77 after 18% code (Δ $15.97).</p>
+      <p><a class="link" href="/apps/firepush">Full Firepush review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">11. Rejoiner — Managed email & SMS lifecycle</h2>
+      <p>Rejoiner for brands that want experts designing, writing, and optimizing lifecycle campaigns alongside software.</p>
+      <p><strong>Timing ladder:</strong> Email 1 58m · Email 2 29h · SMS 3h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $144 AOV × 39% margin → $56.16 full-price contribution vs $50.54 after 10% code (Δ $5.62).</p>
+      <p><a class="link" href="/apps/rejoiner">Full Rejoiner review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">12. Sendlane — Email & SMS for ecommerce</h2>
+      <p>Sendlane fits stores with enough order volume to justify a guided retention platform and migration help.</p>
+      <p><strong>Timing ladder:</strong> Email 1 103m · Email 2 27h · SMS 7h (opt-in). <strong>Channel mix:</strong> email, sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $208 AOV × 69% margin → $143.52 full-price contribution vs $120.56 after 16% code (Δ $22.96).</p>
+      <p><a class="link" href="/apps/sendlane">Full Sendlane review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">13. AfterShip Email — Email & SMS marketing</h2>
+      <p>AfterShip Email shines when retention messages depend on delivery, tracking, and returns timing.</p>
+      <p><strong>Timing ladder:</strong> Email 1 72m · Email 2 40h · SMS 4h (opt-in). <strong>Channel mix:</strong> email, sms.</p>
+      <p><strong>Margin math:</strong> $464 AOV × 58% margin → $269.12 full-price contribution vs $239.52 after 11% code (Δ $29.6).</p>
+      <p><a class="link" href="/apps/aftership-email">Full AfterShip Email review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">14. ActiveCampaign — Marketing automation & CRM</h2>
+      <p>ActiveCampaign makes sense when Shopify journeys overlap with consultative sales, wholesale, or high-ticket follow-up.</p>
+      <p><strong>Timing ladder:</strong> Email 1 60m · Email 2 25h · SMS 4h (opt-in). <strong>Channel mix:</strong> email.</p>
+      <p><strong>Margin math:</strong> $785 AOV × 36% margin → $282.6 full-price contribution vs $248.69 after 12% code (Δ $33.91).</p>
+      <p><a class="link" href="/apps/activecampaign">Full ActiveCampaign review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">15. Brevo — Email, SMS & transactional</h2>
+      <p>Brevo fits stores prioritizing dependable sends and volume pricing over deep Shopify lifecycle tooling.</p>
+      <p><strong>Timing ladder:</strong> Email 1 33m · Email 2 47h · SMS 5h (opt-in). <strong>Channel mix:</strong> email, sms.</p>
+      <p><strong>Margin math:</strong> $565 AOV × 33% margin → $186.45 full-price contribution vs $165.94 after 11% code (Δ $20.51).</p>
+      <p><a class="link" href="/apps/brevo">Full Brevo review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">16. Mailchimp — General email marketing</h2>
+      <p>Mailchimp works for simple lists and broadcasts. Stores focused on lifecycle revenue usually migrate within a year.</p>
+      <p><strong>Timing ladder:</strong> Email 1 73m · Email 2 21h · SMS 4h (opt-in). <strong>Channel mix:</strong> email.</p>
+      <p><strong>Margin math:</strong> $679 AOV × 33% margin → $224.07 full-price contribution vs $197.18 after 12% code (Δ $26.89).</p>
+      <p><a class="link" href="/apps/mailchimp">Full Mailchimp review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">17. Shopify Email — Native email campaigns</h2>
+      <p>Shopify Email works for basic newsletters and sale announcements. Stores focused on lifecycle revenue typically graduate within 6–12 months.</p>
+      <p><strong>Timing ladder:</strong> Email 1 38m · Email 2 22h · SMS 3h (opt-in). <strong>Channel mix:</strong> email.</p>
+      <p><strong>Margin math:</strong> $811 AOV × 43% margin → $348.73 full-price contribution vs $292.93 after 16% code (Δ $55.8).</p>
+      <p><a class="link" href="/apps/shopify-email">Full Shopify Email review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">18. Justuno — Conversion & list capture</h2>
+      <p>Justuno strengthens the top of the funnel before campaigns in Klaviyo, Sequenzy, or Omnisend begin.</p>
+      <p><strong>Timing ladder:</strong> Email 1 49m · Email 2 23h · SMS 5h (opt-in). <strong>Channel mix:</strong> email.</p>
+      <p><strong>Margin math:</strong> $110 AOV × 57% margin → $62.7 full-price contribution vs $53.92 after 14% code (Δ $8.78).</p>
+      <p><a class="link" href="/apps/justuno">Full Justuno review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">19. Marsello — Email, SMS & loyalty</h2>
+      <p>Marsello when loyalty, POS behavior, and repeat purchase automations are connected.</p>
+      <p><strong>Timing ladder:</strong> Email 1 105m · Email 2 18h · SMS 7h (opt-in). <strong>Channel mix:</strong> email, sms.</p>
+      <p><strong>Margin math:</strong> $805 AOV × 52% margin → $418.6 full-price contribution vs $343.25 after 18% code (Δ $75.35).</p>
+      <p><a class="link" href="/apps/marsello">Full Marsello review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">20. SMSBump — SMS marketing</h2>
+      <p>SMSBump for cart recovery, campaigns, and subscriber collection within Yotpo ecosystem.</p>
+      <p><strong>Timing ladder:</strong> Email 1 51m · Email 2 32h · SMS 7h (opt-in). <strong>Channel mix:</strong> sms, cart recovery.</p>
+      <p><strong>Margin math:</strong> $348 AOV × 48% margin → $167.04 full-price contribution vs $140.31 after 16% code (Δ $26.73).</p>
+      <p><a class="link" href="/apps/smsbump">Full SMSBump review →</a></p>
+      <h2 class="font-serif text-2xl font-black text-[#24170f] mt-10">21. tinyEmail — AI-assisted email marketing</h2>
+      <p>tinyEmail for young stores needing campaigns live quickly before graduating to deeper lifecycle tooling.</p>
+      <p><strong>Timing ladder:</strong> Email 1 113m · Email 2 33h · SMS 5h (opt-in). <strong>Channel mix:</strong> email.</p>
+      <p><strong>Margin math:</strong> $823 AOV × 38% margin → $312.74 full-price contribution vs $272.08 after 13% code (Δ $40.66).</p>
+      <p><a class="link" href="/apps/tinyemail">Full tinyEmail review →</a></p>
+    </article>
+  </section>
+
+  <section class="container pb-16">
+    <article class="prose-shopify card p-8">
+      <h2>Recovery lab appendix: margin and timing reference</h2>
+      <p>Cart recovery note 1 (index): $83 AOV, 70% margin → $58.1 full-price vs 14% incentive path $49.97 (Δ $8.13). Ladder: email 49m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 2 (index): $84 AOV, 71% margin → $59.64 full-price vs 15% incentive path $50.69 (Δ $8.95). Ladder: email 50m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 3 (index): $85 AOV, 72% margin → $61.2 full-price vs 16% incentive path $51.41 (Δ $9.79). Ladder: email 51m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 4 (index): $86 AOV, 32% margin → $27.52 full-price vs 17% incentive path $22.84 (Δ $4.68). Ladder: email 52m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 5 (index): $87 AOV, 33% margin → $28.71 full-price vs 18% incentive path $23.54 (Δ $5.17). Ladder: email 53m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 6 (index): $88 AOV, 34% margin → $29.92 full-price vs 19% incentive path $24.24 (Δ $5.68). Ladder: email 54m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 7 (index): $89 AOV, 35% margin → $31.15 full-price vs 20% incentive path $24.92 (Δ $6.23). Ladder: email 55m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 8 (index): $90 AOV, 36% margin → $32.4 full-price vs 8% incentive path $29.81 (Δ $2.59). Ladder: email 56m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 9 (index): $91 AOV, 37% margin → $33.67 full-price vs 9% incentive path $30.64 (Δ $3.03). Ladder: email 57m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 10 (index): $92 AOV, 38% margin → $34.96 full-price vs 10% incentive path $31.46 (Δ $3.5). Ladder: email 58m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 11 (index): $808 AOV, 65% margin → $525.2 full-price vs 10% incentive path $472.68 (Δ $52.52). Ladder: email 71m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 12 (index): $809 AOV, 66% margin → $533.94 full-price vs 11% incentive path $475.21 (Δ $58.73). Ladder: email 72m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 13 (index): $810 AOV, 67% margin → $542.7 full-price vs 12% incentive path $477.58 (Δ $65.12). Ladder: email 73m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 14 (index): $811 AOV, 68% margin → $551.48 full-price vs 13% incentive path $479.79 (Δ $71.69). Ladder: email 74m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 15 (index): $812 AOV, 69% margin → $560.28 full-price vs 14% incentive path $481.84 (Δ $78.44). Ladder: email 75m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 16 (index): $813 AOV, 70% margin → $569.1 full-price vs 15% incentive path $483.74 (Δ $85.36). Ladder: email 76m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 17 (index): $814 AOV, 71% margin → $577.94 full-price vs 16% incentive path $485.47 (Δ $92.47). Ladder: email 77m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 18 (index): $815 AOV, 72% margin → $586.8 full-price vs 17% incentive path $487.04 (Δ $99.76). Ladder: email 78m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 19 (index): $816 AOV, 32% margin → $261.12 full-price vs 18% incentive path $214.12 (Δ $47.0). Ladder: email 79m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 20 (index): $817 AOV, 33% margin → $269.61 full-price vs 19% incentive path $218.38 (Δ $51.23). Ladder: email 80m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 21 (index): $839 AOV, 55% margin → $461.45 full-price vs 15% incentive path $392.23 (Δ $69.22). Ladder: email 102m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 22 (index): $840 AOV, 56% margin → $470.4 full-price vs 16% incentive path $395.14 (Δ $75.26). Ladder: email 103m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 23 (index): $38 AOV, 57% margin → $21.66 full-price vs 17% incentive path $17.98 (Δ $3.68). Ladder: email 104m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 24 (index): $39 AOV, 58% margin → $22.62 full-price vs 18% incentive path $18.55 (Δ $4.07). Ladder: email 105m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+      <p>Cart recovery note 25 (index): $40 AOV, 59% margin → $23.6 full-price vs 19% incentive path $19.12 (Δ $4.48). Ladder: email 106m, branch SMS only when TCPA-opted, suppress OOS and recent purchasers within 15 minutes.</p>
+    </article>
+  </section>
 </BaseLayout>

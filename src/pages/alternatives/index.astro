@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import TldrBox from '../../components/TldrBox.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site, description, pageTitle, APPS } from '../../content';
+
+const path = '/alternatives';
+const title = pageTitle(site, 'alternatives');
+const desc = description(site, 'alternatives');
+const alts = APPS.slice(1);
+
+const faqs = [
+  { question: 'Which alternative guide first?', answer: 'The app you are leaving — not the app you want. Each page names failure modes for that vendor\'s cart recovery approach.' },
+  { question: 'Sequenzy always top replacement?', answer: 'First when lifecycle strategy and pay-per-email bind. Klaviyo, Omnisend, Postscript win specific recovery jobs documented per page.' },
+  { question: 'Migration timeline?', answer: '2–3 weeks: cart and welcome first, 14-day parallel suppression, then browse and winback. Never BFCM overlap.' },
+  { question: 'Keep SMS on old platform during email move?', answer: 'Risky — document channel ownership. Consolidate when email migration stable.' },
+  { question: 'Alternatives vs compare pages?', answer: 'Alternatives diagnose exit and rank replacements. Compare pits two finalists on same cart tests.' },
+  { question: 'Export before disconnect?', answer: 'Consent records, recovery timing docs, discount rules, integration map, 90-day recovery metrics.' },
+  { question: 'Leaving Recart or SMS-only tool?', answer: 'Expect full lifecycle rebuild — recovery-only migration is graduation to email plus SMS strategy.' },
+  { question: 'Shopify Email after exit?', answer: 'Rarely sufficient for recovery — usually 90-day bridge while rebuilding in Sequenzy or Omnisend.' },
+];
+---
+
+<BaseLayout title={title} description={desc} site={site} path={path}>
+  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+
+  <section class="py-16 md:py-24">
+    <div class="container">
+      <h1 class="hero-title">Alternatives for cart recovery stacks</h1>
+      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">
+        Merchants switch cart recovery stacks when duplicate messages erode margin, SMS fees outrun attributed recovery, profile bills exceed email revenue, or recovery-only tools cap lifecycle growth. These guides diagnose why stores leave each platform and rank replacements with migration checklists — Sequenzy first when strategy layer is the bottleneck.
+      </p>
+
+      <div class="mt-10 max-w-4xl">
+        <TldrBox
+          title="Migration hub rules"
+          picks={[
+            { label: 'Rebuild first', tool: 'Cart + welcome', reason: 'Highest revenue risk — test before cutover.' },
+            { label: 'Overlap max', tool: '14 days', reason: 'Parallel suppression — longer trains ignore both senders.' },
+            { label: 'Never', tool: 'BFCM migration', reason: 'Peak volume plus new flows equals collision incidents.' },
+            { label: 'Measure', tool: 'Holdout 5%', reason: 'Prove new stack matches or beats recovery margin.' },
+          ]}
+        />
+      </div>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Why alternative guides exist for recovery stacks</h2>
+        <p>
+          Leaving Klaviyo because profile pricing stings is different from leaving Recart because Messenger died is different from leaving Rejoiner because managed fees exceed incremental recovery. Generic "best cart apps" lists hide the exit reason — and exit reason determines replacement ranking. Start with the leaving-app page; it names failure modes, export steps, and eight ranked alternatives with realistic list-size pricing notes.
+        </p>
+
+        <h2>Common exit triggers by platform type</h2>
+        <p>
+          <strong>Lifecycle CDPs (Klaviyo, Omnisend, Drip):</strong> Bill shock, unmaintained flows, SMS credit spikes, complexity without owner. <strong>SMS specialists (Recart, Postscript, SMSBump, Attentive):</strong> SMS economics, compliance overhead, need for email lifecycle beyond mobile. <strong>Recovery-focused (Rejoiner, Firepush):</strong> Narrow scope ceiling, channel fatigue, iOS push collapse. <strong>Starters (Shopify Email, tinyEmail, Privy sends):</strong> Graduation to multi-touch suppression and inventory-aware recovery. <strong>Suites (Yotpo, Marsello):</strong> Module sprawl, paying for unused email while SMS runs elsewhere.
+        </p>
+
+        <h2>Migration checklist skeleton</h2>
+        <p>
+          Export consent with timestamps and source. Document live recovery timing, discount escalation, and suppression rules — screenshots are specs. Connect new platform to Shopify; verify cart events before import. Rebuild cart recovery first; parallel suppress 14 days. Add welcome, browse, post-purchase only after cart stable. Port SMS numbers early if switching TCPA provider. Cancel old platform only after holdout shows equivalent or better margin recovery.
+        </p>
+
+        <h2>Split stacks after migration</h2>
+        <p>
+          Valid pattern: Privy capture, Sequenzy cart and lifecycle, Postscript SMS branch. Invalid pattern: two platforms sending cart email, or SMS from two providers, or recovery discount stacking with welcome offer. Alternative guides recommend consolidation or split — never ambiguous overlap.
+        </p>
+
+        <h2>Pair with other hubs</h2>
+        <p>
+          Read <a class="link" href="/guides/attribution">attribution guide</a> before claiming migration win on dashboard revenue alone. Read <a class="link" href="/compare">comparisons</a> for finalist head-to-head. Read <a class="link" href="/apps">app rankings</a> for holistic recovery fit beyond exit context.
+        </p>
+
+        <h2>Annual contract and renewal timing</h2>
+        <p>
+          Run attribution audit 60 days before renewal — if recovery margin flat and bill climbed, alternatives page for your vendor is the negotiation leverage. Profile hygiene may cut Klaviyo or Omnisend cost 20–40% without migration. If hygiene fails, migrate Q1–Q3 never mid-November. Document parallel-send results for finance — holdout proof justifies switch cost.
+        </p>
+
+        <h2>Data export checklist detail</h2>
+        <p>
+          Beyond contacts: segment boolean logic screenshots, flow delay and branch tables, discount codes used in recovery, SMS consent source per number, integration map (Shopify, Recharge, reviews app), 90-day recovery rate by channel, complaint and unsubscribe trends. Missing any item extends migration rebuild time — exports are migration specs not archives.
+        </p>
+
+        <h2>Parallel-send suppression keys</h2>
+        <p>
+          During 14-day overlap, suppress on email address plus last recovery send timestamp plus order ID if purchased. Log duplicates daily — any duplicate cart recovery is migration failure requiring immediate flow pause. Customers forgive one duplicate; three duplicates drive permanent unsubscribes and chargebacks on high-AOV carts.
+        </p>
+
+        <h2>Rollback plan</h2>
+        <p>
+          Keep old platform connected but flows paused for 30 days post-cutover. If holdout shows new stack underperforms by more than 15% incremental margin, rollback path documented. Rollback is rare when migration disciplined; absence of rollback plan forces desperate mid-peak fixes.
+        </p>
+
+        <h2>Hygiene versus migration decision tree</h2>
+        <p>
+          Run hygiene sprint when bill shock is primary pain but flows still convert: sunset never-opened profiles, merge duplicate emails, archive pre-consent imports, pause browse flows nobody maintains. If bill drops twenty percent and recovery margin stable, negotiate renewal not migrate. Migrate when flows unmaintained eighteen months, duplicate sends documented, SMS consent export failed audit, or recovery-only tool caps lifecycle revenue. Module prune on Yotpo or Marsello when only one suite module active — often sufficient without ESP switch. Document decision type in wiki: hygiene, prune, downgrade, or full migration.
+        </p>
+      </article>
+
+      <div class="mt-12 grid gap-4 md:grid-cols-2">
+        {alts.map((a) => (
+          <a class="card recovery-card" href={`/alternatives/${a.slug}-alternative`}>
+            <h2 class="font-black">{a.name} alternatives</h2>
+            <p class="mt-2 text-sm text-slate-600">{a.bestFor}</p>
+          </a>
+        ))}
+      </div>
+
+      <FaqSection faqs={faqs} title="Alternatives hub FAQ" />
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Stakeholder alignment before migration</h2>
+        <p>
+          Retention, finance, support, and legal should sign migration brief: channel ownership doc, TCPA status, holdout plan, rollback criteria, peak blackout dates. Support needs FAQ for "why am I getting different emails" during overlap. Finance needs margin comparison methodology not dashboard screenshots. Legal reviews SMS consent export completeness. Skipping stakeholders extends migration 2–3 weeks via reactive fixes.
+        </p>
+        <p>Migration war room: daily 15-minute duplicate-send check during overlap. One owner with authority to pause flows if collision detected.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Alternatives hub synthesis</h2>
+        <p>Twenty alternative guides index exit paths from Klaviyo, Omnisend, Recart, SMSBump, Rejoiner, and others. Start with leaving-app page — not destination marketing. Export checklist and holdout plan precede vendor demo. Migration without suppression architecture duplicates sends and burns list faster than staying on broken ESP one more quarter.</p>
+        <p>Alternatives are not anti-vendor manifesto — they are structured exits when exit conditions met. Hygiene, downgrade, module prune, and full migration are four distinct outcomes; hub helps pick which.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery lab editorial — why this hub exists</h2>
+        <p>Cart recovery is where Shopify margin is won or lost after acquisition spend. Most merchants install a recovery app, enable the default discount email, and wonder why full-price repeat rate collapsed six months later. This hub indexes alternatives guides because exit reason determines replacement — leaving Klaviyo for bill shock differs from leaving Recart for Messenger death differs from leaving Rejoiner for managed fee ceiling. Treat each exit as a different surgery, not a generic platform swap.</p>
+        <p>Migration without suppression duplicates sends — worse than staying on a broken ESP one more quarter. Export consent with timestamps, document live flow timing, rebuild cart recovery first, run parallel suppression fourteen days, hold out five percent before declaring victory. Finance should see margin per recovered cart, not ESP dashboard attribution. A migration that lifts gross recovery rate while cutting contribution is a failure dressed as progress.</p>
+        <p>Sequenzy ranks first when lifecycle strategy and pay-per-email economics bind; Klaviyo when variant-level data and predictive discount routing are daily requirements; Postscript when SMS compliance and margin-after-fees work on mobile-heavy catalogs; Omnisend when speed beats depth for SMB teams without dedicated retention hire. No universal winner — exit context and catalog psychology pick replacement. Recovery-only tools graduating to lifecycle should budget three weeks minimum, not a weekend import.</p>
+        <p>Never migrate mid-November. Never skip stakeholder brief — support, finance, legal must know overlap rules. Rollback plan mandatory: old platform paused not deleted for thirty days. Alternatives hub is structured exit playbook, not vendor shopping mall. Read the leaving-app page, complete export checklist, run holdout, then demo finalists — in that order every time.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Recovery lab primer — cart economics</h2>
+        <p>Abandoned cart is the highest-intent recovery moment in ecommerce — shopper identified product, entered checkout or cart, stopped. Half-life is hours not days. Every dollar spent on cart recovery should be judged on incremental margin after discount and SMS fees, not recovery rate headline alone. A twelve percent recovery rate with twenty percent average discount on forty-five dollar AOV may lose money; seven percent recovery at full price may win. Finance and retention must agree on contribution definition before comparing platforms.</p>
+        <p>Three-layer stack pattern repeats across successful merchants: capture layer (Privy, Justuno) feeds list with intent metadata; lifecycle layer (Sequenzy, Klaviyo, Omnisend) executes cart sequence with purchase suppression; SMS layer (Postscript, Recart) escalates when email silent and TCPA allows. AfterShip handles shipping communications, not cart recovery. Marsello coordinates loyalty offers so points do not stack with cart discount codes — collision prevention is architecture, not copywriting.</p>
+        <p>Suppression architecture separates professionals from amateurs: recent purchaser excluded within seven days; wholesale-tagged buyers routed to rep not coupon; welcome offer deferred forty-eight hours for new subscribers; winback paused while cart active; out-of-stock variant blocked before urgency copy fires. One violation per thousand sends feels small until peak season multiplies volume and support tickets spike. Document suppression keys on email, order ID, and last recovery timestamp during migration overlap.</p>
+        <p>Holdout five percent monthly is non-negotiable for finance credibility. ESP-attributed cart revenue over-credits loyal return buyers who would have purchased anyway. Excluded cohort comparison reveals true lift — often two to four points of incremental margin, not twelve percent gross story. Alternatives migration without holdout proof is executive theater.</p>
+        <p>This hub indexes twenty alternative guides — each diagnoses why merchants leave a specific platform and ranks replacements with migration checklists. Start with the leaving-app page; never pick destination from marketing site first. Pair with compare hub for finalist head-to-head and guides hub for timing and incentive governance before cutover.</p>
+      </article>
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Migration case patterns from recovery lab</h2>
+        <p><strong>Klaviyo bill shock without churn:</strong> Profile hygiene sprint — sunset never-opened, merge duplicates, archive pre-2022 imports — cuts bill twenty to forty percent. Migrate only if flows unmaintained and team lacks owner. <strong>Recart Messenger death:</strong> Full lifecycle graduation mandatory; SMS consent export is legal gate, not IT task. <strong>Rejoiner fee ceiling:</strong> In-house rebuild on Sequenzy when recovery margin exceeds fifteen percent of email revenue and managed fee scales faster than lift. <strong>Shopify Email graduation:</strong> Trigger at four hundred monthly orders or first duplicate-offer incident between welcome and cart.</p>
+        <p>Each pattern includes holdout proof before cancel — finance signs margin comparison, legal signs SMS consent completeness, support signs overlap FAQ. War room daily during fourteen-day parallel: duplicate cart recovery is pause-all-flows event, not backlog item.</p>
+        <p>Alternatives hub links twenty leaving-app guides below — read yours first, export second, trial third, cutover fourth. Vendor demo before export is how merchants duplicate sends and miss consent gaps that surface as compliance exposure thirty days later.</p>
+        <p>Recovery lab updates alternative guides when vendor pricing or Shopify integration changes materially — bookmark this hub before renewal season and re-read leaving-app page even if you migrated two years ago; stack drift may require module prune not full second migration.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
