@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+export function getStaticPaths() { const audiences = ['small Shopify stores','DTC brands','fashion stores','beauty stores','food and beverage stores','subscription brands','Shopify Plus merchants','international merchants','new Shopify stores','high-volume stores','B2B Shopify stores','wholesale merchants','home goods stores','pet brands','sports brands','health and wellness brands','electronics stores','apparel stores','gift stores','creator-led stores']; const goals = ['abandoned cart recovery','checkout recovery','browse abandonment','high-value cart recovery','mobile cart recovery','discount-free cart recovery','SMS cart recovery','email cart recovery','international cart recovery','cart recovery analytics']; const topics = audiences.flatMap((audience) => goals.map((goal) => ({ audience, goal }))).slice(0, 100); return topics.map((topic) => ({ params: { slug: `best-shopify-${topic.goal}-for-${topic.audience}`.toLowerCase().replace(/\s+/g, '-') }, props: { topic } })); }
+const { topic } = Astro.props; const title = `Best Shopify ${topic.goal} for ${topic.audience}`;
+const insightByAudience: Record<string, string> = {
+  'small Shopify stores': 'Keep the first recovery system narrow: one cart flow, one checkout flow, and a clear purchaser suppression rule. Small stores learn faster when they separate recovered orders from orders that would have happened anyway.',
+  'DTC brands': 'A cart is also a margin signal. Segment by product margin, first-time versus returning customer, and delivery promise before deciding whether a discount belongs in the sequence.',
+  'fashion stores': 'Fashion recovery needs inventory awareness: a reminder for a low-stock size should not promise the same urgency as a replenishable staple, and returns data should shape the objection-handling copy.',
+  'beauty stores': 'Beauty brands can use replenishment and routine context to make recovery useful. Explain product fit or routine placement before using a coupon that trains customers to wait.',
+  'food and beverage stores': 'For consumables, delivery date and basket composition often matter more than a generic reminder. Test reassurance about shipping, subscriptions, and bundle value separately.',
+  'subscription brands': 'A failed or abandoned subscription checkout is not the same as a one-time cart. Recovery should distinguish billing friction, skipped delivery, and a genuine product objection.',
+  'Shopify Plus merchants': 'At Plus scale, governance becomes part of conversion: document who owns suppression, discounts, regional flows, and app permissions before adding more automation.',
+  'international merchants': 'Regional recovery requires local currency, language, consent, and send-time handling. A globally consistent template can still produce locally confusing or non-compliant messages.',
+  'new Shopify stores': 'Start with an observable baseline. Measure checkout completion, recovered-order rate, discount cost, and unsubscribes before adding more channels or branching logic.',
+  'high-volume stores': 'Volume makes collision control material. Deduplicate cart, browse, post-purchase, and service messages so the recovery app is not rewarded for creating message pressure.',
+  'B2B Shopify stores': 'B2B carts may need approval, tax, shipping, or quote context. A useful recovery sequence answers the missing buying-process question instead of treating every exit as consumer hesitation.'
+};
+const decisionByGoal: Record<string, string> = {
+  'abandoned cart recovery': 'lead with a reminder and an objection answer; reserve discounts for a tested segment and suppress immediately after purchase.',
+  'checkout recovery': 'separate payment, shipping, and account friction from product interest, then measure completed orders rather than clicks.',
+  'browse abandonment': 'use a meaningful intent threshold and frequency cap; browsing alone should not trigger a high-pressure cart sequence.',
+  'high-value cart recovery': 'protect margin with human or concierge follow-up, product education, and a narrower discount policy.',
+  'mobile cart recovery': 'test short copy, deep links, rendering, and return-to-cart behavior on real devices before scaling.',
+  'discount-free cart recovery': 'sequence proof, delivery clarity, reviews, and support access before introducing price incentives.',
+  'SMS cart recovery': 'verify express consent, quiet hours, opt-out handling, and carrier limits before optimizing send delay.',
+  'email cart recovery': 'check email permission, purchaser suppression, and mailbox-friendly frequency before adding more reminders.',
+  'international cart recovery': 'localize currency, language, timing, delivery promise, and consent rather than translating a single global flow.',
+  'cart recovery analytics': 'define the attribution window and compare incremental profit, discount cost, complaints, and repeat purchase—not recovered revenue alone.'
+};
+const recoveryTools = [
+  { name: 'Klaviyo', url: 'https://www.klaviyo.com', best: 'catalog-aware segmentation and complex cart/checkout flows' },
+  { name: 'Omnisend', url: 'https://www.omnisend.com', best: 'practical email, SMS, and push recovery for growing stores' },
+  { name: 'Privy', url: 'https://www.privy.com', best: 'onsite capture paired with straightforward ecommerce messaging' },
+  { name: 'ReConvert', url: 'https://www.reconvert.io', best: 'post-purchase offers that extend recovery into retention' }
+];
+const smsTools = [
+  { name: 'Postscript', url: 'https://postscript.io', best: 'Shopify-focused SMS flows and consent-aware recovery' },
+  { name: 'Attentive', url: 'https://www.attentive.com', best: 'enterprise SMS orchestration and personalization' },
+  { name: 'Yotpo SMS & Email', url: 'https://www.yotpo.com/products/smsbump/', best: 'combined SMS and email programs for ecommerce teams' },
+  { name: 'Omnisend', url: 'https://www.omnisend.com', best: 'multichannel recovery when one platform is preferred' }
+];
+const captureTools = [
+  { name: 'Privy', url: 'https://www.privy.com', best: 'onsite capture and first-party list growth' },
+  { name: 'Klaviyo', url: 'https://www.klaviyo.com', best: 'behavioral capture connected to catalog and customer data' },
+  { name: 'Shopify Email', url: 'https://www.shopify.com/email', best: 'native starting point for basic email recovery' },
+  { name: 'Omnisend', url: 'https://www.omnisend.com', best: 'capture plus email, SMS, and push journeys' }
+];
+const analyticsTools = [
+  { name: 'Triple Whale', url: 'https://www.triplewhale.com', best: 'commerce attribution and profit-aware reporting' },
+  { name: 'Klaviyo', url: 'https://www.klaviyo.com', best: 'flow-level customer and conversion analytics' },
+  { name: 'Shopify Analytics', url: 'https://www.shopify.com/analytics', best: 'native order and checkout reporting' },
+  { name: 'Northbeam', url: 'https://www.northbeam.io', best: 'multi-channel measurement and attribution' }
+];
+const insight = insightByAudience[topic.audience] ?? 'Match recovery logic to the store’s margin, consent, inventory, and customer context before adding another message.';
+const decision = (decisionByGoal[topic.goal] ?? 'Pilot one segment with purchaser suppression, clear attribution, and a profit-aware success metric.') + ' Compare exposed carts with a comparable holdout and report incremental profit after discounts, app fees, send costs, refunds, and support impact.';
+const tools = topic.goal === 'SMS cart recovery' ? smsTools : topic.goal === 'browse abandonment' ? captureTools : topic.goal === 'cart recovery analytics' ? analyticsTools : recoveryTools;
+---
+<BaseLayout title={`${title} | Shopify Abandoned Cart Apps`} description={`A practical, source-linked shortlist of Shopify apps for ${topic.goal} for ${topic.audience}.`}><article class="py-12 md:py-20"><div class="container max-w-5xl"><a href="/" class="text-sm text-neutral-500 mb-5 inline-block">← Shopify cart recovery guide</a><h1 class="section-title">{title}</h1><p class="section-description">Cart recovery works when timing, consent, inventory, margin, and customer context are handled together. This guide focuses on {topic.goal} for {topic.audience}.</p><div class="my-8 p-6 rounded-xl bg-accent/10 border border-accent/20"><h2 class="text-2xl font-bold text-white mb-3">Quick answer</h2><p class="text-neutral-300">Klaviyo offers the deepest segmentation, Omnisend is practical for multichannel recovery, Privy is useful when capture and simple recovery are the priority, and ReConvert is strongest around post-purchase cross-sells rather than pure cart recovery. Confirm current app pricing, consent requirements, and Shopify permissions before installing.</p></div><div class="my-8 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]"><h2 class="text-xl font-bold text-white mb-3">Store-specific cart insight</h2><p class="text-neutral-300">{insight}</p><p class="text-neutral-300 mt-3"><strong>Decision rule for {topic.goal}:</strong> {decision}</p></div><h2>Shortlist</h2><div class="overflow-x-auto my-8"><table><thead><tr><th>App</th><th>Best for</th><th>Pricing context</th></tr></thead><tbody>{tools.map((tool) => <tr><td><a href={tool.url} rel="nofollow">{tool.name}</a></td><td>{tool.best}</td><td>Check current subscriber, send, order, SMS, seat, and feature limits on the official site.</td></tr>)}</tbody></table></div>{tools.map((tool) => <section class="my-10"><h2>{tool.name}: best for {tool.best}</h2><p>{tool.name} is worth evaluating for {topic.goal} because it can connect cart, checkout, catalog, customer, or order context to a recovery action. For {topic.audience}, the important question is whether the app suppresses the message after purchase, support contact, stock change, or opt-out.</p><p>The trade-off is margin and trust. A recovery sequence should respect discount policy, inventory reality, frequency, consent, and the customer’s reason for leaving. Review the <a href={tool.url} rel="nofollow">official {tool.name} site</a> for current terms, then pilot one cart segment with a defined recovery and profit measure.</p><div class="overflow-x-auto my-5"><table><thead><tr><th>Pros</th><th>Cons / watch-outs</th><th>Best pilot</th></tr></thead><tbody><tr><td>Supports a repeatable Shopify recovery workflow for {topic.goal}.</td><td>Event depth, timing, discounts, SMS, reporting, and permissions vary.</td><td>Run one flow with purchase suppression, margin rules, consent checks, and attribution.</td></tr></tbody></table></div></section>)}<h2>Cart recovery QA map</h2><div class="overflow-x-auto my-8"><table><thead><tr><th>Cart signal</th><th>Recovery job</th><th>Control</th></tr></thead><tbody><tr><td>Use cart value, product, device, geography, and checkout context carefully.</td><td>Remind, answer an objection, or offer a relevant next step.</td><td>Suppress purchasers, opt-outs, support cases, and duplicate flows.</td></tr><tr><td>Respect margin, inventory, and delivery timing.</td><td>Measure recovered order quality, not only clicks.</td><td>Review discounts, complaints, attribution, and app access.</td></tr></tbody></table></div><p class="text-neutral-400">Related reading: <a href="/use-cases/abandoned-cart">the abandoned-cart use case</a>, <a href="/guides/flow-collision-prevention">flow collision prevention</a>, and <a href="/guides/consent-compliance">consent and compliance</a>.</p></div></article></BaseLayout>
