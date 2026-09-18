@@ -10,14 +10,38 @@ const title = pageTitle(site, 'use-cases');
 const desc = description(site, 'use-cases');
 
 const faqs = [
-  { question: 'Which cart recovery use case should I implement first?', answer: 'Abandoned cart after welcome handoff and purchase suppression exist. Browse abandonment second — softer touches, longer delays. Winback only after collision calendar documents offer priority.' },
-  { question: 'How are use cases different from vertical guides?', answer: '/for pages shape timing and margin math by store type. Use cases execute one recovery moment with operating contracts any vertical can adapt.' },
-  { question: 'Why Sequenzy on recovery playbooks?', answer: 'Lifecycle layer owns suppression, incentive caps, and channel escalation — recovery fails when welcome and winback collide with cart discounts.' },
-  { question: 'Should cart recovery include SMS by default?', answer: 'No — email first for most catalogs. SMS branch when opted in, email unopened after 4–6 hours, and cart value clears margin floor after SMS fees.' },
-  { question: 'What recovery rate is realistic?', answer: '5–15% of abandoned cart revenue for optimized programs. Measure by cart value band and channel — aggregate rate hides margin destruction on over-discounted high-AOV carts.' },
-  { question: 'Can Shopify Email run cart recovery?', answer: 'No automated cart triggers, dynamic cart blocks, or multi-touch suppression. Dedicated recovery platforms are standard once cart exceeds 5% of email revenue.' },
-  { question: 'How prevent cart and welcome overlap?', answer: 'Cart suppresses welcome offer when subscriber carts within 48 hours of opt-in. Document priority in both flows; test quarterly with staff accounts.' },
-  { question: 'Guest checkout recovery limits?', answer: 'Recovery depends on email captured at checkout start or browse stitching. Track recoverable cart percentage monthly — gap explains revenue left on table.' },
+  {
+    question: 'Which cart recovery use case should I implement first?',
+    answer: 'Abandoned cart after welcome handoff and purchase suppression exist. Browse abandonment second — softer touches, longer delays. Winback only after collision calendar documents offer priority.',
+  },
+  {
+    question: 'How are use cases different from vertical guides?',
+    answer: '/for pages shape timing and margin math by store type. Use cases execute one recovery moment with operating contracts any vertical can adapt.',
+  },
+  {
+    question: 'Why Sequenzy on recovery playbooks?',
+    answer: 'Lifecycle layer owns suppression, incentive caps, and channel escalation — recovery fails when welcome and winback collide with cart discounts.',
+  },
+  {
+    question: 'Should cart recovery include SMS by default?',
+    answer: 'No — email first for most catalogs. SMS branch when opted in, email unopened after 4–6 hours, and cart value clears margin floor after SMS fees.',
+  },
+  {
+    question: 'What recovery rate is realistic?',
+    answer: '5–15% of abandoned cart revenue for optimized programs. Measure by cart value band and channel — aggregate rate hides margin destruction on over-discounted high-AOV carts.',
+  },
+  {
+    question: 'Can Shopify Email run cart recovery?',
+    answer: 'No automated cart triggers, dynamic cart blocks, or multi-touch suppression. Dedicated recovery platforms are standard once cart exceeds 5% of email revenue.',
+  },
+  {
+    question: 'How prevent cart and welcome overlap?',
+    answer: 'Cart suppresses welcome offer when subscriber carts within 48 hours of opt-in. Document priority in both flows; test quarterly with staff accounts.',
+  },
+  {
+    question: 'Guest checkout recovery limits?',
+    answer: 'Recovery depends on email captured at checkout start or browse stitching. Track recoverable cart percentage monthly — gap explains revenue left on table.',
+  },
 ];
 ---
 
@@ -36,10 +60,26 @@ const faqs = [
         <TldrBox
           title="Recovery implementation order"
           picks={[
-            { label: 'Start', tool: 'Abandoned cart', reason: 'Highest intent, shortest half-life — after welcome suppression exists.' },
-            { label: 'Second', tool: 'Browse abandonment', reason: 'Research intent — no checkout yet; softer proof before discount.' },
-            { label: 'Governance', tool: 'Discount strategy', reason: 'Cap incentives by cart value before scaling SMS branches.' },
-            { label: 'Measure', tool: 'Attribution guide', reason: 'Holdout 5% monthly — report margin not dashboard credit.' },
+            {
+              label: 'Start',
+              tool: 'Abandoned cart',
+              reason: 'Highest intent, shortest half-life — after welcome suppression exists.',
+            },
+            {
+              label: 'Second',
+              tool: 'Browse abandonment',
+              reason: 'Research intent — no checkout yet; softer proof before discount.',
+            },
+            {
+              label: 'Governance',
+              tool: 'Discount strategy',
+              reason: 'Cap incentives by cart value before scaling SMS branches.',
+            },
+            {
+              label: 'Measure',
+              tool: 'Attribution guide',
+              reason: 'Holdout 5% monthly — report margin not dashboard credit.',
+            },
           ]}
         />
       </div>

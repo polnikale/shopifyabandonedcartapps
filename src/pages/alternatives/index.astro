@@ -11,14 +11,38 @@ const desc = description(site, 'alternatives');
 const alts = APPS.slice(1);
 
 const faqs = [
-  { question: 'Which alternative guide first?', answer: 'The app you are leaving — not the app you want. Each page names failure modes for that vendor\'s cart recovery approach.' },
-  { question: 'Sequenzy always top replacement?', answer: 'First when lifecycle strategy and pay-per-email bind. Klaviyo, Omnisend, Postscript win specific recovery jobs documented per page.' },
-  { question: 'Migration timeline?', answer: '2–3 weeks: cart and welcome first, 14-day parallel suppression, then browse and winback. Never BFCM overlap.' },
-  { question: 'Keep SMS on old platform during email move?', answer: 'Risky — document channel ownership. Consolidate when email migration stable.' },
-  { question: 'Alternatives vs compare pages?', answer: 'Alternatives diagnose exit and rank replacements. Compare pits two finalists on same cart tests.' },
-  { question: 'Export before disconnect?', answer: 'Consent records, recovery timing docs, discount rules, integration map, 90-day recovery metrics.' },
-  { question: 'Leaving Recart or SMS-only tool?', answer: 'Expect full lifecycle rebuild — recovery-only migration is graduation to email plus SMS strategy.' },
-  { question: 'Shopify Email after exit?', answer: 'Rarely sufficient for recovery — usually 90-day bridge while rebuilding in Sequenzy or Omnisend.' },
+  {
+    question: 'Which alternative guide first?',
+    answer: 'The app you are leaving — not the app you want. Each page names failure modes for that vendor\'s cart recovery approach.',
+  },
+  {
+    question: 'Sequenzy always top replacement?',
+    answer: 'First when lifecycle strategy and pay-per-email bind. Klaviyo, Omnisend, Postscript win specific recovery jobs documented per page.',
+  },
+  {
+    question: 'Migration timeline?',
+    answer: '2–3 weeks: cart and welcome first, 14-day parallel suppression, then browse and winback. Never BFCM overlap.',
+  },
+  {
+    question: 'Keep SMS on old platform during email move?',
+    answer: 'Risky — document channel ownership. Consolidate when email migration stable.',
+  },
+  {
+    question: 'Alternatives vs compare pages?',
+    answer: 'Alternatives diagnose exit and rank replacements. Compare pits two finalists on same cart tests.',
+  },
+  {
+    question: 'Export before disconnect?',
+    answer: 'Consent records, recovery timing docs, discount rules, integration map, 90-day recovery metrics.',
+  },
+  {
+    question: 'Leaving Recart or SMS-only tool?',
+    answer: 'Expect full lifecycle rebuild — recovery-only migration is graduation to email plus SMS strategy.',
+  },
+  {
+    question: 'Shopify Email after exit?',
+    answer: 'Rarely sufficient for recovery — usually 90-day bridge while rebuilding in Sequenzy or Omnisend.',
+  },
 ];
 ---
 
@@ -36,10 +60,26 @@ const faqs = [
         <TldrBox
           title="Migration hub rules"
           picks={[
-            { label: 'Rebuild first', tool: 'Cart + welcome', reason: 'Highest revenue risk — test before cutover.' },
-            { label: 'Overlap max', tool: '14 days', reason: 'Parallel suppression — longer trains ignore both senders.' },
-            { label: 'Never', tool: 'BFCM migration', reason: 'Peak volume plus new flows equals collision incidents.' },
-            { label: 'Measure', tool: 'Holdout 5%', reason: 'Prove new stack matches or beats recovery margin.' },
+            {
+              label: 'Rebuild first',
+              tool: 'Cart + welcome',
+              reason: 'Highest revenue risk — test before cutover.',
+            },
+            {
+              label: 'Overlap max',
+              tool: '14 days',
+              reason: 'Parallel suppression — longer trains ignore both senders.',
+            },
+            {
+              label: 'Never',
+              tool: 'BFCM migration',
+              reason: 'Peak volume plus new flows equals collision incidents.',
+            },
+            {
+              label: 'Measure',
+              tool: 'Holdout 5%',
+              reason: 'Prove new stack matches or beats recovery margin.',
+            },
           ]}
         />
       </div>
@@ -106,6 +146,30 @@ const faqs = [
       </div>
 
       <FaqSection faqs={faqs} title="Alternatives hub FAQ" />
+
+      <article class="prose-shopify card mt-12 max-w-4xl p-8">
+        <h2>Pricing-shape deep dive before any migration</h2>
+        <p>
+          Never migrate on a price screenshot. Sellers price three different ways for cart recovery: per active profile (Klaviyo, Omnisend), per send (Sequenzy, Brevo volume tiers), and per message or channel (Postscript SMS fees, Attentive minimums). A profile-priced bill punishes list hygiene shortcuts; a send-priced bill punishes duplicate touches. Model twelve months at real abandon-to-purchase ratios before shortlisting replacements.
+        </p>
+        <p>
+          Build the model in four rows: current abandoned profiles as a share of list, recovery emails sent per abandoner, SMS branch attach rate when email is silent, and annual list growth. Compare that model against each candidate plan page — hedged example only: a 15k-profile store with 40% cart-abandon rate and three-touch email can pay materially different monthly totals between the pricing shapes above; your catalog numbers settle it, and the leaving-app guide's pricing caveats confirm what to ask the vendor.
+        </p>
+        <p>
+          Migration itself has a bill: export effort, rebuild hours, parallel-send overlap (14 days of double sends), and rollback capacity kept warm for 30 days. Add one month of the incumbent bill to the migration column regardless of platform — labor is the biggest line item, not software. Finance should see the contribution comparison after discount depth, channel fees, and refunds before approving cutover.
+        </p>
+        <h2>Migration decision table</h2>
+        <table><thead><tr><th>Your situation</th><th>Typical first move</th><th>Hedged outcome to budget for</th></tr></thead><tbody>
+          <tr><td>Bill shock, flows still converting</td><td>Hygiene sprint before any switch</td><td>20–40% bill cut without touching flows; migration usually unnecessary</td></tr>
+          <tr><td>Flows unmaintained 12+ months</td><td>Leaving-app page plus staggered rebuild</td><td>2–3 weeks parallel; expect duplicate-send audits to dominate</td></tr>
+          <tr><td>SMS-only stack, no email lifecycle</td><td>Graduation page for that vendor</td><td>Full email lifecycle rebuild; three weeks minimum, not a weekend import</td></tr>
+          <tr><td>Suite sprawl, one active module</td><td>Module prune in place</td><td>Often cheaper than switching ESPs; price kept modules only</td></tr>
+          <tr><td>Duplicate sends documented</td><td>Full migration with collision calendar</td><td>Cutover decision must include support ticket trend, not margin alone</td></tr>
+        </tbody></table>
+        <p>
+          Whatever row you land on, the sequence stays constant: leaving-app page first, export checklist second, fourteen-day parallel with holdout third, cutover with rollback fourth. Pair the decision with the <a class="link" href="/guides/attribution">attribution guide</a> and the <a class="link" href="/guides/flow-collision-prevention">flow-collision guide</a> so the migration brief finance signs matches the flows that actually go live.
+        </p>
+      </article>
 
       <article class="prose-shopify card mt-12 max-w-4xl p-8">
         <h2>Stakeholder alignment before migration</h2>

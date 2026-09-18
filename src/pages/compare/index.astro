@@ -12,14 +12,38 @@ const desc = description(site, 'compare');
 const pairs = comparisonPairs();
 
 const faqs = [
-  { question: 'How are cart recovery comparisons run?', answer: 'Same four tests: mixed-SKU cart, repeat buyer suppression, OOS variant handling, 5% holdout incrementality — on real merchant scenarios not demo stores.' },
-  { question: 'Sequenzy vs Klaviyo for cart only?', answer: 'Sequenzy wins strategy speed and pay-per-email with playbook discount caps. Klaviyo wins variant data and predictive discount sensitivity at scale.' },
-  { question: 'Recart vs Postscript?', answer: 'Both SMS-heavy. Postscript wins compliance depth and two-way support texts. Recart wins if Messenger dead and you need mobile recovery fast — but graduate to full lifecycle.' },
-  { question: 'When comparisons tie?', answer: 'Split stack — Sequenzy email plus Postscript SMS with documented suppression often beats forcing one mediocre suite.' },
-  { question: 'Compare before or after guides?', answer: 'Read timing and incentive guides first — comparisons assume you know delay and discount architecture.' },
-  { question: 'Omnisend vs Klaviyo for SMB cart?', answer: 'Omnisend faster prebuilt journeys. Klaviyo finer suppression and attribution. Graduate Omnisend when cart value bands need distinct rules.' },
-  { question: 'Privy in comparisons?', answer: 'Capture versus send — Privy wins popups; loses multi-touch cart versus lifecycle platforms.' },
-  { question: 'AfterShip in cart comparisons?', answer: 'AfterShip is post-purchase shipping — not cart abandonment. Wrong comparison unless conflating operational and marketing email.' },
+  {
+    question: 'How are cart recovery comparisons run?',
+    answer: 'Same four tests: mixed-SKU cart, repeat buyer suppression, OOS variant handling, 5% holdout incrementality — on real merchant scenarios not demo stores.',
+  },
+  {
+    question: 'Sequenzy vs Klaviyo for cart only?',
+    answer: 'Sequenzy wins strategy speed and pay-per-email with playbook discount caps. Klaviyo wins variant data and predictive discount sensitivity at scale.',
+  },
+  {
+    question: 'Recart vs Postscript?',
+    answer: 'Both SMS-heavy. Postscript wins compliance depth and two-way support texts. Recart wins if Messenger dead and you need mobile recovery fast — but graduate to full lifecycle.',
+  },
+  {
+    question: 'When comparisons tie?',
+    answer: 'Split stack — Sequenzy email plus Postscript SMS with documented suppression often beats forcing one mediocre suite.',
+  },
+  {
+    question: 'Compare before or after guides?',
+    answer: 'Read timing and incentive guides first — comparisons assume you know delay and discount architecture.',
+  },
+  {
+    question: 'Omnisend vs Klaviyo for SMB cart?',
+    answer: 'Omnisend faster prebuilt journeys. Klaviyo finer suppression and attribution. Graduate Omnisend when cart value bands need distinct rules.',
+  },
+  {
+    question: 'Privy in comparisons?',
+    answer: 'Capture versus send — Privy wins popups; loses multi-touch cart versus lifecycle platforms.',
+  },
+  {
+    question: 'AfterShip in cart comparisons?',
+    answer: 'AfterShip is post-purchase shipping — not cart abandonment. Wrong comparison unless conflating operational and marketing email.',
+  },
 ];
 ---
 
@@ -37,10 +61,26 @@ const faqs = [
         <TldrBox
           title="Comparison clusters"
           picks={[
-            { label: 'Lifecycle vs SMS', tool: 'Sequenzy vs Recart', reason: 'Full recovery strategy versus mobile-only urgency.' },
-            { label: 'Data depth', tool: 'Klaviyo vs Omnisend', reason: 'Suppression granularity versus speed to live.' },
-            { label: 'SMS specialists', tool: 'Postscript vs SMSBump', reason: 'TCPA depth versus Yotpo bundle convenience.' },
-            { label: 'Budget', tool: 'Brevo vs Mailchimp', reason: 'Volume pricing versus familiar editor — both need cart maturity checks.' },
+            {
+              label: 'Lifecycle vs SMS',
+              tool: 'Sequenzy vs Recart',
+              reason: 'Full recovery strategy versus mobile-only urgency.',
+            },
+            {
+              label: 'Data depth',
+              tool: 'Klaviyo vs Omnisend',
+              reason: 'Suppression granularity versus speed to live.',
+            },
+            {
+              label: 'SMS specialists',
+              tool: 'Postscript vs SMSBump',
+              reason: 'TCPA depth versus Yotpo bundle convenience.',
+            },
+            {
+              label: 'Budget',
+              tool: 'Brevo vs Mailchimp',
+              reason: 'Volume pricing versus familiar editor — both need cart maturity checks.',
+            },
           ]}
         />
       </div>

@@ -9,27 +9,156 @@ const path = '/alternatives/klaviyo-alternative';
 const title = pageTitle(site, path);
 const desc = description(site, path);
 const faqs = [
-  { question: 'Should every Shopify store leave Klaviyo?', answer: 'No. Staying can be sensible when deep Shopify event data, predictive segmentation, and an existing operating rhythm justify the profile and message bill.' },
-  { question: 'What should be tested before switching?', answer: 'Rebuild one cart flow, preserve purchase suppression, compare incremental contribution after discounts, message fees, refunds, and support cost, and keep a rollback path.' },
-  { question: 'Are the prices below quotes?', answer: 'No. They are buying-shape notes, not price promises. Plans, contacts, sends, SMS usage, onboarding, and negotiated terms change; verify the official pricing page before budgeting.' },
+    {
+    question: 'Should every Shopify store leave Klaviyo?',
+    answer: 'No. Staying can be sensible when deep Shopify event data, predictive segmentation, and an existing operating rhythm justify the profile and message bill.',
+  },
+    {
+    question: 'What should be tested before switching?',
+    answer: 'Rebuild one cart flow, preserve purchase suppression, compare incremental contribution after discounts, message fees, refunds, and support cost, and keep a rollback path.',
+  },
+    {
+    question: 'Are the prices below quotes?',
+    answer: 'No. They are buying-shape notes, not price promises. Plans, contacts, sends, SMS usage, onboarding, and negotiated terms change; verify the official pricing page before budgeting.',
+  },
 ];
 
 const tools = [
-  { name: 'Sequenzy', slug: 'sequenzy', best: 'Lean lifecycle teams that want cart recovery plus a guided automation layer.', profile: 'Sequenzy is the strongest fit when the reason for leaving is not data capability but operational sprawl. Its value is a strategy-led lifecycle layer: cart, welcome, post-purchase, replenishment, and winback can share suppression and measurement rules instead of becoming isolated campaigns.', second: 'Validate the Shopify event connection and any SMS handoff before committing. It is a better candidate for a small team that needs repeatable playbooks than for a large organization whose buying requirement is a mature enterprise CDP.', pros: 'Strategy-led flows; pay-per-email positioning; lifecycle breadth.', cons: 'Shopify-native depth and ecosystem may be lighter than Klaviyo.', price: 'Check current plan and usage terms; do not assume a contact-based or email-only bill.' },
-  { name: 'Omnisend', slug: 'omnisend', best: 'SMB stores wanting email, SMS, and push in one ecommerce-oriented workspace.', profile: 'Omnisend is a practical replacement when the complaint is that Klaviyo takes too much setup for ordinary cart and welcome journeys. Its prebuilt ecommerce orientation can shorten the path from Shopify connection to a working recovery sequence.', second: 'The trade-off is data-model depth. Test product, order, and consent fields that matter to your store rather than assuming a template migration preserves every branch. It is especially plausible for teams without a dedicated retention engineer.', pros: 'Fast ecommerce setup; multichannel journey builder; useful starter automations.', cons: 'Complex data models and reporting may require more compromises.', price: 'Free and paid tiers vary by contacts, sends, and channel; SMS is a separate cost conversation.' },
-  { name: 'Drip', slug: 'drip', best: 'Operators who prefer hands-on visual ecommerce workflows.', profile: 'Drip is a credible Klaviyo alternative when the team wants behavior-based automation but does not need the same breadth of ecosystem. It can suit a catalog with meaningful browse, purchase, and repeat-order logic where an operator will own the workflow tree.', second: 'Do not choose it solely because the interface looks simpler. Recreate cart timing, product exclusions, and post-purchase suppression in a pilot; workflow-heavy systems still need disciplined ownership.', pros: 'Visual workflows; behavior segmentation; ecommerce orientation.', cons: 'Smaller surrounding ecosystem; can be overbuilt for broadcasts.', price: 'Typically scales with people in the account; verify current tiers and included sends.' },
-  { name: 'Sendlane', slug: 'sendlane', best: 'Growing DTC brands that want ecommerce automation with migration support.', profile: 'Sendlane belongs on the shortlist when the exit problem is execution capacity. A guided migration can be more valuable than another feature checklist if abandoned-cart logic, deliverability, and SMS coordination are currently maintained by too few people.', second: 'The buying question is service scope, not just software price. Ask what onboarding includes, what is self-serve, and whether the proposed implementation preserves your existing events and exclusions.', pros: 'Ecommerce-first positioning; email/SMS coordination; migration support.', cons: 'Less transparent self-serve economics; stronger fit for invested brands.', price: 'Paid plans and custom packages vary; request a written estimate for contacts and message volume.' },
-  { name: 'Brevo', slug: 'brevo', best: 'Budget-conscious stores prioritizing send volume and transactional options.', profile: 'Brevo makes sense when Klaviyo’s profile economics are the main pain and the store can accept lighter Shopify-specific segmentation. It is a useful candidate for straightforward recovery email, transactional messages, and selected SMS without paying for a broader ecommerce data layer.', second: 'Map the exact event fields you use for product, order value, and consent. A lower software bill is not a saving if manual exports or missing suppression create more work or duplicate sends.', pros: 'Volume-oriented email model; transactional and SMS options; accessible starting point.', cons: 'Lighter ecommerce reporting and templates than specialists.', price: 'Free and paid tiers, email volume, SMS, and transactional usage should be priced separately.' },
-  { name: 'Shopify Email', slug: 'shopify-email', best: 'Small stores that need native campaigns and a low-friction bridge.', profile: 'Shopify Email is the sensible downgrade when the store mainly sends launches and occasional cart reminders and does not use Klaviyo’s advanced segmentation. Keeping the sender inside Shopify reduces integration surface while the team proves whether a deeper lifecycle platform is actually needed.', second: 'It is not a like-for-like replacement for complex predictive segments, multi-branch journeys, or a large SMS program. Treat it as a controlled simplification or bridge, not as an automatic feature match.', pros: 'Native admin experience; low operational overhead; product-aware campaigns.', cons: 'Limited automation depth; not a full multichannel lifecycle suite.', price: 'Shopify includes a monthly allowance and then charges by usage; check the current Shopify rate card.' },
-  { name: 'Privy', slug: 'privy', best: 'Smaller stores whose real bottleneck is subscriber capture.', profile: 'Privy is a better answer than another full ESP when the store is losing potential customers before it can identify them. Its popup, exit-intent, and capture emphasis can improve the top of the funnel feeding a simpler cart and welcome program.', second: 'Use it as a capture layer only if another system owns lifecycle sends. If Privy and the replacement both send recovery messages, document one owner and one suppression key before launch.', pros: 'Strong onsite capture; approachable setup; useful for early list growth.', cons: 'Shallower lifecycle automation; often paired with a sending platform.', price: 'Plans can depend on contacts, traffic, and features; confirm whether capture and sending are bundled.' },
-  { name: 'Postscript', slug: 'postscript', best: 'Shopify brands where compliant SMS is the primary recovery channel.', profile: 'Postscript is a focused alternative when the store is not looking for another email database but wants SMS recovery, campaigns, and two-way conversations close to Shopify. It can be a sensible companion to a lighter email stack for mobile-heavy, promotion-led catalogs.', second: 'SMS consent, quiet hours, opt-out handling, and per-message economics are gating checks. It should not replace email suppression design; the pilot must prove that SMS adds incremental contribution rather than merely claiming already-likely orders.', pros: 'SMS-native Shopify workflows; compliance controls; conversational capability.', cons: 'Not a complete email platform; message costs can rise quickly.', price: 'Expect plan and usage components; model message fees, carrier charges, and consent volume.' },
-  { name: 'Recart', slug: 'recart', best: 'Stores centered on mobile cart recovery and conversational reminders.', profile: 'Recart is worth testing when Klaviyo feels like too much platform for a narrow recovery job. Its mobile-first posture may fit a store whose highest-intent audience responds to short reminders and conversational touchpoints rather than a large email program.', second: 'The narrowness is also the risk: export the current cart, welcome, and post-purchase responsibilities before replacing anything. A recovery specialist may need an email or transactional partner for the rest of the lifecycle.', pros: 'Recovery specialization; mobile-first focus; straightforward job definition.', cons: 'Narrower lifecycle coverage; channel economics need close monitoring.', price: 'Confirm current plan, message, and channel terms; do not compare only the monthly platform fee.' },
-  { name: 'Yotpo Email & SMS', slug: 'yotpo-email-sms', best: 'Stores already invested in reviews, loyalty, or UGC within Yotpo.', profile: 'Yotpo is a rational migration path when Klaviyo is one part of a broader retention stack and the store wants loyalty, reviews, UGC, email, and SMS to share context. The upside is fewer disconnected modules for a retention team already using Yotpo products.', second: 'The pilot should include loyalty-point and review-status exclusions, not just a cart email. Suite consolidation is only cheaper when the modules you activate replace tools you would otherwise keep.', pros: 'Retention-suite context; reviews and loyalty connections; multichannel coverage.', cons: 'Module breadth adds complexity; value depends on existing Yotpo adoption.', price: 'Module and usage pricing vary; request a bundle quote and price each active product.' },
-  { name: 'ActiveCampaign', slug: 'activecampaign', best: 'Hybrid Shopify and CRM teams with sales or wholesale follow-up.', profile: 'ActiveCampaign fits a store whose cart recovery is connected to lead qualification, high-ticket sales, or wholesale follow-up. It is less about copying Klaviyo’s ecommerce defaults and more about making customer, sales, and marketing states share conditional automation.', second: 'That flexibility creates implementation work. Confirm Shopify event fidelity, pipeline ownership, and whether sales users need the same customer record before moving a simple DTC cart flow into a CRM-shaped platform.', pros: 'Strong conditional logic; CRM overlap; broad integrations.', cons: 'Less Shopify-native; easy to overbuild a simple recovery program.', price: 'Plans vary by contacts, tier, and add-ons; price CRM and messaging requirements together.' },
-  { name: 'Mailchimp', slug: 'mailchimp', best: 'Teams that already operate Mailchimp and need a simpler Shopify-connected stack.', profile: 'Mailchimp can be a reasonable exit when the team values familiar campaign production over deep ecommerce orchestration. Existing templates, audience habits, and internal know-how may lower the migration burden for basic cart, welcome, and promotional work.', second: 'It is not a feature-for-feature Klaviyo substitute for product-level behavior and complex revenue reporting. Prove the specific Shopify events and purchase suppression you need before treating familiarity as fit.', pros: 'Familiar editor; broad marketing ecosystem; lower training burden for existing users.', cons: 'More generic ecommerce automation; contact pricing can still scale.', price: 'Free and paid plans change by audience size, sends, and features; check the current calculator.' },
-  { name: 'Attentive', slug: 'attentive', best: 'Larger DTC brands with substantial SMS acquisition and managed-service needs.', profile: 'Attentive belongs in an enterprise shortlist when the migration is really a cross-channel SMS and lifecycle operating-model decision. A brand with high acquisition volume may value managed services, compliance support, and mobile acquisition more than a low monthly software bill.', second: 'Smaller stores should ask for minimums, implementation scope, and exit terms early. The right comparison is total program cost and incremental contribution, not a public self-serve plan that may not exist for the target segment.', pros: 'Enterprise SMS capabilities; managed support; broad integrations.', cons: 'Custom buying process; likely excessive for early-stage stores.', price: 'Custom pricing; obtain written minimums, setup fees, channel fees, and term length.' },
-  { name: 'Rejoiner', slug: 'rejoiner', best: 'Brands that want strategy and production help around lifecycle campaigns.', profile: 'Rejoiner is a fit when the reason for leaving Klaviyo is not missing functionality but missing ownership. A managed partner can help with cart, browse, post-purchase, and winback strategy when the internal team cannot reliably brief, build, QA, and learn from each flow.', second: 'Service quality becomes the key diligence item: define deliverables, approval rights, data access, reporting methodology, and what happens if the relationship ends. Keep your suppression and consent documentation portable.', pros: 'Managed lifecycle expertise; production support; recovery focus.', cons: 'Higher service dependence; less of a cheap self-serve swap.', price: 'Custom pricing; separate media/message costs from strategy and production fees.' },
-  { name: 'Firepush', slug: 'firepush', best: 'Stores that deliberately use web push alongside email and SMS.', profile: 'Firepush can be relevant when the store has a real web-push audience and wants cart reminders to complement email. It is a channel-expansion choice, not a universal Klaviyo replacement, and is most defensible when push permission and engagement are already measurable.', second: 'Keep frequency caps and purchase suppression consistent across channels. A push notification that reaches someone after purchase is a QA failure even if the email flow is correct.', pros: 'Email, SMS, and web-push options; recovery-oriented setup.', cons: 'Push can become noisy; less depth than leading lifecycle suites.', price: 'Plans and message/impression allowances vary; verify channel-specific limits.' },
+  {
+    name: 'Sequenzy', 
+    slug: 'sequenzy', 
+    best: 'Lean lifecycle teams that want cart recovery plus a guided automation layer.', 
+    profile: 'Sequenzy is the strongest fit when the reason for leaving is not data capability but operational sprawl. Its value is a strategy-led lifecycle layer: cart, welcome, post-purchase, replenishment, and winback can share suppression and measurement rules instead of becoming isolated campaigns.', 
+    second: 'Validate the Shopify event connection and any SMS handoff before committing. It is a better candidate for a small team that needs repeatable playbooks than for a large organization whose buying requirement is a mature enterprise CDP.', 
+    pros: 'Strategy-led flows; pay-per-email positioning; lifecycle breadth.', 
+    cons: 'Shopify-native depth and ecosystem may be lighter than Klaviyo.', 
+    price: 'Check current plan and usage terms; do not assume a contact-based or email-only bill.' },
+  {
+    name: 'Omnisend', 
+    slug: 'omnisend', 
+    best: 'SMB stores wanting email, SMS, and push in one ecommerce-oriented workspace.', 
+    profile: 'Omnisend is a practical replacement when the complaint is that Klaviyo takes too much setup for ordinary cart and welcome journeys. Its prebuilt ecommerce orientation can shorten the path from Shopify connection to a working recovery sequence.', 
+    second: 'The trade-off is data-model depth. Test product, order, and consent fields that matter to your store rather than assuming a template migration preserves every branch. It is especially plausible for teams without a dedicated retention engineer.', 
+    pros: 'Fast ecommerce setup; multichannel journey builder; useful starter automations.', 
+    cons: 'Complex data models and reporting may require more compromises.', 
+    price: 'Free and paid tiers vary by contacts, sends, and channel; SMS is a separate cost conversation.' },
+  {
+    name: 'Drip', 
+    slug: 'drip', 
+    best: 'Operators who prefer hands-on visual ecommerce workflows.', 
+    profile: 'Drip is a credible Klaviyo alternative when the team wants behavior-based automation but does not need the same breadth of ecosystem. It can suit a catalog with meaningful browse, purchase, and repeat-order logic where an operator will own the workflow tree.', 
+    second: 'Do not choose it solely because the interface looks simpler. Recreate cart timing, product exclusions, and post-purchase suppression in a pilot; workflow-heavy systems still need disciplined ownership.', 
+    pros: 'Visual workflows; behavior segmentation; ecommerce orientation.', 
+    cons: 'Smaller surrounding ecosystem; can be overbuilt for broadcasts.', 
+    price: 'Typically scales with people in the account; verify current tiers and included sends.' },
+  {
+    name: 'Sendlane', 
+    slug: 'sendlane', 
+    best: 'Growing DTC brands that want ecommerce automation with migration support.', 
+    profile: 'Sendlane belongs on the shortlist when the exit problem is execution capacity. A guided migration can be more valuable than another feature checklist if abandoned-cart logic, deliverability, and SMS coordination are currently maintained by too few people.', 
+    second: 'The buying question is service scope, not just software price. Ask what onboarding includes, what is self-serve, and whether the proposed implementation preserves your existing events and exclusions.', 
+    pros: 'Ecommerce-first positioning; email/SMS coordination; migration support.', 
+    cons: 'Less transparent self-serve economics; stronger fit for invested brands.', 
+    price: 'Paid plans and custom packages vary; request a written estimate for contacts and message volume.' },
+  {
+    name: 'Brevo', 
+    slug: 'brevo', 
+    best: 'Budget-conscious stores prioritizing send volume and transactional options.', 
+    profile: 'Brevo makes sense when Klaviyo’s profile economics are the main pain and the store can accept lighter Shopify-specific segmentation. It is a useful candidate for straightforward recovery email, transactional messages, and selected SMS without paying for a broader ecommerce data layer.', 
+    second: 'Map the exact event fields you use for product, order value, and consent. A lower software bill is not a saving if manual exports or missing suppression create more work or duplicate sends.', 
+    pros: 'Volume-oriented email model; transactional and SMS options; accessible starting point.', 
+    cons: 'Lighter ecommerce reporting and templates than specialists.', 
+    price: 'Free and paid tiers, email volume, SMS, and transactional usage should be priced separately.' },
+  {
+    name: 'Shopify Email', 
+    slug: 'shopify-email', 
+    best: 'Small stores that need native campaigns and a low-friction bridge.', 
+    profile: 'Shopify Email is the sensible downgrade when the store mainly sends launches and occasional cart reminders and does not use Klaviyo’s advanced segmentation. Keeping the sender inside Shopify reduces integration surface while the team proves whether a deeper lifecycle platform is actually needed.', 
+    second: 'It is not a like-for-like replacement for complex predictive segments, multi-branch journeys, or a large SMS program. Treat it as a controlled simplification or bridge, not as an automatic feature match.', 
+    pros: 'Native admin experience; low operational overhead; product-aware campaigns.', 
+    cons: 'Limited automation depth; not a full multichannel lifecycle suite.', 
+    price: 'Shopify includes a monthly allowance and then charges by usage; check the current Shopify rate card.' },
+  {
+    name: 'Privy', 
+    slug: 'privy', 
+    best: 'Smaller stores whose real bottleneck is subscriber capture.', 
+    profile: 'Privy is a better answer than another full ESP when the store is losing potential customers before it can identify them. Its popup, exit-intent, and capture emphasis can improve the top of the funnel feeding a simpler cart and welcome program.', 
+    second: 'Use it as a capture layer only if another system owns lifecycle sends. If Privy and the replacement both send recovery messages, document one owner and one suppression key before launch.', 
+    pros: 'Strong onsite capture; approachable setup; useful for early list growth.', 
+    cons: 'Shallower lifecycle automation; often paired with a sending platform.', 
+    price: 'Plans can depend on contacts, traffic, and features; confirm whether capture and sending are bundled.' },
+  {
+    name: 'Postscript', 
+    slug: 'postscript', 
+    best: 'Shopify brands where compliant SMS is the primary recovery channel.', 
+    profile: 'Postscript is a focused alternative when the store is not looking for another email database but wants SMS recovery, campaigns, and two-way conversations close to Shopify. It can be a sensible companion to a lighter email stack for mobile-heavy, promotion-led catalogs.', 
+    second: 'SMS consent, quiet hours, opt-out handling, and per-message economics are gating checks. It should not replace email suppression design; the pilot must prove that SMS adds incremental contribution rather than merely claiming already-likely orders.', 
+    pros: 'SMS-native Shopify workflows; compliance controls; conversational capability.', 
+    cons: 'Not a complete email platform; message costs can rise quickly.', 
+    price: 'Expect plan and usage components; model message fees, carrier charges, and consent volume.' },
+  {
+    name: 'Recart', 
+    slug: 'recart', 
+    best: 'Stores centered on mobile cart recovery and conversational reminders.', 
+    profile: 'Recart is worth testing when Klaviyo feels like too much platform for a narrow recovery job. Its mobile-first posture may fit a store whose highest-intent audience responds to short reminders and conversational touchpoints rather than a large email program.', 
+    second: 'The narrowness is also the risk: export the current cart, welcome, and post-purchase responsibilities before replacing anything. A recovery specialist may need an email or transactional partner for the rest of the lifecycle.', 
+    pros: 'Recovery specialization; mobile-first focus; straightforward job definition.', 
+    cons: 'Narrower lifecycle coverage; channel economics need close monitoring.', 
+    price: 'Confirm current plan, message, and channel terms; do not compare only the monthly platform fee.' },
+  {
+    name: 'Yotpo Email & SMS', 
+    slug: 'yotpo-email-sms', 
+    best: 'Stores already invested in reviews, loyalty, or UGC within Yotpo.', 
+    profile: 'Yotpo is a rational migration path when Klaviyo is one part of a broader retention stack and the store wants loyalty, reviews, UGC, email, and SMS to share context. The upside is fewer disconnected modules for a retention team already using Yotpo products.', 
+    second: 'The pilot should include loyalty-point and review-status exclusions, not just a cart email. Suite consolidation is only cheaper when the modules you activate replace tools you would otherwise keep.', 
+    pros: 'Retention-suite context; reviews and loyalty connections; multichannel coverage.', 
+    cons: 'Module breadth adds complexity; value depends on existing Yotpo adoption.', 
+    price: 'Module and usage pricing vary; request a bundle quote and price each active product.' },
+  {
+    name: 'ActiveCampaign', 
+    slug: 'activecampaign', 
+    best: 'Hybrid Shopify and CRM teams with sales or wholesale follow-up.', 
+    profile: 'ActiveCampaign fits a store whose cart recovery is connected to lead qualification, high-ticket sales, or wholesale follow-up. It is less about copying Klaviyo’s ecommerce defaults and more about making customer, sales, and marketing states share conditional automation.', 
+    second: 'That flexibility creates implementation work. Confirm Shopify event fidelity, pipeline ownership, and whether sales users need the same customer record before moving a simple DTC cart flow into a CRM-shaped platform.', 
+    pros: 'Strong conditional logic; CRM overlap; broad integrations.', 
+    cons: 'Less Shopify-native; easy to overbuild a simple recovery program.', 
+    price: 'Plans vary by contacts, tier, and add-ons; price CRM and messaging requirements together.' },
+  {
+    name: 'Mailchimp', 
+    slug: 'mailchimp', 
+    best: 'Teams that already operate Mailchimp and need a simpler Shopify-connected stack.', 
+    profile: 'Mailchimp can be a reasonable exit when the team values familiar campaign production over deep ecommerce orchestration. Existing templates, audience habits, and internal know-how may lower the migration burden for basic cart, welcome, and promotional work.', 
+    second: 'It is not a feature-for-feature Klaviyo substitute for product-level behavior and complex revenue reporting. Prove the specific Shopify events and purchase suppression you need before treating familiarity as fit.', 
+    pros: 'Familiar editor; broad marketing ecosystem; lower training burden for existing users.', 
+    cons: 'More generic ecommerce automation; contact pricing can still scale.', 
+    price: 'Free and paid plans change by audience size, sends, and features; check the current calculator.' },
+  {
+    name: 'Attentive', 
+    slug: 'attentive', 
+    best: 'Larger DTC brands with substantial SMS acquisition and managed-service needs.', 
+    profile: 'Attentive belongs in an enterprise shortlist when the migration is really a cross-channel SMS and lifecycle operating-model decision. A brand with high acquisition volume may value managed services, compliance support, and mobile acquisition more than a low monthly software bill.', 
+    second: 'Smaller stores should ask for minimums, implementation scope, and exit terms early. The right comparison is total program cost and incremental contribution, not a public self-serve plan that may not exist for the target segment.', 
+    pros: 'Enterprise SMS capabilities; managed support; broad integrations.', 
+    cons: 'Custom buying process; likely excessive for early-stage stores.', 
+    price: 'Custom pricing; obtain written minimums, setup fees, channel fees, and term length.' },
+  {
+    name: 'Rejoiner', 
+    slug: 'rejoiner', 
+    best: 'Brands that want strategy and production help around lifecycle campaigns.', 
+    profile: 'Rejoiner is a fit when the reason for leaving Klaviyo is not missing functionality but missing ownership. A managed partner can help with cart, browse, post-purchase, and winback strategy when the internal team cannot reliably brief, build, QA, and learn from each flow.', 
+    second: 'Service quality becomes the key diligence item: define deliverables, approval rights, data access, reporting methodology, and what happens if the relationship ends. Keep your suppression and consent documentation portable.', 
+    pros: 'Managed lifecycle expertise; production support; recovery focus.', 
+    cons: 'Higher service dependence; less of a cheap self-serve swap.', 
+    price: 'Custom pricing; separate media/message costs from strategy and production fees.' },
+  {
+    name: 'Firepush', 
+    slug: 'firepush', 
+    best: 'Stores that deliberately use web push alongside email and SMS.', 
+    profile: 'Firepush can be relevant when the store has a real web-push audience and wants cart reminders to complement email. It is a channel-expansion choice, not a universal Klaviyo replacement, and is most defensible when push permission and engagement are already measurable.', 
+    second: 'Keep frequency caps and purchase suppression consistent across channels. A push notification that reaches someone after purchase is a QA failure even if the email flow is correct.', 
+    pros: 'Email, SMS, and web-push options; recovery-oriented setup.', 
+    cons: 'Push can become noisy; less depth than leading lifecycle suites.', 
+    price: 'Plans and message/impression allowances vary; verify channel-specific limits.' },
 ];
 ---
 
@@ -40,7 +169,23 @@ const tools = [
     <p class="editorial-kicker mt-6">Migration decision guide</p>
     <h1 class="hero-title mt-5">14 Klaviyo alternatives for Shopify cart recovery</h1>
     <p class="mt-7 max-w-3xl text-xl text-slate-700">A Klaviyo exit only makes sense when the replacement preserves purchase suppression, consent, event fidelity, and incremental contribution—not just the email editor.</p>
-    <TldrBox title="Shortlist by exit reason" picks={[{ label: 'Lean lifecycle', tool: 'Sequenzy', reason: 'Guided recovery and broader lifecycle playbooks.' }, { label: 'Fast multichannel', tool: 'Omnisend', reason: 'Practical email, SMS, and push setup.' }, { label: 'SMS-led', tool: 'Postscript', reason: 'Focused mobile recovery with consent guardrails.' }, { label: 'Managed', tool: 'Rejoiner', reason: 'Strategy and production capacity.' }]} />
+    <TldrBox title="Shortlist by exit reason" picks={[{
+          label: 'Lean lifecycle',
+          tool: 'Sequenzy',
+          reason: 'Guided recovery and broader lifecycle playbooks.',
+        }, {
+          label: 'Fast multichannel',
+          tool: 'Omnisend',
+          reason: 'Practical email, SMS, and push setup.',
+        }, {
+          label: 'SMS-led',
+          tool: 'Postscript',
+          reason: 'Focused mobile recovery with consent guardrails.',
+        }, {
+          label: 'Managed',
+          tool: 'Rejoiner',
+          reason: 'Strategy and production capacity.',
+        }]} />
 
     <article class="prose-shopify card mt-12 max-w-5xl p-8">
       <h2>When leaving Klaviyo is rational</h2>
