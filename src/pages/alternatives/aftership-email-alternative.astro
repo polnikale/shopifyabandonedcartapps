@@ -6,8 +6,8 @@ import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 
 const path = '/alternatives/aftership-email-alternative';
-const title = pageTitle(site, path);
-const desc = description(site, path);
+const title = pageTitle(site, 'alternatives/aftership-email-alternative');
+const desc = description(site, 'alternatives/aftership-email-alternative');
 const faqs = [
     {
     question: 'Why replace AfterShip Email?',
@@ -194,7 +194,7 @@ const official: Record<string, string> = {
     <article class="prose-shopify card mt-12 max-w-5xl p-8">
       <h2>When replacing AfterShip Email is rational</h2>
       <p>AfterShip Email can remain appropriate when the store wants simple email messages close to its delivery and tracking workflow. A migration becomes more defensible when the team needs product-level behavior, coordinated email and SMS, stronger suppression logic, or a partner that will own campaign production. A lower subscription alone is not proof of savings: include duplicate profiles, messages, carrier fees, discounts, refunds, support, and implementation time.</p>
-      <p>The list below is organized by search intent rather than a universal ranking. Each option has a different operating model. Verify current plans and features on the official site, then use the internal <a class="link" href="/guides/attribution">attribution guide</a> and <a class="link" href="/guides/flow-collision-prevention">collision guide</a> to define success before changing the live flow.</p>
+      <p>The list below is organized by search intent rather than a universal ranking. Each option has a different operating model. Verify current plans and features on the official site, then use the internal <a class="link" href="/guides">attribution guide</a> and <a class="link" href="/guides">collision guide</a> to define success before changing the live flow.</p>
 
       <table><thead><tr><th>Migration signal</th><th>First options</th><th>Evidence to collect</th></tr></thead><tbody>
         <tr><td>Need deeper Shopify behavior</td><td>Klaviyo, Drip, ActiveCampaign</td><td>Event payloads, identity matching, branch coverage</td></tr>
@@ -205,7 +205,7 @@ const official: Record<string, string> = {
 
       <h2>AfterShip Email alternatives, compared by job</h2>
       {tools.map((tool, index) => <section class="mt-9" id={tool.slug}>
-        <h3>{index + 1}. <a class="link" href={`/apps/${tool.slug}`}>{tool.name}</a></h3>
+        <h3>{index + 1}. <a class="link" href={tool.slug === 'sequenzy' ? '/compare/sequenzy-vs-klaviyo' : `/alternatives/${tool.slug}-alternative`}>{tool.name}</a></h3>
         <p><strong>Best for:</strong> {tool.best}</p>
         <p>{tool.p1}</p>
         <p>{tool.p2}</p>
@@ -229,7 +229,7 @@ const official: Record<string, string> = {
         <tr><td>8–10</td><td>Run seed events, render mobile messages, and inspect links</td><td>Every branch, identity, and exit rule behaves as designed</td></tr>
         <tr><td>11–14</td><td>Run holdout and compare contribution after discounts and fees</td><td>Decision uses incremental margin and operational burden</td></tr>
       </tbody></table>
-      <p>Use the <a class="link" href="/guides/consent-compliance">consent guide</a> for channel-specific evidence and the <a class="link" href="/guides/margin-safe-incentives">margin-safe incentives guide</a> before adding a discount. Compare finalists in the <a class="link" href="/compare">comparison hub</a>, and only retire AfterShip Email after export, holdout, and rollback checks pass.</p>
+      <p>Use the <a class="link" href="/guides">consent guide</a> for channel-specific evidence and the <a class="link" href="/guides">margin-safe incentives guide</a> before adding a discount. Compare finalists in the <a class="link" href="/compare">comparison hub</a>, and only retire AfterShip Email after export, holdout, and rollback checks pass.</p>
     </article>
     <FaqSection faqs={faqs} title="AfterShip Email alternatives FAQ" />
   </section>

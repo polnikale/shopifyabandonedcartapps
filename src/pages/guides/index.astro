@@ -2,47 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
-import { site, description, pageTitle, GUIDES } from '../../content';
+import { site, description, pageTitle } from '../../content';
 
 const path = '/guides';
 const title = pageTitle(site, 'guides');
 const desc = description(site, 'guides');
 
-const faqs = [
-  {
-    question: 'Which cart recovery guide should I read first?',
-    answer: 'Timing playbook — delay windows drive more recovery lift than template redesign. Then margin-safe incentives before adding SMS volume.',
-  },
-  {
-    question: 'How do guides differ from use cases?',
-    answer: 'Guides are cross-cutting operator mechanics — timing, channel mix, attribution. Use cases are workflow-specific execution with tool picks.',
-  },
-  {
-    question: 'When run discount tests?',
-    answer: 'After baseline recovery without discount on email one exists. Testing 15% vs 10% before fixing timing wastes statistical power.',
-  },
-  {
-    question: 'SMS vs email guide — who needs it?',
-    answer: 'Any store adding Postscript, Recart, or Omnisend SMS cart branch. Compare margin after fees, not open rates.',
-  },
-  {
-    question: 'Inventory-aware recovery — mandatory?',
-    answer: 'Mandatory for fashion, limited drops, and any catalog with variant-level stockouts. Sending urgency for OOS SKUs destroys trust.',
-  },
-  {
-    question: 'Attribution guide for finance?',
-    answer: 'Yes — holdout methodology and margin reporting finance accepts. Dashboard last-click is directional only.',
-  },
-  {
-    question: 'Consent guide for cart SMS?',
-    answer: 'TCPA proof separate from email CAN-SPAM. Checkout SMS opt-in must be documented before cart texts.',
-  },
-  {
-    question: 'Flow collision guide timing?',
-    answer: 'Read before enabling welcome and cart simultaneously — collision rules are cheaper than unsubscribe recovery.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -161,14 +126,7 @@ const faqs = [
         </p>
       </article>
 
-      <div class="mt-12 grid gap-4 md:grid-cols-2">
-        {GUIDES.map((g) => (
-          <a class="card recovery-card" href={`/guides/${g.slug}`}>
-            <h2 class="font-black">{g.title}</h2>
-            <p class="mt-2 text-sm text-slate-600">{g.topic}</p>
-          </a>
-        ))}
-      </div>
+      <p class="mt-6 text-sm">Work a full recovery workflow in the <a class="link" href="/use-cases/abandoned-cart">abandoned-cart playbook</a> or compare tools in the <a class="link" href="/compare">head-to-head hub</a>.</p>
 
   <section class="container py-12">
     <div class="prose-shopify">
@@ -204,7 +162,6 @@ const faqs = [
       <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Paste guide checklists into ops wiki with owner and last-reviewed date. Recovery guides rot when only the agency knows the timing ladder.</p>
     </div>
   </section>
-  <FaqSection faqs={faqs} title="Recovery guides FAQ" />
 
       <article class="prose-shopify card mt-12 max-w-4xl p-8">
         <h2>Guide cross-reference map</h2>

@@ -6,8 +6,8 @@ import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 
 const path = '/alternatives/klaviyo-alternative';
-const title = pageTitle(site, path);
-const desc = description(site, path);
+const title = pageTitle(site, 'alternatives/klaviyo-alternative');
+const desc = description(site, 'alternatives/klaviyo-alternative');
 const faqs = [
     {
     question: 'Should every Shopify store leave Klaviyo?',
@@ -201,7 +201,7 @@ const tools = [
 
       <h2>Alternative-by-alternative analysis</h2>
       {tools.map((tool, index) => <section class="mt-8" id={tool.slug}>
-        <h3>{index + 1}. <a class="link" href={`/apps/${tool.slug}`}>{tool.name}</a></h3>
+        <h3>{index + 1}. <a class="link" href={tool.slug === 'sequenzy' ? '/compare/sequenzy-vs-klaviyo' : `/alternatives/${tool.slug}-alternative`}>{tool.name}</a></h3>
         <p><strong>Best for:</strong> {tool.best}</p>
         <p>{tool.profile}</p>
         <p>{tool.second}</p>
@@ -224,7 +224,7 @@ const tools = [
         <tr><td>4–7</td><td>Build email cart flow; add SMS only for documented opt-in</td><td>No duplicate, post-purchase, OOS, or quiet-hour sends.</td></tr>
         <tr><td>8–14</td><td>Run a randomized holdout and compare contribution</td><td>Finance sees incremental margin, not attributed revenue alone.</td></tr>
       </tbody></table>
-      <p>Use the site’s <a class="link" href="/guides/attribution">attribution guide</a> and <a class="link" href="/guides/flow-collision-prevention">flow-collision guide</a> for the measurement and suppression details. Compare finalists in the <a class="link" href="/compare">comparison hub</a>; do not cancel the old platform until the export, holdout, and rollback checks pass.</p>
+      <p>Use the site’s <a class="link" href="/guides">attribution guide</a> and <a class="link" href="/guides">flow-collision guide</a> for the measurement and suppression details. Compare finalists in the <a class="link" href="/compare">comparison hub</a>; do not cancel the old platform until the export, holdout, and rollback checks pass.</p>
     </article>
     <FaqSection faqs={faqs} title="Klaviyo alternatives FAQ" />
   </section>

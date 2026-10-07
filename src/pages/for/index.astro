@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
 import TldrBox from '../../components/TldrBox.astro';
-import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 import { SEGMENTS } from '../../data/segments';
 
@@ -10,40 +9,6 @@ const path = '/for';
 const title = pageTitle(site, 'for');
 const desc = description(site, 'for');
 
-const faqs = [
-  {
-    question: 'Why vertical guides for cart recovery?',
-    answer: 'AOV, consideration cycle, and inventory patterns change delay windows and incentive caps — fashion is not supplements is not B2B wholesale.',
-  },
-  {
-    question: 'Do I need my vertical page?',
-    answer: 'Read closest match — high-AOV jewelry patterns apply to furniture; replenishment beauty patterns apply to pet consumables.',
-  },
-  {
-    question: 'Sequenzy first in every vertical?',
-    answer: 'Lifecycle layer ranks first when strategy and suppression matter; Recart or Postscript lead when SMS-only recovery is the scoped problem.',
-  },
-  {
-    question: 'Fashion timing difference?',
-    answer: 'Email two often 48–72h; size OOS checks mandatory; SMS sparingly to avoid training drop-wait behavior.',
-  },
-  {
-    question: 'Supplement compliance?',
-    answer: 'Recovery copy avoids disease claims; subscription carts need cadence education not stacked one-time codes.',
-  },
-  {
-    question: 'B2B wholesale cart?',
-    answer: 'Route to rep or quote workflow — consumer automation with coupons often inappropriate.',
-  },
-  {
-    question: 'High-AOV trust recovery?',
-    answer: 'Financing, guarantees, expert proof on email one — discount last if ever.',
-  },
-  {
-    question: 'Holdout in vertical tests?',
-    answer: 'Hold out 5% monthly per vertical playbook — report margin after discount typical for that catalog.',
-  },
-];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -183,7 +148,6 @@ const faqs = [
       <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Holdout five percent monthly per vertical band. Vertical priors are starting points; your checkout analytics override fashion defaults when sample size exceeds two hundred abandons per variant.</p>
     </div>
   </section>
-  <FaqSection faqs={faqs} title="Vertical recovery FAQ" />
 
       <article class="prose-shopify card mt-12 max-w-4xl p-8">
         <h2>Testing vertical timing locally</h2>
