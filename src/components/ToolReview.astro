@@ -56,6 +56,6 @@ const { app, rank, badge, paragraphs } = Astro.props;
   </div>
 
   <p class="mt-6 text-sm">
-    <a class="link" href={app.slug === 'sequenzy' ? '/compare/sequenzy-vs-klaviyo' : `/alternatives/${app.slug}-alternative`}>{app.slug === 'sequenzy' ? 'Compare Sequenzy vs Klaviyo →' : `${app.name} alternatives →`}</a>
+    <a class="link" href={`/alternatives/${app.slug}-alternative`}>{`${app.name} alternatives →`}</a>
   </p>
 </section>
