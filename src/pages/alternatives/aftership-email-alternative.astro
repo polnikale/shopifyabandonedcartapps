@@ -104,7 +104,7 @@ const tools = [
     name: 'Drip', 
     slug: 'drip', 
     best: 'Operators who want visual ecommerce workflows and behavioral branches.', 
-    p1: 'Drip fits stores that have outgrown basic tracking-adjacent messages and want hands-on workflow control. It can support cart, browse, repeat-purchase, and winback logic when a marketer is prepared to maintain the branches.', 
+    p1: 'Drip is a candidate when a store wants a different workflow editor or branching model for its ecommerce program. It can support cart, browse, repeat-purchase, and winback logic when a marketer is prepared to maintain the branches.',
     p2: 'The interface does not remove the need for a data contract. Rebuild one representative cart, test order suppression and product exclusions, and make sure the team can explain every branch before expanding the program.', 
     pros: 'Visual workflow builder; behavior-based automation; ecommerce orientation.', 
     cons: 'Requires active operator ownership; can be unnecessary for simple campaigns.', 
@@ -112,12 +112,12 @@ const tools = [
   {
     name: 'Yotpo Email & SMS', 
     slug: 'yotpo-email-sms', 
-    best: 'Brands already using Yotpo reviews, loyalty, or UGC.', 
-    p1: 'Yotpo Email & SMS is most relevant when AfterShip Email is one disconnected piece of a broader retention stack. Consolidating email and SMS context with reviews, loyalty, or user-generated content may reduce handoffs for a team already invested in Yotpo products.', 
-    p2: 'Suite consolidation is not automatically cheaper. Include loyalty status, review requests, UGC permissions, and purchase exclusions in the pilot, then price only the modules the store will actually keep.', 
-    pros: 'Retention-suite context; reviews and loyalty connections; email/SMS coverage.', 
-    cons: 'Module complexity; value depends on existing Yotpo adoption.', 
-    price: 'Ask for a bundle and module-level quote; usage and add-ons may differ.' },
+    best: 'Historical migration context for stores with former Yotpo Email & SMS flows.',
+    p1: 'Yotpo Email & SMS is a retired option, not a current AfterShip Email replacement. Yotpo announced full deprecation for December 31, 2025, and its product endpoint now reports decommissioning. Keep this entry to identify legacy flows and exports that still need an owner.',
+    p2: 'For a legacy migration, inventory loyalty status, review requests, UGC permissions, consent records, and purchase exclusions. Verify which data is available in retained exports before designing replacement branches; do not assume the retired sender can still supply it.',
+    pros: 'Legacy context for auditing dependencies on reviews and loyalty.',
+    cons: 'Email and SMS product decommissioned; unavailable as a new sender.',
+    price: 'No current sender quote to compare; budget replacement and legacy-data work separately.' },
   {
     name: 'ActiveCampaign', 
     slug: 'activecampaign', 
@@ -172,6 +172,8 @@ const official: Record<string, string> = {
   'postscript': 'https://postscript.io/pricing',
   'sendlane': 'https://www.sendlane.com/pricing',
   'brevo': 'https://www.brevo.com/pricing/',
+  'shopify-email': 'https://www.shopify.com/email-marketing',
+  'yotpo-email-sms': 'https://email-and-sms.yotpo.com/',
   'privy': 'https://www.privy.com/pricing',
   'drip': 'https://www.drip.com/pricing',
   'activecampaign': 'https://www.activecampaign.com/pricing',
@@ -187,13 +189,13 @@ const official: Record<string, string> = {
   <section class="container py-16 md:py-24">
     <a href="/alternatives" class="link text-sm font-bold">← All alternatives</a>
     <p class="editorial-kicker mt-6">AfterShip Email migration guide</p>
-    <h1 class="hero-title mt-5">14 AfterShip Email alternatives for Shopify cart recovery</h1>
+    <h1 class="hero-title mt-5">AfterShip Email alternatives and a retired option to exclude</h1>
     <p class="mt-7 max-w-3xl text-xl text-slate-700">Choose around the job AfterShip Email is not solving: deeper Shopify events, broader lifecycle automation, dedicated SMS, capture, or managed execution.</p>
     <TldrBox title="Shortlist by migration reason" picks={[{ label: 'Deeper data', tool: 'Klaviyo', reason: 'More room for Shopify event and profile segmentation.' }, { label: 'Fast multichannel', tool: 'Omnisend', reason: 'Practical ecommerce email, SMS, and push workflows.' }, { label: 'SMS-led', tool: 'Postscript', reason: 'Focused mobile recovery and consent operations.' }, { label: 'Managed', tool: 'Rejoiner', reason: 'Strategy and production capacity around lifecycle.' }]} />
 
     <article class="prose-shopify card mt-12 max-w-5xl p-8">
       <h2>When replacing AfterShip Email is rational</h2>
-      <p>AfterShip Email can remain appropriate when the store wants simple email messages close to its delivery and tracking workflow. A migration becomes more defensible when the team needs product-level behavior, coordinated email and SMS, stronger suppression logic, or a partner that will own campaign production. A lower subscription alone is not proof of savings: include duplicate profiles, messages, carrier fees, discounts, refunds, support, and implementation time.</p>
+      <p>AfterShip Email is an ecommerce marketing product with behavior-triggered email and abandoned-cart automation; it should not be confused with AfterShip Tracking. Staying can make sense when its existing marketing flows meet the store’s requirements. A migration becomes more defensible when a seed-event test identifies a specific gap in event coverage, channel coordination, suppression, or production ownership. A lower subscription alone is not proof of savings: include duplicate profiles, messages, carrier fees, discounts, refunds, support, and implementation time.</p>
       <p>The list below is organized by search intent rather than a universal ranking. Each option has a different operating model. Verify current plans and features on the official site, then use the internal <a class="link" href="/guides">attribution guide</a> and <a class="link" href="/guides">collision guide</a> to define success before changing the live flow.</p>
 
       <table><thead><tr><th>Migration signal</th><th>First options</th><th>Evidence to collect</th></tr></thead><tbody>
@@ -221,13 +223,15 @@ const official: Record<string, string> = {
         <tr><td>Economics</td><td>Holdout reports incremental contribution after costs</td><td>Attributed revenue is mistaken for incremental revenue</td></tr>
       </tbody></table>
 
-      <h2>A bounded 14-day implementation pilot</h2>
+      <h2>A proposed 14-day implementation pilot</h2>
+      <p>The schedule below is a planning example, not a guarantee that fourteen days is sufficient. Event coverage, consent records, message rendering, and purchase exits must pass their own checks. Performance decisions need enough eligible carts, conversions, and time for delayed purchases; extend the randomized holdout when the sample is inconclusive. The FAQ’s fixed-duration wording below should be read with this limitation.</p>
+      <p><strong>Product status checks:</strong> <a class="link" href="https://www.aftership.com/email/email-marketing-automation">AfterShip’s marketing automation documentation</a> describes behavior-triggered and cart recovery email. <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">Yotpo’s migration notice</a> and <a class="link" href="https://email-and-sms.yotpo.com/">decommissioned product page</a> explain why its former sender is excluded. Shopify now presents its native email offering as <a class="link" href="https://www.shopify.com/email-marketing">Shopify Messaging</a>; confirm the available channels and automation requirements for the store.</p>
       <p>Keep the AfterShip Email flow recoverable while testing one representative cart segment. Export consent and suppression rules, connect Shopify, rebuild one email path and one optional SMS branch, and use seed orders to test identity, deep links, discount exclusions, inventory, quiet hours, and purchase exits. Do not expand until the new flow passes operational QA and a holdout is ready.</p>
       <table><thead><tr><th>Days</th><th>Work</th><th>Pass condition</th></tr></thead><tbody>
         <tr><td>1–3</td><td>Inventory events, consent, costs, owners, and rollback path</td><td>Written mapping approved by marketing and operations</td></tr>
         <tr><td>4–7</td><td>Build email cart flow; add SMS only for documented opt-in</td><td>No duplicate, post-purchase, OOS, or quiet-hour sends</td></tr>
         <tr><td>8–10</td><td>Run seed events, render mobile messages, and inspect links</td><td>Every branch, identity, and exit rule behaves as designed</td></tr>
-        <tr><td>11–14</td><td>Run holdout and compare contribution after discounts and fees</td><td>Decision uses incremental margin and operational burden</td></tr>
+        <tr><td>11–14</td><td>Start the holdout; review instrumentation and early contribution after discounts and fees</td><td>Operational checks pass; performance decision waits for adequate evidence</td></tr>
       </tbody></table>
       <p>Use the <a class="link" href="/guides">consent guide</a> for channel-specific evidence and the <a class="link" href="/guides">margin-safe incentives guide</a> before adding a discount. Compare finalists in the <a class="link" href="/compare">comparison hub</a>, and only retire AfterShip Email after export, holdout, and rollback checks pass.</p>
     </article>
