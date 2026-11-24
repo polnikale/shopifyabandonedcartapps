@@ -1,43 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
-import { segmentBySlug } from '../../data/segments';
-import { appBySlug } from '../../data/apps';
 
-const segment = segmentBySlug('b2b-wholesale')!;
 const path = '/for/b2b-wholesale';
 const title = pageTitle(site, 'for/b2b-wholesale');
 const desc = description(site, 'for/b2b-wholesale');
-const featuredApps = [appBySlug('sequenzy')!, appBySlug('klaviyo')!, appBySlug('activecampaign')!, appBySlug('brevo')!];
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/for" class="link text-sm font-bold">← All store types</a>
-      <p class="editorial-kicker mt-6">Cart recovery · B2B wholesale Shopify stores</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for B2B wholesale Shopify stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">B2B wholesale Shopify stores lose checkout revenue to account approvals, bulk ordering, and rep follow-up. This guide ranks cart recovery apps by timing, margin-safe incentives, and Shopify data depth for Account-based; approval workflows; bulk reorder cycles.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Top cart recovery apps" picks={[{ label: 'Best overall', tool: 'Sequenzy', reason: 'Playbook-first recovery with margin math and fast iteration.' }, { label: 'Best Shopify depth', tool: 'Klaviyo', reason: 'Native checkout events and variant segmentation.' }, { label: 'Segment fit', tool: featuredApps[2]?.name || 'Omnisend', reason: segment.pain }]} />
-    <div class="prose-shopify">
-      <p>B2B Wholesale Shopify Stores lose checkout revenue to account approvals, bulk ordering, and rep follow-up. Account-based; approval workflows; bulk reorder cycles</p>
-      <p>Priority workflows: Account approval and onboarding, Bulk order reminders, Rep-triggered follow-up, Catalog and MOQ updates.</p>
-      <h2 class="font-serif text-3xl font-black text-[#24170f] mt-10">Recovery ladder for B2B wholesale Shopify stores</h2>
-      <p>Email 1 at 97 minutes — helpful reminder, no discount. Email 2 at 41 hours — shipping, returns, sizing, or category-specific proof. SMS at 7 hours for TCPA-opted shoppers only. Holdout 5% monthly for incrementality.</p>
-      <p><strong>Triggers:</strong> checkout started or cart updated without order. <strong>Exclusions:</strong> recent purchasers, OOS lines, active support tickets, VIP pending offers. <strong>Escalation:</strong> email → SMS → optional push with shared frequency cap (max 3 touches / 7 days).</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('sequenzy')!} rank={1} badge="Top pick" paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'At $534 AOV and 66% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('klaviyo')!} rank={2} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'At $534 AOV and 66% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('activecampaign')!} rank={3} paragraphs={[`${appBySlug('activecampaign')!.shopifyFit}`, 'At $534 AOV and 66% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('brevo')!} rank={4} paragraphs={[`${appBySlug('brevo')!.shopifyFit}`, 'At $534 AOV and 66% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
+  <section class="container py-16">
+    <a href="/for" class="link text-sm font-bold">← All store types</a>
+    <h1 class="hero-title mt-5">Choosing Shopify cart recovery apps for B2B wholesale stores</h1>
+    <div class="prose-shopify mt-7">
+      <h2>Choose around the buying process</h2>
+      <p>A wholesale cart can be a working order awaiting approval, a quote request, or a buyer checking quantities. Before selecting recovery software, identify which of these states your store records. A consumer-style discount reminder can conflict with a negotiated price or an active sales conversation.</p>
+      <h2>Separate access problems from abandoned purchases</h2>
+      <p>Shopify documents that B2B customers must sign in and belong to a company location to access B2B pricing and place B2B orders. A buyer seeing retail prices may need an account correction, not a coupon. Give the buyer an account-help route; send the rep enough context to resolve the location assignment without exposing another location’s terms.</p>
+      <h2>Define ownership before adding channels</h2>
+      <p>Write an ownership rule for each state: account approval goes to the account team; an unresolved quote goes to its rep; an eligible self-service checkout can enter automated recovery. Require the automation to stop or pause when a rep takes responsibility. If the proposed app cannot receive that state reliably, use a manual queue for those buyers instead of guessing from elapsed time.</p>
+      <h2>What a candidate app must demonstrate</h2>
+      <p>Ask Sequenzy, Klaviyo, ActiveCampaign or Brevo to demonstrate your actual company-location, order and rep-status fields before considering them for this workflow. These are evaluation candidates, not a ranking or a claim that each supports these fields. Include the native Shopify automation baseline in the comparison. Add software only for a documented gap such as rep handoff, company-level suppression or cross-system approval status.</p>
+      <h2>Proposed acceptance exercise: two locations, one buyer</h2>
+      <p>Use a test buyer associated with two locations that have different catalogs or terms. Start a checkout for one location, then change quantities and complete an order. Inspect whether a reminder preserves the intended location, eligible prices and quantities, and whether the order stops subsequent reminders. Repeat with a quote under rep review and with access awaiting approval. These are proposed checks; no app results are claimed here.</p>
+      <h2>Protect negotiated economics</h2>
+      <p>Check minimum quantities, case packs, freight and existing negotiated offers before introducing an incentive. Hypothetical example: a $1,000 order with $600 product cost has $400 gross profit. A 10% discount reduces revenue to $900 and gross profit to $300 before freight, fees and sales costs. A concession that resolves freight uncertainty may be more relevant than a percentage code; calculate its actual cost rather than treating it as free.</p>
+      <h2>Roll out without competing with sales</h2>
+      <p>Choose a delay that gives your buyers time for their normal approval cycle, then inspect unresolved carts with the reps before expanding. Deduplicate by the purchasing workflow rather than treating every contact at a company as a separate opportunity. Keep purchase exits, unavailable-product checks and channel permission checks active at each send. SMS should be an explicitly eligible channel, not an automatic escalation for every wholesale phone number.</p>
+      <h2>Measure the completed buying job</h2>
+      <p>Track completed orders and contribution after concessions alongside rep-assisted orders, approval delays and duplicate contacts. Attribute an order once even if a rep and automation both helped. If volume permits a holdout, define its assignment and observation window before the experiment; do not interpret a small handful of orders as proof of lift. Preserve current rep assignments and issued offers when switching providers.</p>
+      <h2>Primary references and scope</h2>
+      <p><a href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/shopify-messaging/marketing-automations/create">Shopify’s marketing automation guide</a> describes native recovery stages. Supplier-specific feature availability remains an account-level evaluation.</p>
+      <p><a href="https://help.shopify.com/en/manual/b2b/customer-login-and-accounts">Shopify’s B2B account guide</a> explains sign-in and company-location access.</p>
+      <p>Related: <a href="/compare">app comparisons</a> and <a href="/for">other store types</a>.</p>
     </div>
   </section>
 </BaseLayout>
