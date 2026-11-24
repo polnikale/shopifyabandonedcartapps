@@ -1,41 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
-import { appBySlug } from '../../data/apps';
-
-const uc = useCaseBySlug('email-design')!;
+import { site } from '../../content';
 const path = '/use-cases/email-design';
-const title = pageTitle(site, 'use-cases/email-design');
-const desc = description(site, 'use-cases/email-design');
+const title = "Design a recovery email that survives missing product data";
+const desc = "The design job is to make the shopper\u2019s next action understandable across real content states. A polished static template is only the first case to inspect.";
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
-      <p class="editorial-kicker mt-6">Cart recovery use case</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for email design</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">make product-led campaigns readable and mobile-friendly. Trigger: All campaign and flow sends.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Quick picks" picks={[{ label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy, suppressions, and margin branches.' }, { label: 'Shopify depth', tool: 'Klaviyo', reason: 'Event-rich automation when ops can maintain segments.' }, { label: 'Use case', tool: 'email design', reason: 'make product-led campaigns readable and mobile-friendly' }]} />
-    <div class="prose-shopify">
-      <p><strong>Trigger:</strong> All campaign and flow sends</p>
-      <p><strong>Timing:</strong> Mobile-first design; test on iOS Mail and Gmail app before every launch</p>
-      <p><strong>Exclusions:</strong> Desktop-only templates; Image-heavy emails without alt text; Tiny tap targets on mobile</p>
-      <p>Cart/browse/checkout focus: test holdout cohort, branch first-time vs repeat, verify inventory before send, cap incentives at $104 reference AOV.</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('klaviyo')!} rank={1} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'Workflow test at $104 AOV: make product-led campaigns readable and mobile-friendly']} />
-      <ToolReview app={appBySlug('omnisend')!} rank={2} paragraphs={[`${appBySlug('omnisend')!.shopifyFit}`, 'Workflow test at $104 AOV: make product-led campaigns readable and mobile-friendly']} />
-      <ToolReview app={appBySlug('sequenzy')!} rank={3} paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'Workflow test at $104 AOV: make product-led campaigns readable and mobile-friendly']} />
-      <ToolReview app={appBySlug('shopify-email')!} rank={4} paragraphs={[`${appBySlug('shopify-email')!.shopifyFit}`, 'Workflow test at $104 AOV: make product-led campaigns readable and mobile-friendly']} />
+  <section class="container py-16">
+    <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
+    <h1 class="hero-title mt-5 max-w-5xl">{title}</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">{desc}</p>
+    <div class="prose-shopify mt-12">
+      <h2>Prioritize the recovery action</h2>
+      <p>Lead with a recognizable product or checkout context and a descriptive return link. Keep important price, offer terms and action text readable without images. Use meaningful image alternatives and link labels; do not put the only expiry or eligibility explanation inside a banner.</p>
+      <h2>Design failure states</h2>
+      <p>Specify fallbacks for missing images, very long product names, multiple variants, empty personalization and unavailable items. Hide broken blocks rather than printing raw placeholders. Distinguish the current catalog price from the offer actually available to this shopper, especially when a sale changes after the cart was created.</p>
+      <h2>Protect the destination</h2>
+      <p>Check that the primary action returns to the intended store, market and supported cart state. Do not expose customer details in visible URLs or forwardable content unnecessarily. A shared or expired link needs a safe fallback, with a clear route to rebuild the basket or ask for help.</p>
+      <h2>Proposed rendering matrix</h2>
+      <p>Preview representative messages on narrow screens, with images disabled, dark appearance and keyboard navigation, then inspect the clients your audience actually uses. Include long translations and currency formats. These are proposed checks, not tests performed for this guide; record the template version and actual failures when your team runs them.</p>
+      <h2>Choose an editor by maintainability</h2>
+      <p>Ask a candidate supplier to edit a reusable product block, show its fallback and export the resulting message for inspection. Sequenzy is a possible candidate only if it demonstrates the required catalog and rendering behavior. Evaluate who can safely update the template when merchandising changes, rather than selecting a tool from an unsupported design ranking.</p>
     </div>
   </section>
 </BaseLayout>

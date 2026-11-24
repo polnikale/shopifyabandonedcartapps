@@ -1,41 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
-import { appBySlug } from '../../data/apps';
-
-const uc = useCaseBySlug('back-in-stock')!;
+import { site } from '../../content';
 const path = '/use-cases/back-in-stock';
-const title = pageTitle(site, 'use-cases/back-in-stock');
-const desc = description(site, 'use-cases/back-in-stock');
+const title = "Recover waitlisted demand at the correct variant";
+const desc = "A restock alert serves a shopper waiting for an unavailable item. It needs its own subscription and inventory rules rather than a recycled abandoned-cart timer.";
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
-      <p class="editorial-kicker mt-6">Cart recovery use case</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for back-in-stock alerts</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">capture demand for unavailable products. Trigger: Inventory restocked for waitlisted SKU or variant.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Quick picks" picks={[{ label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy, suppressions, and margin branches.' }, { label: 'Shopify depth', tool: 'Klaviyo', reason: 'Event-rich automation when ops can maintain segments.' }, { label: 'Use case', tool: 'back-in-stock alerts', reason: 'capture demand for unavailable products' }]} />
-    <div class="prose-shopify">
-      <p><strong>Trigger:</strong> Inventory restocked for waitlisted SKU or variant</p>
-      <p><strong>Timing:</strong> Immediate on restock; priority by waitlist signup order; expire after 48h</p>
-      <p><strong>Exclusions:</strong> Customers who bought substitute; Waitlist for discontinued products; Variants still partially OOS</p>
-      <p>Cart/browse/checkout focus: test holdout cohort, branch first-time vs repeat, verify inventory before send, cap incentives at $311 reference AOV.</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('klaviyo')!} rank={1} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'Workflow test at $311 AOV: capture demand for unavailable products']} />
-      <ToolReview app={appBySlug('privy')!} rank={2} paragraphs={[`${appBySlug('privy')!.shopifyFit}`, 'Workflow test at $311 AOV: capture demand for unavailable products']} />
-      <ToolReview app={appBySlug('omnisend')!} rank={3} paragraphs={[`${appBySlug('omnisend')!.shopifyFit}`, 'Workflow test at $311 AOV: capture demand for unavailable products']} />
-      <ToolReview app={appBySlug('firepush')!} rank={4} paragraphs={[`${appBySlug('firepush')!.shopifyFit}`, 'Workflow test at $311 AOV: capture demand for unavailable products']} />
+  <section class="container py-16">
+    <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
+    <h1 class="hero-title mt-5 max-w-5xl">{title}</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">{desc}</p>
+    <div class="prose-shopify mt-12">
+      <h2>Capture the promise</h2>
+      <p>Store the exact variant, market, notification channel and request timestamp with the shopper’s alert request. Explain whether the request is one notification or an ongoing subscription. Do not treat a restock request as blanket permission for unrelated promotions; have the operator review the applicable rules.</p>
+      <h2>Define available to whom</h2>
+      <p>Before release, check sellable inventory for the destination and fulfillment location, reservations, preorder status and variant publication. A positive product-level quantity is insufficient when the requested size remains unavailable. Decide whether tiny replenishments warrant a batch release or waiting for more supply.</p>
+      <h2>Release without implying reservation</h2>
+      <p>Choose a documented queue policy, such as signup order, and send in batches that staff can stop when stock runs out. Recheck availability before each batch. Say that stock is available to order rather than claiming it is held for the recipient unless a real reservation system enforces that promise.</p>
+      <h2>Retire stale requests</h2>
+      <p>Close the request after a qualifying purchase or fulfilled alert according to the stated policy. Decide explicitly whether a substitute purchase should close it: buying a different color may not satisfy the original request. For discontinued variants, offer a truthful status update rather than repeatedly promising a restock.</p>
+      <h2>Proposed acceptance exercise</h2>
+      <p>Use two sizes with only one restocked, a shopper who changed destination and a shopper who already bought the requested variant. Require the supplier to show the queue and suppression record for each. Compare successful requests fulfilled, unavailable landing pages and complaints, not only email clicks.</p>
     </div>
   </section>
 </BaseLayout>

@@ -1,41 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
-import { appBySlug } from '../../data/apps';
-
-const uc = useCaseBySlug('browse-abandonment')!;
+import { site } from '../../content';
 const path = '/use-cases/browse-abandonment';
-const title = pageTitle(site, 'use-cases/browse-abandonment');
-const desc = description(site, 'use-cases/browse-abandonment');
+const title = "Follow product interest without inventing purchase intent";
+const desc = "A product view is a weaker signal than a cart or checkout. Design browse recovery around identity, permitted tracking and useful product help before deciding whether any message should be sent.";
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
-      <p class="editorial-kicker mt-6">Cart recovery use case</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for browse abandonment</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">follow product interest without discounting too early. Trigger: Viewed product 2+ times or spent 60+ seconds without add-to-cart.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Quick picks" picks={[{ label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy, suppressions, and margin branches.' }, { label: 'Shopify depth', tool: 'Klaviyo', reason: 'Event-rich automation when ops can maintain segments.' }, { label: 'Use case', tool: 'browse abandonment', reason: 'follow product interest without discounting too early' }]} />
-    <div class="prose-shopify">
-      <p><strong>Trigger:</strong> Viewed product 2+ times or spent 60+ seconds without add-to-cart</p>
-      <p><strong>Timing:</strong> Email 1 at 4h with social proof; Email 2 at 48h with education; discount only in Email 3 if needed</p>
-      <p><strong>Exclusions:</strong> Recent purchasers of same product; Cart abandoners already in cart flow; Out-of-stock products</p>
-      <p>Cart/browse/checkout focus: test holdout cohort, branch first-time vs repeat, verify inventory before send, cap incentives at $303 reference AOV.</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('klaviyo')!} rank={1} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'Workflow test at $303 AOV: follow product interest without discounting too early']} />
-      <ToolReview app={appBySlug('sequenzy')!} rank={2} paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'Workflow test at $303 AOV: follow product interest without discounting too early']} />
-      <ToolReview app={appBySlug('drip')!} rank={3} paragraphs={[`${appBySlug('drip')!.shopifyFit}`, 'Workflow test at $303 AOV: follow product interest without discounting too early']} />
-      <ToolReview app={appBySlug('omnisend')!} rank={4} paragraphs={[`${appBySlug('omnisend')!.shopifyFit}`, 'Workflow test at $303 AOV: follow product interest without discounting too early']} />
+  <section class="container py-16">
+    <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
+    <h1 class="hero-title mt-5 max-w-5xl">{title}</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">{desc}</p>
+    <div class="prose-shopify mt-12">
+      <h2>Establish eligible identity</h2>
+      <p>Document how the browsing event is tied to a known contact, what tracking and messaging permissions apply and how those states reach the sender. Do not send to a guessed identity or merge devices solely because they share an address or network. Keep anonymous browsing outside this workflow until a supported identity relationship exists.</p>
+      <h2>Choose a meaningful entry rule</h2>
+      <p>Use your own buying cycle to propose an entry condition and evaluate it against accidental visits, staff traffic and repeated refreshes. Two views or a fixed dwell time are not universal purchase-intent thresholds. Record the product and event time, and set an expiry so old interest does not generate surprising messages.</p>
+      <h2>Give stronger signals priority</h2>
+      <p>Exit browse recovery when the shopper adds a cart, starts checkout, purchases or opts out. Define which system owns that transition and what happens if events arrive out of order. Do not let a delayed product-view event restart a browse message after an order.</p>
+      <h2>Offer help matched to uncertainty</h2>
+      <p>Choose a short product explanation, sizing help or compatibility information that the catalog can support. Avoid claiming the shopper abandoned a cart they never made. If the item becomes unavailable, suppress or use an explicitly designed restock request path rather than linking to an unusable purchase page.</p>
+      <h2>Proposed supplier exercise</h2>
+      <p>Replay a known shopper viewing a product, then buying on another device before the queued message. Also replay an anonymous visitor and a withdrawn permission. Inspect identity and exit logs. Evaluate complaints and additional contribution alongside conversions before expanding the audience or introducing incentives.</p>
     </div>
   </section>
 </BaseLayout>

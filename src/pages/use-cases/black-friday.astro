@@ -1,41 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
-import { appBySlug } from '../../data/apps';
-
-const uc = useCaseBySlug('black-friday')!;
+import { site } from '../../content';
 const path = '/use-cases/black-friday';
-const title = pageTitle(site, 'use-cases/black-friday');
-const desc = description(site, 'use-cases/black-friday');
+const title = "Coordinate Black Friday recovery with the sale calendar";
+const desc = "The practical job is to keep cart recovery, promotional campaigns and inventory changes consistent during a short sale. A universal teaser or last-chance schedule cannot do that.";
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
-      <p class="editorial-kicker mt-6">Cart recovery use case</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for Black Friday campaigns</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">prepare high-volume campaigns without burning the list. Trigger: Seasonal calendar; VIP early access; teaser sequence.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Quick picks" picks={[{ label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy, suppressions, and margin branches.' }, { label: 'Shopify depth', tool: 'Klaviyo', reason: 'Event-rich automation when ops can maintain segments.' }, { label: 'Use case', tool: 'Black Friday campaigns', reason: 'prepare high-volume campaigns without burning the list' }]} />
-    <div class="prose-shopify">
-      <p><strong>Trigger:</strong> Seasonal calendar; VIP early access; teaser sequence</p>
-      <p><strong>Timing:</strong> Teaser week -1; VIP access -24h; general launch; last chance +48h; exclude recent full-price buyers</p>
-      <p><strong>Exclusions:</strong> Recent purchasers at full price; Unengaged contacts (sunset first); Customers in active winback with better offer</p>
-      <p>Cart/browse/checkout focus: test holdout cohort, branch first-time vs repeat, verify inventory before send, cap incentives at $769 reference AOV.</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('klaviyo')!} rank={1} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'Workflow test at $769 AOV: prepare high-volume campaigns without burning the list']} />
-      <ToolReview app={appBySlug('omnisend')!} rank={2} paragraphs={[`${appBySlug('omnisend')!.shopifyFit}`, 'Workflow test at $769 AOV: prepare high-volume campaigns without burning the list']} />
-      <ToolReview app={appBySlug('sequenzy')!} rank={3} paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'Workflow test at $769 AOV: prepare high-volume campaigns without burning the list']} />
-      <ToolReview app={appBySlug('privy')!} rank={4} paragraphs={[`${appBySlug('privy')!.shopifyFit}`, 'Workflow test at $769 AOV: prepare high-volume campaigns without burning the list']} />
+  <section class="container py-16">
+    <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
+    <h1 class="hero-title mt-5 max-w-5xl">{title}</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">{desc}</p>
+    <div class="prose-shopify mt-12">
+      <h2>Build one offer calendar</h2>
+      <p>Record sale start and end with timezone, eligible products, markets, exclusions and who may extend the promotion. Assign one owner to resolve conflicts between campaign codes and recovery incentives. If a shopper already qualifies for the public sale, do not present that same price as a private recovery reward.</p>
+      <h2>Separate campaign and cart eligibility</h2>
+      <p>Choose which message takes priority when a scheduled launch and a cart reminder target the same shopper. Recheck purchases, availability and the active offer immediately before sending. Treat recent full-price buyers as a service-policy decision: route price adjustment questions to support rather than assuming every buyer must be excluded.</p>
+      <h2>Plan the transitions</h2>
+      <p>Draft versions for pre-sale, live sale and after expiry. Disable countdowns when the offer closes; a delayed queue must not send an expired claim. Decide what happens to carts created before the sale and recovered afterward. Keep a record of the offer actually shown rather than relying on the current template.</p>
+      <h2>Prepare a stop decision</h2>
+      <p>Name an operator who can pause both campaigns and recovery if checkout, inventory synchronization or discount redemption fails. Agree on evidence for resuming. Avoid compensating for weak response by automatically adding more sends; investigate availability and sender health first.</p>
+      <h2>Proposed rehearsal and review</h2>
+      <p>Simulate a queued reminder crossing sale expiry, an exhausted variant and a conflicting code. Inspect the rendered message and checkout outcome. After the event, reconcile refunds, contribution and overlapping sends by cohort; peak attributed revenue alone cannot establish the campaign’s incremental effect.</p>
     </div>
   </section>
 </BaseLayout>
