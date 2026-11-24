@@ -1,43 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { segmentBySlug } from '../../data/segments';
-import { appBySlug } from '../../data/apps';
-
-const segment = segmentBySlug('pet-products')!;
+import { site } from '../../content';
 const path = '/for/pet-products';
-const title = pageTitle(site, 'for/pet-products');
-const desc = description(site, 'for/pet-products');
-const featuredApps = [appBySlug('sequenzy')!, appBySlug('klaviyo')!, appBySlug('omnisend')!, appBySlug('drip')!];
+const title = "Shopify cart recovery for pet product stores";
+const desc = "Keep species, product suitability and subscription state out of generic urgency.";
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
-  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/for" class="link text-sm font-bold">← All store types</a>
-      <p class="editorial-kicker mt-6">Cart recovery · pet product stores</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for pet product stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">pet product stores lose checkout revenue to pet lifecycle, reorder timing, and product education. This guide ranks cart recovery apps by timing, margin-safe incentives, and Shopify data depth for 2–8 week reorder by pet size and product type; life-stage transitions.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Top cart recovery apps" picks={[{ label: 'Best overall', tool: 'Sequenzy', reason: 'Playbook-first recovery with margin math and fast iteration.' }, { label: 'Best Shopify depth', tool: 'Klaviyo', reason: 'Native checkout events and variant segmentation.' }, { label: 'Segment fit', tool: featuredApps[2]?.name || 'Omnisend', reason: segment.pain }]} />
-    <div class="prose-shopify">
-      <p>Pet Product Stores lose checkout revenue to pet lifecycle, reorder timing, and product education. 2–8 week reorder by pet size and product type; life-stage transitions</p>
-      <p>Priority workflows: Pet life-stage segmentation, Reorder by consumption math, Breed/size-specific recommendations, New pet onboarding series.</p>
-      <h2 class="font-serif text-3xl font-black text-[#24170f] mt-10">Recovery ladder for pet product stores</h2>
-      <p>Email 1 at 94 minutes — helpful reminder, no discount. Email 2 at 24 hours — shipping, returns, sizing, or category-specific proof. SMS at 4 hours for TCPA-opted shoppers only. Holdout 5% monthly for incrementality.</p>
-      <p><strong>Triggers:</strong> checkout started or cart updated without order. <strong>Exclusions:</strong> recent purchasers, OOS lines, active support tickets, VIP pending offers. <strong>Escalation:</strong> email → SMS → optional push with shared frequency cap (max 3 touches / 7 days).</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('sequenzy')!} rank={1} badge="Top pick" paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'At $557 AOV and 65% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('klaviyo')!} rank={2} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'At $557 AOV and 65% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('omnisend')!} rank={3} paragraphs={[`${appBySlug('omnisend')!.shopifyFit}`, 'At $557 AOV and 65% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('drip')!} rank={4} paragraphs={[`${appBySlug('drip')!.shopifyFit}`, 'At $557 AOV and 65% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-    </div>
-  </section>
+<ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+<section class="container py-16 md:py-24">
+<a class="link" href="/for">← All store types</a>
+<h1 class="hero-title mt-6">Shopify cart recovery for pet product stores</h1>
+<p class="mt-7 max-w-3xl text-xl leading-9">Keep species, product suitability and subscription state out of generic urgency.</p>
+<article class="prose-shopify mt-12 max-w-4xl">
+<h2>Help shoppers identify the right product</h2>
+<p>A harness basket needs actual measurements and fit guidance; food needs accurate ingredient and suitability information from the seller. Do not infer a pet’s medical needs from a browsing event or turn recovery copy into treatment advice. Species, life stage and size should guide recommendations only when the underlying information is reliable.</p>
+<h2>Coordinate supplies with existing plans</h2>
+<p>Separate one-time trial packs, bulk bags and recurring deliveries. A cart abandonment is not proof that the household has run out. Check active subscriptions and recent orders before adding a replenishment prompt, and give the shopper a route to manage the existing plan rather than creating another subscription.</p>
+<h2>Proposed acceptance exercise</h2>
+<p>Create a harness checkout in a specific size and a food checkout with recurring delivery. Confirm the recovery link retains the size and purchase option. Place a subscription order in another session, then inspect remaining reminders. Test a mixed-species basket to ensure recommendations do not turn a dog-product event into a cat-food claim.</p>
+<h2>Compare beyond recovered revenue</h2>
+<p>Require candidate tools to demonstrate subscription-state exclusions and selected-variant links using your actual integration. Review unsubscribe rates, duplicate subscriptions, exchanges and refund costs alongside recovered orders. Start with product guidance when suitability is unclear; an incentive cannot resolve the wrong harness size or an unsuitable product recommendation.</p>
+<h2>Check the trigger before replacing the tool</h2>
+<p>Shopify distinguishes checkout recovery from earlier cart activity. Review <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/abandoned-checkouts">Shopify’s recovery eligibility</a> and inspect the actual workflow before comparing replacements. Proposed exercises above have not been performed.</p>
+<p>Related decisions: <a class="link" href="/for/digital-products">digital product shops</a> · <a class="link" href="/for/fashion">fashion stores</a>.</p>
+</article>
+</section>
 </BaseLayout>

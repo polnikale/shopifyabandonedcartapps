@@ -1,43 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
-import { site, description, pageTitle } from '../../content';
-import { segmentBySlug } from '../../data/segments';
-import { appBySlug } from '../../data/apps';
-
-const segment = segmentBySlug('home-goods')!;
+import { site } from '../../content';
 const path = '/for/home-goods';
-const title = pageTitle(site, 'for/home-goods');
-const desc = description(site, 'for/home-goods');
-const featuredApps = [appBySlug('sequenzy')!, appBySlug('klaviyo')!, appBySlug('drip')!, appBySlug('mailchimp')!];
+const title = "Shopify cart recovery for home goods stores";
+const desc = "Keep dimensions, finish and delivery feasibility attached to the saved basket.";
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
-  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/for" class="link text-sm font-bold">← All store types</a>
-      <p class="editorial-kicker mt-6">Cart recovery · home goods stores</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for home goods stores</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">home goods stores lose checkout revenue to larger catalogs, style preferences, and delayed purchase cycles. This guide ranks cart recovery apps by timing, margin-safe incentives, and Shopify data depth for 4–16 weeks; room-by-room purchasing; heavy inspiration browsing.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Top cart recovery apps" picks={[{ label: 'Best overall', tool: 'Sequenzy', reason: 'Playbook-first recovery with margin math and fast iteration.' }, { label: 'Best Shopify depth', tool: 'Klaviyo', reason: 'Native checkout events and variant segmentation.' }, { label: 'Segment fit', tool: featuredApps[2]?.name || 'Omnisend', reason: segment.pain }]} />
-    <div class="prose-shopify">
-      <p>Home Goods Stores lose checkout revenue to larger catalogs, style preferences, and delayed purchase cycles. 4–16 weeks; room-by-room purchasing; heavy inspiration browsing</p>
-      <p>Priority workflows: Room and style segmentation, Inspiration content series, Cross-sell by room completion, Seasonal refresh campaigns.</p>
-      <h2 class="font-serif text-3xl font-black text-[#24170f] mt-10">Recovery ladder for home goods stores</h2>
-      <p>Email 1 at 56 minutes — helpful reminder, no discount. Email 2 at 50 hours — shipping, returns, sizing, or category-specific proof. SMS at 4 hours for TCPA-opted shoppers only. Holdout 5% monthly for incrementality.</p>
-      <p><strong>Triggers:</strong> checkout started or cart updated without order. <strong>Exclusions:</strong> recent purchasers, OOS lines, active support tickets, VIP pending offers. <strong>Escalation:</strong> email → SMS → optional push with shared frequency cap (max 3 touches / 7 days).</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('sequenzy')!} rank={1} badge="Top pick" paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'At $745 AOV and 46% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('klaviyo')!} rank={2} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'At $745 AOV and 46% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('drip')!} rank={3} paragraphs={[`${appBySlug('drip')!.shopifyFit}`, 'At $745 AOV and 46% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-      <ToolReview app={appBySlug('mailchimp')!} rank={4} paragraphs={[`${appBySlug('mailchimp')!.shopifyFit}`, 'At $745 AOV and 46% margin, margin-safe recovery requires conditional incentive branches — not one site-wide cart code.']} />
-    </div>
-  </section>
+<ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+<section class="container py-16 md:py-24">
+<a class="link" href="/for">← All store types</a>
+<h1 class="hero-title mt-6">Shopify cart recovery for home goods stores</h1>
+<p class="mt-7 max-w-3xl text-xl leading-9">Keep dimensions, finish and delivery feasibility attached to the saved basket.</p>
+<article class="prose-shopify mt-12 max-w-4xl">
+<h2>Fit includes the home and the delivery route</h2>
+<p>A sofa shopper may need measurements for a doorway as well as a room. Link to the item’s actual dimensions, assembly requirements and delivery service. A room-inspiration email can help discovery, but it does not answer whether the selected furniture can be delivered or carried upstairs. Offer a support route for those questions.</p>
+<h2>Distinguish stock from made-to-order</h2>
+<p>Retain finish, fabric and configuration in the recovery link. For made-to-order items, use the current production estimate and cancellation terms; do not manufacture low-stock urgency. For ready-stock pieces, check availability again before a reminder makes a specific promise. Keep accessories distinct from the principal item when only part of a room basket remains available.</p>
+<h2>Proposed acceptance exercise</h2>
+<p>Abandon a configured piece plus an accessory, then change the lead time and remove the accessory from sale. Inspect the queued message and recovered checkout for configuration, delivery estimate and unavailable lines. Test a destination requiring a delivery quote; the next action should help obtain that quote rather than promise free shipping.</p>
+<h2>Compare tools on expensive failure cases</h2>
+<p>Require a demonstration of option retention and how a delivery quote pauses the sequence. Report recovered contribution after bulky delivery, assembly subsidies and returns exposure. Treat room-completion recommendations as post-purchase merchandising once delivery and product fit are resolved, rather than another reason to multiply checkout reminders.</p>
+<h2>Check the trigger before replacing the tool</h2>
+<p>Shopify distinguishes checkout recovery from earlier cart activity. Review <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/abandoned-checkouts">Shopify’s recovery eligibility</a> and inspect the actual workflow before comparing replacements. Proposed exercises above have not been performed.</p>
+<p>Related decisions: <a class="link" href="/for/digital-products">digital product shops</a> · <a class="link" href="/for/fashion">fashion stores</a>.</p>
+</article>
+</section>
 </BaseLayout>

@@ -1,194 +1,36 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import { site, description, pageTitle } from '../../content';
+import { site } from '../../content';
 import { SEGMENTS } from '../../data/segments';
-
 const path = '/for';
-const title = pageTitle(site, 'for');
-const desc = description(site, 'for');
-
+const title = 'Cart recovery by Shopify store type';
+const desc = 'Choose a recovery workflow around the unresolved purchase decision, product constraints and message ownership.';
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
-  <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-
-  <section class="py-16 md:py-24">
-    <div class="container">
-      <h1 class="hero-title">Cart recovery by Shopify store type</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">
-        Abandonment patterns are not universal. A $840 jewelry cart and a $38 supplement starter need different delay ladders, proof blocks, and incentive ceilings. Vertical guides model recovery timing, segment AOV bands, margin math, and app stacks for twelve catalog types — with operating contracts you adapt, not copy blindly.
-      </p>
-
-      <div class="mt-10 max-w-4xl">
-        <TldrBox
-          title="Vertical quick map"
-          picks={[
-            {
-              label: 'Fast impulse',
-              tool: 'Beauty / F&B',
-              reason: 'Shorter delays; replenishment overlap rules.',
-            },
-            {
-              label: 'Long consideration',
-              tool: 'Jewelry / high-AOV',
-              reason: 'Trust before discount; 4–12h first touch.',
-            },
-            {
-              label: 'Variant chaos',
-              tool: 'Fashion',
-              reason: 'Size OOS checks; 48–72h email two common.',
-            },
-            {
-              label: 'Account sales',
-              tool: 'B2B wholesale',
-              reason: 'Rep routing beats coupon automation.',
-            },
-          ]}
-        />
-      </div>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>What each vertical guide contains</h2>
-        <p>
-          Every <a class="link" href="/for">/for</a> page includes a recovery delay ladder tuned to buying cycle, cart value band table ($38–$840 reference range), featured app rankings for that catalog, eight FAQs, and operating contract rows: trigger, timing, exclusions, metrics. Scenarios use vertical-realistic copy — shade matching for beauty, size runs for fashion, compliance boundaries for supplements — not generic "complete your purchase" templates.
-        </p>
-
-        <h2>Fashion and apparel</h2>
-        <p>
-          Size and color OOS destroys recovery trust — inventory check before every send. Delays: 45–90m email one for flash, 48–72h email two when fit deliberation is norm. SMS only VIP or waitlist segments during drops; broad SMS trains "add to cart, wait for text code" behavior. Browse abandonment softer than cart — do not merge flows.
-        </p>
-
-        <h2>Beauty and supplements</h2>
-        <p>
-          Replenishment and subscribe-and-save states suppress cart discounts — conflicting offers confuse routine buyers. Supplements: structure-function claim compliance in recovery copy. Sample carts recover with education and bundle path, not 20% off hour one. SMS branch economical when replenishment reminder unopened — not parallel promotional blast.
-        </p>
-
-        <h2>Jewelry and high-AOV</h2>
-        <p>
-          Financing, return policy, authentication proof on email one. Delay first touch 2–12 hours — instant coupon feels predatory on $600+ consideration. Discount only predicted-sensitive segments email three; VIP full-price buyers never see cart code. Holdout reporting mandatory — high-AOV recovery attribution inflates easily.
-        </p>
-
-        <h2>Food, beverage, and pet</h2>
-        <p>
-          Perishable and consumable urgency only when stock verified. Pet lifecycle segments by species and reorder cadence. Subscription overlap rules as supplements. Cold-chain or fresh delivery windows affect SMS timing — evening texts before delivery day work; random promos do not.
-        </p>
-
-        <h2>Home goods and print-on-demand</h2>
-        <p>
-          Longer consideration and style preference matter — room photos, dimensions, material FAQ blocks. POD margin sensitivity caps discounts aggressively. Production delay transparency beats fake urgency when print queue is 5–7 days.
-        </p>
-
-        <h2>Digital products and subscription boxes</h2>
-        <p>
-          Digital: onboarding anxiety drives abandons at checkout — clarify access delivery in email one. Subscription boxes: cart with first box needs cadence and skip policy education; winback overlaps require exclusion when skip recovery active.
-        </p>
-
-        <h2>B2B wholesale</h2>
-        <p>
-          Consumer cart recovery with public coupon often wrong — tag wholesale accounts for rep follow-up or quote workflow. MOQ and net terms questions belong in email one, not 10% off. Automation still valuable for logged-in approved buyers with price lists.
-        </p>
-
-        <h2>Cross-vertical discipline</h2>
-        <p>
-          Hold out 5% of abandons monthly; report contribution margin after discount and channel fees; suppress OOS variants before urgency language; document collision with welcome and winback. Vertical guides adjust timing and copy — not these governance rules.
-        </p>
-
-        <h2>Segment AOV modeling reference</h2>
-        <p>
-          Use three bands when tuning delays: under $50 impulse, $50–$200 considered, $200+ trust-heavy. Fashion skews band two with size risk. Jewelry and high-AOV skew band three with financing blocks. Supplements skew band one with replenishment overlap. Map your catalog to bands before copying another vertical's delay ladder verbatim.
-        </p>
-
-        <h2>Featured app patterns by vertical</h2>
-        <p>
-          Fashion and beauty: Klaviyo or Sequenzy for variant depth; Omnisend for fast launch. High-AOV and jewelry: Sequenzy strategy with strict no-discount VIP paths; Klaviyo CLV routing. Food, pet, supplements: replenishment suppression rules; Postscript SMS for reorder urgency. B2B: ActiveCampaign or human handoff — not consumer cart blasts. Digital: immediate onboarding email one; cart rare. Print-on-demand: margin caps on all incentives.
-        </p>
-
-        <h2>Wholesale and hybrid buyer recovery</h2>
-        <p>
-          B2B wholesale guides cover rep routing — consumer cart automation with public coupons often backfires on net-terms accounts. Hybrid stores tag approved wholesale buyers out of DTC recovery; logged-in price list customers may need quote follow-up not 10% off. Misapplied DTC recovery on B2B carts damages rep relationships more than missed automation revenue.
-        </p>
-
-        <h2>Mobile-first vertical recovery</h2>
-        <p>
-          Fashion flash, beauty drops, and streetwear see higher mobile abandon rates — SMS branch economics improve when TCPA list quality high. Email-first still default; SMS at hour 4–6 when silent. Over-texting trains drop-waiting behavior — cap SMS recovery to one touch per abandon unless explicit two-way support conversation started.
-        </p>
-
-        <h2>Multi-vertical merchant reporting</h2>
-        <p>
-          Brands running fashion plus supplements plus accessories under one ESP must segment recovery reporting by vertical — blended dashboards hide supplement compliance risk and fashion discount destruction. Assign vertical owner per catalog line; quarterly review compares holdout lift and contribution margin per vertical not blended recovery rate. Cross-vertical suppression rules documented: supplement subscriber never receives fashion flash SMS; wholesale jewelry buyer never receives snack cart coupon.
-        </p>
-      </article>
-
-      <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {SEGMENTS.map((s) => (
-          <a class="card recovery-card" href={`/for/${s.slug}`}>
-            <h2 class="text-xl font-black">{s.name}</h2>
-            <p class="mt-2 text-sm text-slate-600">Cart recovery must account for {s.pain}.</p>
-            <p class="mt-3 text-sm font-bold text-amber-800">{s.buyingCycle}</p>
-          </a>
-        ))}
-      </div>
-
-  <section class="container py-12">
-    <div class="prose-shopify">
-      <p class="editorial-kicker">Field notes</p>
-      <h2 class="font-serif text-4xl font-black text-amber-950 mt-3">Vertical recovery timing in the wild</h2>
-      <p><strong>Scenario A — Coffee subscription.</strong> Imported inactive profiles tanked placement; fourteen-day warmup before cart recovery scaled. Vertical guide delay ladder overridden until seed inbox placement stabilized.</p>
-      <p><strong>Scenario B — Beauty enterprise SMS.</strong> Attentive concierge pricing justified at 8%+ checkout SMS opt-in — SMB vertical defaults do not apply when compliance overhead is the product.</p>
-      <p><strong>Scenario C — Protein subscription, $38 cart.</strong> Klaviyo email at two hours, Postscript at four only when email unopened; flavor OOS branch swapped SKU instead of blasting urgency on depleted inventory.</p>
-    </div>
-  </section>
-  <section class="container py-12">
-    <div class="ledger-card">
-      <p class="editorial-kicker">Vertical lab</p>
-      <h2 class="font-serif text-3xl font-black text-amber-950 mt-3">Match guide to catalog physics</h2>
-      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Jewelry guides assume long consideration — supplement guides assume replenishment windows. Pick the vertical whose buying cycle matches your median days-to-second-order, not your aspirational brand positioning.</p>
-      <p class="mt-4 text-[17px] leading-8 text-amber-900/85">Holdout five percent monthly per vertical band. Vertical priors are starting points; your checkout analytics override fashion defaults when sample size exceeds two hundred abandons per variant.</p>
-    </div>
-  </section>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Testing vertical timing locally</h2>
-        <p>
-          Before adopting vertical delay ladder wholesale, run 30-day test on one band: measure recovery margin email one at 45m versus 2h for your catalog. Vertical guides are priors not laws — your checkout analytics override fashion defaults when data sufficient. Minimum 200 abandons per variant for directional read; holdout 5% always.
-        </p>
-        <p>
-          Seasonality shifts vertical math: jewelry Q4 gift spikes shorten delays; supplement January wellness resets lengthen education before offer. Update vertical playbook notes quarterly in ops wiki — static timing erodes margin silently.
-        </p>
-        <p>Vertical pages are living documents — when your catalog pivots, re-read closest vertical even if store type unchanged on paper.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Vertical hub synthesis</h2>
-        <p>Twelve vertical guides map recovery timing to catalog psychology — fashion size anxiety, supplement compliance, jewelry trust, B2B rep routing. None replace holdout measurement on your store. Use vertical as prior, analytics as posterior. Multi-vertical merchants run separate recovery reporting per vertical — averaging jewelry and impulse snack recovery margin hides jewelry discount destruction.</p>
-        <p>Vertical hub updates when Shopify ships catalog features affecting recovery — combined listings, B2B catalogs, markets — re-read relevant vertical when enabling new Shopify capability.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Vertical hub primer — catalog psychology and delay ladders</h2>
-        <p>Twelve store-type guides tune recovery delays and incentive ceilings to catalog psychology. Fashion needs out-of-stock checks and forty-eight to seventy-two hour email two spacing — size and fit anxiety requires reassurance before discount. Jewelry and high-AOV need trust signals, return policy clarity, and authentication proof before any incentive. Supplements need compliance-safe copy, replenishment suppression for subscribers, and conservative SMS timing. B2B needs rep routing not consumer coupons — net-terms buyers interpret public discounts as relationship insult.</p>
-        <p>Use vertical as prior; your checkout analytics as posterior. Holdout five percent per vertical when running multi-catalog brands — blended recovery reporting lies. Food and pet verticals emphasize replenishment windows; digital goods emphasize immediate onboarding email one because cart abandon is rare. Print-on-demand verticals cap all incentives at margin floor — recovery rate without contribution target is vanity metric.</p>
-        <p>Mobile-first verticals (streetwear drops, beauty flash sales) justify SMS branch at hour four to six when email silent — but cap one SMS per abandon to avoid training drop-waiting behavior. Wholesale hybrid stores tag approved B2B buyers out of DTC recovery flows; logged-in price list customers need quote follow-up not ten percent off blast.</p>
-        <p>Seasonality shifts vertical math: jewelry Q4 gift spikes shorten delays; supplement January wellness resets lengthen education before offer. Update vertical playbook notes quarterly in ops wiki — static timing erodes margin silently across eighteen months.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Recovery lab editorial — vertical as operating prior</h2>
-        <p>Vertical pages are not SEO filler — they encode recovery priors from hundreds of Shopify cart abandon patterns. A furniture merchant reading fashion defaults will over-discount and under-trust; a snack brand reading jewelry defaults will under-recover with excessive trust copy and no urgency. Match closest vertical, then run thirty-day local test on one delay band before wholesale adoption.</p>
-        <p>Cross-vertical contamination is common failure: parent brand runs supplements and accessories under one ESP account without segment separation — supplement compliance copy lands on accessory buyers, accessory urgency lands on supplement subscribers. Vertical hub assumes segment hygiene; fix segmentation before tuning delays.</p>
-        <p>Finance should see vertical-specific recovery margin quarterly when multi-catalog — board slides averaging verticals hide which catalog subsidizes discount addiction. Retention lead owns vertical playbook updates; agency cannot own vertical timing without access to margin data.</p>
-        <p>Pair vertical guide with apps shortlist and compare finalists — vertical narrows delay and incentive ceiling; apps and compare pick execution platform. Skipping vertical when catalog has obvious psychology (high-AOV trust, B2B rep routing, regulated supplements) wastes first ninety days of recovery program.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Vertical recovery case notes</h2>
-        <p><strong>Fashion:</strong> Size chart in email one, OOS check before email two, forty-eight hour gap minimum — discount before fit reassurance trains returns. <strong>Jewelry:</strong> Authentication and return policy before incentive; VIP repeat buyers on no-discount path always. <strong>Supplements:</strong> Compliance copy review quarterly; replenishment subscribers excluded from cart discount paths. <strong>B2B:</strong> Tag wholesale accounts out of DTC recovery; rep notification replaces coupon. <strong>Food and pet:</strong> Replenishment window suppression prevents cart offer during active subscription cycle.</p>
-        <p>Each vertical page below expands delay ladders, incentive ceilings, and channel mix for that catalog psychology. Click closest match, run thirty-day local test, then adopt — vertical defaults are priors not laws.</p>
-        <p>Document vertical test results in ops wiki with date and order volume — future retention hires inherit evidence instead of re-debating fashion versus jewelry defaults from scratch every eighteen months.</p>
-        <p>Vertical hub pairs with guides timing and apps shortlist — vertical sets delay prior, guides set governance, apps execute. Skipping any leg of triangle produces recovery program that looks complete in slide deck and leaks margin in Shopify finance export.</p>
-      </article>
-    </div>
-  </section>
+<ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
+<section class="container py-16 md:py-24">
+<h1 class="hero-title">Cart recovery by Shopify store type</h1>
+<article class="prose-shopify mt-12 max-w-4xl">
+<p>A store category helps identify what to investigate; it does not establish a universal send time, basket value or winning app. Start with the unresolved purchase question and the data your workflow can actually use. These guides describe decision criteria and proposed checks, rather than merchant test results.</p>
+<h2>Choose the constraint that can invalidate the reminder</h2>
+<p>For fashion, retain size and color and resolve fit. For jewelry, check personalization, proof and the gift date. Home goods add dimensions, configuration and delivery access. High-value purchases may require an owned consultation. Digital goods need a clear boundary between unpaid checkout and paid access support. Food and pet catalogs need purchase-type and subscription coordination; perishable food also needs delivery feasibility.</p>
+<h2>Mixed catalogs need line-level decisions</h2>
+<p>A basket containing a download and a physical item cannot inherit a single shipping promise. A subscription line and a one-time purchase need different terms. Identify which unavailable item should suppress a whole reminder and when it is appropriate to offer the remaining basket. Keep the shopper’s choice explicit instead of silently substituting products.</p>
+<h2>Confirm eligibility before tuning timing</h2>
+<p>Read <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/abandoned-checkouts">Shopify’s checkout recovery documentation</a>. A cart event is not interchangeable with an eligible checkout. Assign one owner for each message and inspect queued sends when an order arrives. When changing providers, inventory old automations as well as the new workflow so the same checkout does not receive both.</p>
+<h2>Build a practical selection brief</h2>
+<p>Record the entry event, necessary product properties, purchase exit, channel permissions and support handoff. Ask each candidate to demonstrate your hardest basket, such as an engraved item, an unavailable size or a changed delivery cutoff. Save what happened and the unresolved limitation. A generic integration badge or a ranked shortlist cannot answer whether those properties survive a recovered checkout.</p>
+<h2>Proposed measurement plan</h2>
+<p>Choose a message change that addresses a specific barrier, such as sizing help or delivery clarification. Define the comparison, observation period and decision metric before activation. Estimate the sample required from your own baseline and the effect worth detecting; there is no universal minimum number of carts or holdout percentage. Allow time for cancellations and returns, especially for gifts and high-value purchases.</p>
+<p>Report recovered orders separately from incremental lift. Deduct the full revenue discount, goods cost and relevant variable costs when comparing contribution. Keep assisted sales, subscription duplicates and unavailable-product failures visible. Segment results by the constraint being addressed so a blended recovery rate does not conceal a costly failure mode.</p>
+<h2>Use the guides as working documents</h2>
+<p>Revisit the relevant guide when adding custom options, changing a fulfillment promise or changing subscription providers. Keep an owner and a dated record of proposed checks and observed results. Some linked guides may still contain editorial issues; this hub does not certify their accuracy or establish app performance.</p>
+</article>
+<div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+{SEGMENTS.map((s) => (
+<a class="card recovery-card" href={`/for/${s.slug}`}><h2 class="text-xl font-black">{s.name}</h2><p class="mt-2 text-sm">Review recovery decisions for this catalog.</p></a>
+))}
+</div>
+</section>
 </BaseLayout>
