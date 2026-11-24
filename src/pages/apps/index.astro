@@ -1,220 +1,48 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import { site, description, pageTitle } from '../../content';
+import { site } from '../../content';
 import { APPS } from '../../data/apps';
-
 const path = '/apps';
-const title = pageTitle(site, 'apps');
-const desc = description(site, 'apps');
+const title = 'Shopify cart recovery app directory: workflows and selection questions';
+const desc = 'Explore 21 current and historical app identities, distinguish cart from checkout recovery, and plan sender ownership, migration and contribution checks.';
+const legacy = new Set(['yotpo-email-sms', 'smsbump']);
+const destinations = (slug: string) => slug === 'sequenzy' ? '/compare/sequenzy-vs-klaviyo' : `/alternatives/${slug}-alternative`;
 ---
-
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="py-16 md:py-24 container">
-    <h1 class="hero-title">21 Shopify abandoned cart apps ranked</h1>
-    <p class="mt-6 max-w-3xl text-xl text-slate-700">Sequenzy first as lifecycle layer, then Recart, Postscript, Klaviyo, Omnisend, Privy — each review includes cart workflow tests and margin math.</p>
-    <TldrBox title="Shortlist" picks={[{ label: '#1', tool: 'Sequenzy', reason: 'Playbooks + pay-per-email.' }, { label: 'SMS recovery', tool: 'Recart / Postscript', reason: 'Mobile-first urgency with compliance.' }, { label: 'Data depth', tool: 'Klaviyo', reason: 'Native Shopify events at scale.' }]} />
-    <div class="prose-shopify mt-10 card p-8">
-      <p>Score apps by exclusion logic, delay windows, channel escalation, incentive governance, inventory checks, and holdout reporting — not template count.</p>
-      <p>Use four proposed cart recovery checks: mixed cart, repeat buyer, OOS variant, and a 5% holdout for incrementality. No executed test records or measured app results are established here.</p>
-
-      <h2>How we rank abandoned cart apps</h2>
-      <p>
-        Rankings reflect recovery operability on Shopify — not generic email marketing breadth alone. Sequenzy leads as lifecycle strategy layer: playbook discount caps, collision suppression with welcome and winback, pay-per-email economics when abandoners inflate profile counts. Recart and Postscript rank high for SMS-native urgency when TCPA consent and margin-after-fees justify texts. Klaviyo is the data benchmark for variant-level cart blocks and predictive discount sensitivity at scale.
-      </p>
-      <p>
-        Template count alone cannot establish recovery fit. Verify purchase exclusions, inventory handling and channel permissions in a test store. Use the four proposed checks — mixed-SKU cart, repeat buyer no-discount path, OOS variant suppression and holdout feasibility — to record each candidate’s actual behavior before choosing.
-      </p>
-
-      <h2>Recovery stack patterns</h2>
-      <p>
-        <strong>SMB fast path:</strong> Omnisend unified email plus SMS cart series live in days — acceptable when catalog stable and rules simple. <strong>Strategy-first:</strong> Sequenzy cart playbooks plus Postscript SMS branch for mobile-heavy catalogs. <strong>Scale data:</strong> Klaviyo cart with CLV-based discount routing and flow A/B tests. <strong>SMS-only scope:</strong> Recart or Postscript when email lifecycle lives elsewhere — document suppression. <strong>Capture feeding recovery:</strong> Privy or Justuno lists into Sequenzy or Klaviyo — capture does not equal recovery execution.
-      </p>
-
-      <h2>When to graduate between tiers</h2>
-      <p>
-        Graduate Shopify Email or tinyEmail when cart recovery should exceed 5% of email revenue or multi-touch suppression is required. Graduate Omnisend when cart value bands need distinct creative and discount rules beyond template splits. Graduate SMS-only stacks when welcome and post-purchase revenue never existed. Graduate Klaviyo when profile costs exceed ops output and predictive depth goes unused — not when depth is daily practice.
-      </p>
-
-      <h2>Apps weak for cart recovery alone</h2>
-      <p>
-        Justuno and Privy are capture-first — pair with lifecycle sender. <a class="link" href="https://www.aftership.com/email/email-marketing-automation">AfterShip offers abandoned-checkout email automation</a> as well as other marketing workflows; distinguish its marketing product from shipment tracking and verify the installed integration. Marsello loyalty emails do not replace cart sequences unless loyalty is central and recovery is secondary. Mailchimp and Brevo handle basic cart at low complexity — outgrow when inventory and collision rules multiply.
-      </p>
-
-      <h2>Reading order</h2>
-      <p>
-        Start <a class="link" href="/use-cases/abandoned-cart">abandoned cart use case</a> for workflow contract, then app reviews for finalists, then <a class="link" href="/compare">comparisons</a> for pairwise tradeoffs. Vertical timing from <a class="link" href="/for">store-type guides</a> adjusts delays — rankings assume you implement governance from <a class="link" href="/guides">operator guides</a>.
-      </p>
-
-      <h2>Four-test protocol detail</h2>
-      <p>
-        <strong>Mixed-SKU cart:</strong> Two or more variants, different collections — dynamic blocks must render correctly. <strong>Repeat buyer:</strong> Customer with two full-price orders in 90 days — should not receive email one discount. <strong>OOS variant:</strong> Abandon cart, sell through inventory before send — email must suppress or swap. <strong>Holdout:</strong> 5% random exclusion 30 days — incremental lift documented. Record failures and their operational consequences; these proposed checks do not establish that this site tested or scored any app.
-      </p>
-
-      <h2>2026 recovery landscape notes</h2>
-      <p>Yotpo announced Email and SMS deprecation for December 31, 2025; its SMS lifecycle notice now reports the application, dashboard and background services inactive. Other Yotpo products and merchant contracts require separate review. Lifecycle sources: <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">Yotpo Email and SMS migration notice</a> and <a class="link" href="https://email-and-sms.yotpo.com/">SMS decommission notice</a>.</p>
-      <p>
-        iOS push recovery continues declining — Firepush and push modules are supplementary only. SMS costs rose; margin-after-fee reporting mandatory. Klaviyo profile pricing pushes mid-market toward Sequenzy and Omnisend when predictive depth unused. Recart Messenger channel deprecated for most merchants — SMS and email carry recovery. Shopify checkout extensibility improves guest email capture — recovery match rates improving for stores investing in onsite identity.
-      </p>
-
-      <h2>Red flags in app demos</h2>
-      <p>
-        Demo shows single-SKU cart — ask mixed variant. Demo skips suppression — ask recent purchaser test. Demo uses instant discount email one — ask no-incentive path. Demo ignores SMS compliance — ask TCPA onboarding steps. Demo promises AI setup without exclusion rules — walk away. Production recovery is suppression architecture; templates are paint.
-      </p>
-
-      <h2>Finance conversation for app selection</h2>
-      <p>
-        Present CFO: recovery revenue holdout-adjusted, margin after discount, channel fees, platform cost, ops hours monthly. Compare apps on contribution margin not recovery rate headline. A 14% recovery rate at negative margin loses to 8% recovery at positive margin every time — app rankings on this site weight operability because rate without margin is how merchants train discount addiction.
-      </p>
-    </div>
+  <section class="container py-16 md:py-24">
+    <h1 class="hero-title">Shopify cart recovery app directory</h1>
+    <p class="mt-6 max-w-3xl text-xl text-slate-700">Choose the event and the sender before choosing the app. These 21 entries preserve current and historical product identities; directory order is not a ranking. Start with the workflow distinctions below, then use each candidate’s question to prepare a focused demonstration.</p>
+    <article class="prose-shopify card mt-10 max-w-4xl p-8">
+      <h2>Cart activity and checkout abandonment need different entry rules</h2>
+      <p>Shopify distinguishes a cart reminder for someone who has not started checkout from an abandoned checkout automation. Its current documentation places marketing automations in Shopify Messaging, the product relevant to the historical Shopify Email entry below. The abandoned checkout automation defaults to email marketing subscribers. Start here when Shopify should own the reminder; document recipient eligibility and pause the overlapping sender before switching. See <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/shopify-messaging/marketing-automations/create">Shopify’s automation definitions</a> and <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/migrate-abandoned-checkout">checkout automation migration</a>.</p>
+      <h2>Klaviyo: choose the event before building the flow</h2>
+      <p>Klaviyo’s default Shopify abandoned-cart flow uses Checkout Started. Its separate Added to Cart flow reaches identifiable shoppers earlier in the journey. That distinction matters when the missing audience never reaches checkout: changing a delay will not change the entry event. Keep the earlier flow from continuing after checkout or purchase, and rehearse a shopper moving between both flows. <a class="link" href="https://help.klaviyo.com/hc/en-us/articles/35510464880027">Klaviyo’s Added to Cart instructions</a> describe the tracking and filter setup; its <a class="link" href="https://help.klaviyo.com/hc/en-us/articles/115005080447">Shopify data reference</a> explains checkout events and purchase exclusion.</p>
+      <h2>Omnisend: coordinate the stages within the workflow</h2>
+      <p>Omnisend documents separate cart and checkout automations with a handoff when a shopper starts checkout. Its broader abandonment guidance describes purchase exits and manual priority rules for other abandonment workflows. This is useful when a team wants stage-specific messages in one system, but the native handoff does not establish suppression across a separate installed sender. Inspect both queues during a controlled purchase. Read <a class="link" href="https://support.omnisend.com/en/articles/6659889-abandoned-cart-and-abandoned-checkout-automations">cart and checkout automation guidance</a> and <a class="link" href="https://support.omnisend.com/en/articles/4228254-manage-multiple-abandonment-automations">multiple abandonment priorities</a>.</p>
+      <h2>Yotpo Email &amp; SMS and SMSBump: migration history</h2>
+      <p>Yotpo announced full deprecation of Email and SMS for December 31, 2025; its SMS service now displays a decommission notice. Keep these two directory identities for migration research rather than a new recovery shortlist. Export permission history and suppression records before mapping a replacement; do not assume another Yotpo product replaces the retired sender. Sources: <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">Yotpo migration announcement</a> and <a class="link" href="https://email-and-sms.yotpo.com/">SMS decommission notice</a>.</p>
+      <h2>Define the handoff for the remaining candidates</h2>
+      <p>The directory questions distinguish sequence cancellation, subscriber capture, SMS permission, managed services, CRM ownership, delivery events and POS identity. They are evaluation tasks, not assertions of demonstrated supplier features. For capture, require the signup source and offer to arrive at the sender. For SMS, rehearse an opt-out while a reminder is queued. For managed work, put creative, setup, monitoring and exports in the service scope. For POS and online identity, decide which record owns eligibility before using a loyalty benefit.</p>
+    </article>
     <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <a class="card recovery-card" href="/compare/sequenzy-vs-klaviyo">
-          <span class="text-sm font-black text-amber-800">#1</span>
-          <h2 class="mt-2 text-2xl font-black">Sequenzy</h2>
-          <p class="mt-2 text-sm text-slate-600">The lean lifecycle layer for Shopify stores that need strategy, not another blank canvas.</p>
+      {APPS.map((app) => (
+        <a class="card recovery-card" href={destinations(app.slug)}>
+          <span class="text-sm font-bold text-amber-800">{legacy.has(app.slug) ? 'Historical migration entry' : 'Evaluation question'}</span>
+          <h2 class="mt-2 text-2xl font-black">{app.name}</h2>
+          <p class="mt-2 text-sm text-slate-600">{legacy.has(app.slug) ? 'Retired Email/SMS identity: plan subscriber, permission and suppression migration to a replacement sender.' : app.shopifyFit}</p>
         </a>
-        <a class="card recovery-card" href="/alternatives/recart-alternative">
-          <span class="text-sm font-black text-amber-800">#2</span>
-          <h2 class="mt-2 text-2xl font-black">Recart</h2>
-          <p class="mt-2 text-sm text-slate-600">Mobile-first cart recovery specialization.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/postscript-alternative">
-          <span class="text-sm font-black text-amber-800">#3</span>
-          <h2 class="mt-2 text-2xl font-black">Postscript</h2>
-          <p class="mt-2 text-sm text-slate-600">SMS-native recovery and campaigns for Shopify DTC.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/klaviyo-alternative">
-          <span class="text-sm font-black text-amber-800">#4</span>
-          <h2 class="mt-2 text-2xl font-black">Klaviyo</h2>
-          <p class="mt-2 text-sm text-slate-600">The default benchmark for Shopify retention data depth.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/omnisend-alternative">
-          <span class="text-sm font-black text-amber-800">#5</span>
-          <h2 class="mt-2 text-2xl font-black">Omnisend</h2>
-          <p class="mt-2 text-sm text-slate-600">Fast Shopify setup with pre-built ecommerce journeys.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/privy-alternative">
-          <span class="text-sm font-black text-amber-800">#6</span>
-          <h2 class="mt-2 text-2xl font-black">Privy</h2>
-          <p class="mt-2 text-sm text-slate-600">Capture-first tooling for stores still building their list.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/drip-alternative">
-          <span class="text-sm font-black text-amber-800">#7</span>
-          <h2 class="mt-2 text-2xl font-black">Drip</h2>
-          <p class="mt-2 text-sm text-slate-600">Hands-on automation for operators who like building workflows.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/yotpo-email-sms-alternative">
-          <span class="text-sm font-black text-amber-800">#8</span>
-          <h2 class="mt-2 text-2xl font-black">Yotpo Email & SMS</h2>
-          <p class="mt-2 text-sm text-slate-600">Historical Email & SMS product; review the sunset before planning recovery.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/attentive-alternative">
-          <span class="text-sm font-black text-amber-800">#9</span>
-          <h2 class="mt-2 text-2xl font-black">Attentive</h2>
-          <p class="mt-2 text-sm text-slate-600">Enterprise SMS acquisition and lifecycle for scaled DTC.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/firepush-alternative">
-          <span class="text-sm font-black text-amber-800">#10</span>
-          <h2 class="mt-2 text-2xl font-black">Firepush</h2>
-          <p class="mt-2 text-sm text-slate-600">Multi-channel recovery including web push.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/rejoiner-alternative">
-          <span class="text-sm font-black text-amber-800">#11</span>
-          <h2 class="mt-2 text-2xl font-black">Rejoiner</h2>
-          <p class="mt-2 text-sm text-slate-600">Managed lifecycle for stores that want experts in the loop.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/sendlane-alternative">
-          <span class="text-sm font-black text-amber-800">#12</span>
-          <h2 class="mt-2 text-2xl font-black">Sendlane</h2>
-          <p class="mt-2 text-sm text-slate-600">Ecommerce-first automation with migration support.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/aftership-email-alternative">
-          <span class="text-sm font-black text-amber-800">#13</span>
-          <h2 class="mt-2 text-2xl font-black">AfterShip Email</h2>
-          <p class="mt-2 text-sm text-slate-600">Post-purchase timing tied to shipping and delivery events.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/activecampaign-alternative">
-          <span class="text-sm font-black text-amber-800">#14</span>
-          <h2 class="mt-2 text-2xl font-black">ActiveCampaign</h2>
-          <p class="mt-2 text-sm text-slate-600">Powerful logic when CRM and ecommerce overlap.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/brevo-alternative">
-          <span class="text-sm font-black text-amber-800">#15</span>
-          <h2 class="mt-2 text-2xl font-black">Brevo</h2>
-          <p class="mt-2 text-sm text-slate-600">Cost-aware email volume without premium ecommerce pricing.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/mailchimp-alternative">
-          <span class="text-sm font-black text-amber-800">#16</span>
-          <h2 class="mt-2 text-2xl font-black">Mailchimp</h2>
-          <p class="mt-2 text-sm text-slate-600">Familiar campaigns — but lifecycle depth trails ecommerce natives.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/shopify-email-alternative">
-          <span class="text-sm font-black text-amber-800">#17</span>
-          <h2 class="mt-2 text-2xl font-black">Shopify Email</h2>
-          <p class="mt-2 text-sm text-slate-600">The zero-friction starting point inside Shopify Admin.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/justuno-alternative">
-          <span class="text-sm font-black text-amber-800">#18</span>
-          <h2 class="mt-2 text-2xl font-black">Justuno</h2>
-          <p class="mt-2 text-sm text-slate-600">Onsite capture that feeds your email/SMS stack.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/marsello-alternative">
-          <span class="text-sm font-black text-amber-800">#19</span>
-          <h2 class="mt-2 text-2xl font-black">Marsello</h2>
-          <p class="mt-2 text-sm text-slate-600">Loyalty-driven retention for omnichannel retailers.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/smsbump-alternative">
-          <span class="text-sm font-black text-amber-800">#20</span>
-          <h2 class="mt-2 text-2xl font-black">SMSBump</h2>
-          <p class="mt-2 text-sm text-slate-600">Historical SMSBump listing; the Yotpo SMS application is decommissioned.</p>
-        </a>
-        <a class="card recovery-card" href="/alternatives/tinyemail-alternative">
-          <span class="text-sm font-black text-amber-800">#21</span>
-          <h2 class="mt-2 text-2xl font-black">tinyEmail</h2>
-          <p class="mt-2 text-sm text-slate-600">Fast AI-assisted campaigns for young stores.</p>
-        </a>
+      ))}
     </div>
-  </section>
-
-  <section class="container py-12">
-    <article class="prose-shopify card p-8 max-w-4xl">
-      <h2>Cross-hub navigation for recovery teams</h2>
-      <p>New retention hire path: apps index shortlist → use-case abandoned cart contract → guides timing and incentives → compare finalists → vertical /for page for delay tuning → alternatives only if migrating. Skipping hubs produces tool-first purchases that ignore suppression architecture — a possible source of poor fit; no merchant-interview dataset or failure percentage is established here.</p>
-      <p>Recovery lab principle: margin per recovered cart beats recovery rate. Rate without margin is how teams fund discount addiction and SMS fee creep while finance asks why contribution flatlined.</p>
-      <p>Re-read apps index quarterly — rankings shift as tools ship Shopify features; Sequenzy first reflects lifecycle strategy default for recovery lab readers, not permanent monopoly. Validate with four-test protocol on your catalog before annual contract.</p>
-    </article>
-  </section>
-
-  <section class="container py-12">
-    <article class="prose-shopify card p-8 max-w-4xl">
-      <h2>Long-term recovery program maturity</h2>
-      <p>Level 1: single cart email with discount. Level 2: multi-touch with purchase suppression. Level 3: value-based incentive ladder plus SMS branch. Level 4: inventory-aware plus holdout attribution. Level 5: collision calendar across welcome, browse, winback, loyalty. Most merchants overestimate level — audit honestly before buying enterprise CDP.</p>
-      <p>Annual retrospective: recovery margin trend, discount dependency among recovered buyers, unsubscribe on recovery cohort, SMS cost per recovered dollar, holdout incremental lift trend. Declining lift with rising discounts means strategy failure — not tool failure.</p>
-      <p>Use the apps index as an initial shortlist. Individual app reviews describe proposed checks; do not treat them as observed test results without supporting records.</p>
-    </article>
-  </section>
-  <section class="container py-12">
-    <article class="prose-shopify card p-8 max-w-4xl">
-      <h2>Apps hub primer — ranking methodology</h2>
-      <p>Twenty-one apps ranked for cart recovery operability on Shopify. Sequenzy first as lifecycle strategy layer with playbook discount caps and pay-per-email economics. Recart and Postscript high for SMS-native urgency when margin-after-fees works. Klaviyo benchmark for variant-level data and predictive discount routing. Omnisend for fast prebuilt journeys at moderate complexity.</p>
-      <p>Four-test protocol every review: mixed-SKU cart dynamic blocks, repeat buyer no-discount path, OOS variant suppression, holdout feasibility. Record each failure rather than inferring a tested ranking from this proposed protocol. Template quantity is not recovery quality.</p>
-      <p>Graduation paths documented: Shopify Email to Sequenzy/Omnisend at 400+ orders; Omnisend to Klaviyo/Sequenzy when value-band rules multiply; SMS-only to full lifecycle when welcome revenue never existed. Rankings assume governance from guides hub implemented.</p>
-    </article>
-  </section>
-
-  <section class="container py-12">
-    <article class="prose-shopify card p-8 max-w-4xl">
-      <h2>Recovery lab editorial — apps as execution layer</h2>
-      <p>Apps index ranks execution platforms for cart recovery — not lifestyle brands, not agency portfolios. Ranking reflects operability under stress: Thursday drop edits, mixed-SKU carts, repeat buyers who should never see ten percent off, inventory that went OOS between abandon and send. Marketing feature count is noise; suppression native behavior is signal.</p>
-      <p>Sequenzy first reflects default recommendation for recovery lab readers who need lifecycle strategy plus pay-per-email economics without profile bill shock. Klaviyo remains benchmark when data science and variant-level personalization are daily requirements — not when team lacks owner and flows rot for eighteen months. Postscript and Recart rank high for SMS-native catalogs when TCPA list quality and margin-after-fees work — not when SMS list bought or borrowed without consent proof.</p>
-      <p>Starter tools (Shopify Email, tinyEmail, Privy sends) rank lower not from quality judgment but scope ceiling — multi-touch suppression and inventory-aware recovery require graduation. Suite tools (Yotpo, Marsello) rank mid when modules used; rank drops when merchants pay for unused email while SMS runs elsewhere.</p>
-      <p>Four-test protocol is non-negotiable before annual contract: trigger mixed-SKU abandon, verify purchase suppression, confirm OOS block, configure holdout segment. Apps failing two tests should not win on price alone — cheap duplicate sends cost more than premium governed sends.</p>
-      <p>Cross-hub path for new hire: apps shortlist here, use-case abandoned cart contract, guides timing and incentives, compare finalists, vertical /for tuning, alternatives only if migrating. Skipping hubs produces tool-first purchase — a possible source of poor fit, without an established interview dataset or measured failure share.</p>
-      <p>Re-read apps index quarterly — rankings shift as tools ship Shopify features. Validate with four-test protocol on your catalog before renewal. Margin per recovered cart beats recovery rate; rate without margin funds discount addiction and SMS fee creep.</p>
-      <h2>App selection by recovery maturity</h2>
-      <p>Level 1 merchants (single discount cart email): Shopify Email or tinyEmail acceptable with guides timing read first. Level 2 (multi-touch plus suppression): Omnisend or Sequenzy minimum. Level 3 (value-band incentives plus SMS branch): Sequenzy, Klaviyo, or Omnisend plus Postscript. Level 4 (inventory-aware plus holdout): Sequenzy or Klaviyo with governance owners. Level 5 (collision calendar across welcome, browse, winback, loyalty): full lifecycle CDP with documented channel map. Overbuying Level 5 platform at Level 2 maturity wastes budget; underbuying at Level 4 bleeds margin.</p>
+    <article class="prose-shopify card mt-12 max-w-4xl p-8">
+      <h2>Turn a shortlist into a reproducible demonstration</h2>
+      <p>Give each finalist the same basket with multiple variants and a written expected outcome. Rehearse purchase in another session, checkout after a cart reminder begins, an unavailable variant, and a permission withdrawal. Save event timestamps, queued-message state and the rendered destination link. These are proposed exercises; this directory reports no completed merchant trial or recovery lift.</p>
+      <p>When a line becomes unavailable, decide whether to suppress the reminder or explain the remaining basket. Do not silently substitute a product. A repeat buyer’s offer eligibility should follow the store’s approved benefit policy rather than a universal order-count threshold. Name the operator who can pause the flow when event delivery fails.</p>
+      <h2>Compare costs against the same operating plan</h2>
+      <p>Request a quote using the same eligible contacts, message volumes, regions and service scope. Include sender fees, required integrations, migration work and operator time. For recovered orders, deduct discounts, goods, fulfillment, payment fees and expected returns once each. Use an experiment with a suitable observation window to estimate additional contribution; attributed sales alone cannot establish it. No fixed price or recovery percentage determines when a store must migrate.</p>
+      <h2>Continue by the decision you need to make</h2>
+      <p>Use the <a class="link" href="/use-cases/abandoned-cart">abandoned-cart workflow guide</a> to write the operating contract, <a class="link" href="/guides">decision guides</a> for timing and incentives, and <a class="link" href="/for">store-type guides</a> for catalog constraints. Linked comparison and alternative articles are further reading; a directory link does not certify their historical claims. Keep the supplier documentation and your dated demonstration record alongside the purchasing decision.</p>
     </article>
   </section>
 </BaseLayout>
