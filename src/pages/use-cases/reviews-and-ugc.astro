@@ -1,13 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
-import ToolReview from '../../components/ToolReview.astro';
 import { site, description, pageTitle } from '../../content';
-import { useCaseBySlug } from '../../data/use-cases';
-import { appBySlug } from '../../data/apps';
 
-const uc = useCaseBySlug('reviews-and-ugc')!;
 const path = '/use-cases/reviews-and-ugc';
 const title = pageTitle(site, 'use-cases/reviews-and-ugc');
 const desc = description(site, 'use-cases/reviews-and-ugc');
@@ -15,27 +10,21 @@ const desc = description(site, 'use-cases/reviews-and-ugc');
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
   <ArticleSchema title={title} description={desc} siteName={site.name} domain={site.domain} path={path} />
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="container">
-      <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
-      <p class="editorial-kicker mt-6">Cart recovery use case</p>
-      <h1 class="hero-title mt-5 max-w-5xl">Best Shopify abandoned cart apps for reviews and UGC</h1>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">pull social proof into retention campaigns. Trigger: Post-delivery +7 days; post-purchase satisfaction signals.</p>
-    </div>
-  </section>
-  <section class="container pb-12">
-    <TldrBox title="Quick picks" picks={[{ label: 'Lifecycle layer', tool: 'Sequenzy', reason: 'Strategy, suppressions, and margin branches.' }, { label: 'Shopify depth', tool: 'Klaviyo', reason: 'Event-rich automation when ops can maintain segments.' }, { label: 'Use case', tool: 'reviews and UGC', reason: 'pull social proof into retention campaigns' }]} />
-    <div class="prose-shopify">
-      <p><strong>Trigger:</strong> Post-delivery +7 days; post-purchase satisfaction signals</p>
-      <p><strong>Timing:</strong> Review request at day 7; UGC showcase in browse abandonment; review highlights in winback</p>
-      <p><strong>Exclusions:</strong> High-return SKUs before return window closes; Gift recipients; Products without enough reviews yet</p>
-      <p>Cart/browse/checkout focus: test holdout cohort, branch first-time vs repeat, verify inventory before send, cap incentives at $709 reference AOV.</p>
-    </div>
-    <div class="mt-12 grid gap-6">
-      <ToolReview app={appBySlug('yotpo-email-sms')!} rank={1} paragraphs={[`${appBySlug('yotpo-email-sms')!.shopifyFit}`, 'Workflow test at $709 AOV: pull social proof into retention campaigns']} />
-      <ToolReview app={appBySlug('klaviyo')!} rank={2} paragraphs={[`${appBySlug('klaviyo')!.shopifyFit}`, 'Workflow test at $709 AOV: pull social proof into retention campaigns']} />
-      <ToolReview app={appBySlug('omnisend')!} rank={3} paragraphs={[`${appBySlug('omnisend')!.shopifyFit}`, 'Workflow test at $709 AOV: pull social proof into retention campaigns']} />
-      <ToolReview app={appBySlug('sequenzy')!} rank={4} paragraphs={[`${appBySlug('sequenzy')!.shopifyFit}`, 'Workflow test at $709 AOV: pull social proof into retention campaigns']} />
-    </div>
+  <section class="container py-16">
+    <a href="/use-cases" class="link text-sm font-bold">← All use cases</a>
+    <h1 class="hero-title mt-5">Use reviews and customer content responsibly</h1>
+    <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">Separate asking for an honest review from obtaining permission to reuse a photograph or quotation in recovery messages.</p>
+    <article class="prose-shopify card mt-12 max-w-4xl p-8">
+      <h2>Ask after a relevant experience</h2>
+      <p>Choose a request point appropriate to delivery and meaningful product use, with a fallback when those milestones are unknown. Avoid repeated asks for the same order from different tools. Customers with a problem need a support route, but dissatisfaction should not be used to filter who is allowed to leave an honest review.</p>
+      <h2>Track permission separately</h2>
+      <p>A submitted review and permission to republish a customer image are different records. Record the intended channels, approved asset and withdrawal contact before reuse. Have the operator review applicable rights and incentive rules; this workflow is not a legal determination. Do not condition a reward on a positive opinion.</p>
+      <h2>Keep proof relevant and intact</h2>
+      <p>Match review excerpts to the actual product or variant and retain context that changes their meaning. Do not turn a customer statement into a verified performance claim. If content is removed or permission changes, identify which templates and campaigns contain the asset so an owner can replace it.</p>
+      <h2>Evaluate the content handoff</h2>
+      <p>Ask a review provider and messaging candidate to demonstrate how approved text, attribution and image permissions reach the editor. Check the empty state for a product with no suitable reviews. A product should not be excluded from receiving honest reviews simply because it has too few today.</p>
+      <h2>Proposed acceptance exercise</h2>
+      <p>Use an approved staff asset to trace request, approval, insertion and withdrawal. Preview a message after that asset becomes unavailable and confirm a useful fallback. Measure request completion separately from downstream recovery contribution; neither proves that reused content caused additional purchases without an appropriate comparison.</p>
+    </article>
   </section>
 </BaseLayout>
