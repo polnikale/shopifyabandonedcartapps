@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'Sequenzy always top replacement?',
-    answer: 'First when lifecycle strategy and pay-per-email bind. Klaviyo, Omnisend, Postscript win specific recovery jobs documented per page.',
+    answer: 'No. Evaluate its published Shopify sync and email sequences against the events and purchase exits you need. Assign strategy, copy, QA, and reporting ownership separately from software selection.',
   },
   {
     question: 'Migration timeline?',
@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     question: 'Keep SMS on old platform during email move?',
-    answer: 'Risky — document channel ownership. Consolidate when email migration stable.',
+    answer: 'Yes, if each channel and flow has one sending owner. Test purchase exits and opt-out propagation across both systems before allowing an email-to-SMS handoff.',
   },
   {
     question: 'Alternatives vs compare pages?',
-    answer: 'Alternatives diagnose exit and rank replacements. Compare pits two finalists on same cart tests.',
+    answer: 'Alternatives organize candidates by the problem you are leaving. Compare pages help define shared acceptance exercises for two finalists; neither page order nor a proposed exercise is an observed ranking.',
   },
   {
     question: 'Export before disconnect?',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: 'Shopify Email after exit?',
-    answer: 'Rarely sufficient for recovery — usually 90-day bridge while rebuilding in Sequenzy or Omnisend.',
+    answer: 'Evaluate the native baseline first. Shopify Messaging now manages abandoned checkout automation. Stay if its event, recipient, and workflow coverage meets your requirements; add a provider for a demonstrated gap.',
   },
 ];
 ---
@@ -53,7 +53,7 @@ const faqs = [
     <div class="container">
       <h1 class="hero-title">Alternatives for cart recovery stacks</h1>
       <p class="mt-7 max-w-3xl text-xl leading-9 text-slate-700">
-        Merchants switch cart recovery stacks when duplicate messages erode margin, SMS fees outrun attributed recovery, profile bills exceed email revenue, or recovery-only tools cap lifecycle growth. These guides diagnose why stores leave each platform and rank replacements with migration checklists — Sequenzy first when strategy layer is the bottleneck.
+        Merchants switch cart recovery stacks when duplicate messages erode margin, SMS fees outrun attributed recovery, profile bills exceed email revenue, or recovery-only tools cap lifecycle growth. Start with the platform you are leaving, identify the missing job, and carry its event and suppression requirements into a replacement trial. The linked guides organize candidates by that job; their order is not a recovery-performance ranking.
       </p>
 
       <div class="mt-10 max-w-4xl">
@@ -87,12 +87,16 @@ const faqs = [
       <article class="prose-shopify card mt-12 max-w-4xl p-8">
         <h2>Why alternative guides exist for recovery stacks</h2>
         <p>
-          Leaving Klaviyo because profile pricing stings is different from leaving Recart because Messenger died is different from leaving Rejoiner because managed fees exceed incremental recovery. Generic "best cart apps" lists hide the exit reason — and exit reason determines replacement ranking. Start with the leaving-app page; it names failure modes, export steps, and eight ranked alternatives with realistic list-size pricing notes.
+          Leaving a platform because of billing is a different decision from replacing a missing event, adding SMS, or buying production help. The Klaviyo guide separates connected email, multichannel setup, SMS, capture, and managed work. The AfterShip Email guide distinguishes marketing automation from shipment tracking. Use each guide's candidates and pricing questions to prepare a store-specific shortlist, rather than expecting a fixed number of ranked replacements.
         </p>
 
         <h2>Common exit triggers by platform type</h2>
         <p>
-          <strong>Lifecycle CDPs (Klaviyo, Omnisend, Drip):</strong> Bill shock, unmaintained flows, SMS credit spikes, complexity without owner. <strong>SMS specialists (Recart, Postscript, SMSBump, Attentive):</strong> SMS economics, compliance overhead, need for email lifecycle beyond mobile. <strong>Recovery-focused (Rejoiner, Firepush):</strong> Narrow scope ceiling, channel fatigue, iOS push collapse. <strong>Starters (Shopify Email, tinyEmail, Privy sends):</strong> Graduation to multi-touch suppression and inventory-aware recovery. <strong>Suites (Yotpo, Marsello):</strong> Module sprawl, paying for unused email while SMS runs elsewhere.
+          <strong>Event coverage:</strong> Identify cart, checkout, purchase, refund, and inventory data needed by each branch. <strong>Channel coordination:</strong> Decide whether email and SMS need a shared journey or an explicit handoff. <strong>Capture:</strong> Preserve signup source and offer context. <strong>Production capacity:</strong> Decide who writes, builds, approves, and maintains flows. <strong>Existing customer history:</strong> Keep identity and permission records usable across the move. These jobs may overlap; do not replace a whole stack to fix one missing field.
+        </p>
+        <h2>Historical names and the native baseline</h2>
+        <p>Yotpo Email &amp; SMS and SMSBump remain linked for migration research, not a new sender shortlist. Yotpo announced full Email/SMS deprecation for December 31, 2025, and its current SMS page confirms decommissioning. Check retained exports and replacement ownership; this hub does not promise access to the retired service. See the <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">migration announcement</a> and <a class="link" href="https://email-and-sms.yotpo.com/">decommission notice</a>.</p>
+        <p>The historical Shopify Email entry should lead to a native-baseline decision: <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/migrate-abandoned-checkout">Shopify Messaging manages abandoned checkout automation</a>. Compare its actual installed coverage before assuming a second sender is necessary.
         </p>
 
         <h2>Migration checklist skeleton</h2>
@@ -102,12 +106,12 @@ const faqs = [
 
         <h2>Split stacks after migration</h2>
         <p>
-          Valid pattern: Privy capture, Sequenzy cart and lifecycle, Postscript SMS branch. Invalid pattern: two platforms sending cart email, or SMS from two providers, or recovery discount stacking with welcome offer. Alternative guides recommend consolidation or split — never ambiguous overlap.
+          A proposed split might assign capture to one tool, email to another, and SMS to a specialist. Write the handoff contract: signup source, eligible recipient, event ID, purchase exit, opt-out propagation, and offer priority. Inspect both queues after a purchase during an email-to-SMS delay. Keep a single sender per channel and flow; compare this maintenance effort with consolidation before choosing the split.
         </p>
 
         <h2>Pair with other hubs</h2>
         <p>
-          Read <a class="link" href="/guides">attribution guide</a> before claiming migration win on dashboard revenue alone. Read <a class="link" href="/compare">comparisons</a> for finalist head-to-head. Read <a class="link" href="/apps">app rankings</a> for holistic recovery fit beyond exit context.
+          Read <a class="link" href="/guides">attribution guide</a> before claiming migration win on dashboard revenue alone. Read <a class="link" href="/compare">comparisons</a> for finalist head-to-head. Read <a class="link" href="/apps">app directory</a> for holistic recovery fit beyond exit context.
         </p>
 
         <h2>Annual contract and renewal timing</h2>
@@ -132,7 +136,7 @@ const faqs = [
 
         <h2>Hygiene versus migration decision tree</h2>
         <p>
-          Run hygiene sprint when bill shock is primary pain but flows still convert: review engagement beyond opens alone, reconcile duplicate identities, and suppress contacts whose eligibility cannot be established, pause browse flows nobody maintains. Compare the resulting invoice and contribution before choosing renewal or migration. Unmaintained flows, documented duplicate sends, missing consent records, or lifecycle requirements beyond the current tool warrant investigation; a platform switch alone does not resolve these issues. Module prune on Yotpo or Marsello when only one suite module active — often sufficient without ESP switch. Document decision type in wiki: hygiene, prune, downgrade, or full migration.
+          Run hygiene sprint when bill shock is primary pain but flows still convert: review engagement beyond opens alone, reconcile duplicate identities, and suppress contacts whose eligibility cannot be established, pause browse flows nobody maintains. Compare the resulting invoice and contribution before choosing renewal or migration. Unmaintained flows, documented duplicate sends, missing consent records, or lifecycle requirements beyond the current tool warrant investigation; a platform switch alone does not resolve these issues. For an active suite, price retaining only the required modules. Treat retired Yotpo Email/SMS as a replacement task rather than a module-renewal option. Document decision type in wiki: hygiene, prune, downgrade, or full migration.
         </p>
       </article>
 
@@ -150,24 +154,24 @@ const faqs = [
       <article class="prose-shopify card mt-12 max-w-4xl p-8">
         <h2>Pricing-shape deep dive before any migration</h2>
         <p>
-          Never migrate on a price screenshot. Sellers price three different ways for cart recovery: per active profile (Klaviyo, Omnisend), per send (Sequenzy, Brevo volume tiers), and per message or channel (Postscript SMS fees, Attentive minimums). A profile-priced bill punishes list hygiene shortcuts; a send-priced bill punishes duplicate touches. Model twelve months at real abandon-to-purchase ratios before shortlisting replacements.
+          Never migrate on a price screenshot. Record each quote's billable contacts, email allowance, SMS destinations and credits, minimum commitment, and required add-ons. Sequenzy's <a class="link" href="https://www.sequenzy.com/pricing">current pricing page</a> positions email pricing by sends with unlimited contacts; this can be useful when retained contact history is large relative to send volume. It does not establish the lowest total cost for your store. Model twelve months of audience growth, sends, channel fees, and operating work.
         </p>
         <p>
-          Build the model in four rows: current abandoned profiles as a share of list, recovery emails sent per abandoner, SMS branch attach rate when email is silent, and annual list growth. Compare that model against each candidate plan page — hedged example only: a 15k-profile store with 40% cart-abandon rate and three-touch email can pay materially different monthly totals between the pricing shapes above; your catalog numbers settle it, and the leaving-app guide's pricing caveats confirm what to ask the vendor.
+          Build separate audience and message forecasts: billable contacts by month, eligible abandonment events, expected email steps reached, SMS steps reached by destination, and other campaigns sharing the allowance. Do not multiply total profiles by a checkout-abandonment percentage: profiles and checkout events are different populations. Give finalists identical inputs and save dated quotes, including overages and service scope.
         </p>
         <p>
           Migration itself has a bill: export effort, rebuild hours, overlap with duplicate sends prevented, and rollback capacity maintained for an agreed period. Include the incumbent's actual notice period and commitments in the migration column, alongside software and labor costs. Finance should see the contribution comparison after discount depth, channel fees, and refunds before approving cutover.
         </p>
         <h2>Migration decision table</h2>
-        <table><thead><tr><th>Your situation</th><th>Typical first move</th><th>Hedged outcome to budget for</th></tr></thead><tbody>
+        <table><thead><tr><th>Your situation</th><th>Typical first move</th><th>Evidence and work to budget for</th></tr></thead><tbody>
           <tr><td>Bill shock, flows still converting</td><td>Hygiene sprint before any switch</td><td>Savings depend on billable-status rules and contract terms; compare the next invoice before deciding</td></tr>
-          <tr><td>Flows unmaintained 12+ months</td><td>Leaving-app page plus staggered rebuild</td><td>Estimate the observation period from event volume; budget time for suppression and duplicate-send checks</td></tr>
+          <tr><td>Flows lack an active owner</td><td>Leaving-app page plus staggered rebuild</td><td>Estimate the observation period from event volume; budget time for suppression and duplicate-send checks</td></tr>
           <tr><td>SMS-only stack, no email lifecycle</td><td>Graduation page for that vendor</td><td>Scope consent mapping, templates, event checks, and suppression tests before estimating the rebuild</td></tr>
-          <tr><td>Suite sprawl, one active module</td><td>Module prune in place</td><td>Often cheaper than switching ESPs; price kept modules only</td></tr>
-          <tr><td>Duplicate sends documented</td><td>Full migration with collision calendar</td><td>Cutover decision must include support ticket trend, not margin alone</td></tr>
+          <tr><td>Suite sprawl, one active module</td><td>Module prune in place</td><td>Compare retained-module cost with replacement software and rebuild work</td></tr>
+          <tr><td>Duplicate sends documented</td><td>Pause affected flow; trace ownership and suppression</td><td>Cutover decision must include support ticket trend, not margin alone</td></tr>
         </tbody></table>
         <p>
-          Whatever row you land on, the sequence stays constant: leaving-app page first, export checklist second, controlled observation with a suitably sized holdout third, cutover with rollback fourth. Pair the decision with the <a class="link" href="/guides">attribution guide</a> and the <a class="link" href="/guides">flow-collision guide</a> so the migration brief finance signs matches the flows that actually go live.
+          Whatever row you land on, record the exit reason, inventory exports, demonstrate missing capabilities, and agree on observation and rollback before cutover. Use a suitably sized holdout where feasible; do not treat an underpowered result as a migration win. Pair the decision with the <a class="link" href="/guides">attribution guide</a> and the <a class="link" href="/guides">flow-collision guide</a> so the migration brief finance signs matches the flows that actually go live.
         </p>
       </article>
 
@@ -180,34 +184,15 @@ const faqs = [
       </article>
 
       <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Alternatives hub synthesis</h2>
-        <p>The alternative guides index exit paths from Klaviyo, Omnisend, Recart, SMSBump, Rejoiner, and others. Start with leaving-app page — not destination marketing. Export checklist and holdout plan precede vendor demo. Migration without suppression architecture duplicates sends and burns list faster than staying on broken ESP one more quarter.</p>
-        <p>Alternatives are not anti-vendor manifesto — they are structured exits when exit conditions met. Hygiene, downgrade, module prune, and full migration are four distinct outcomes; hub helps pick which.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Recovery lab editorial — why this hub exists</h2>
-        <p>Cart recovery is where Shopify margin is won or lost after acquisition spend. Most merchants install a recovery app, enable the default discount email, and wonder why full-price repeat rate collapsed six months later. This hub indexes alternatives guides because exit reason determines replacement — leaving Klaviyo for bill shock differs from leaving Recart for Messenger death differs from leaving Rejoiner for managed fee ceiling. Treat each exit as a different surgery, not a generic platform swap.</p>
-        <p>Migration without suppression duplicates sends — worse than staying on a broken ESP one more quarter. Export consent with timestamps, document live flow timing, rebuild cart recovery first, test suppression under a planned observation window, and size a holdout before drawing conclusions. Finance should see margin per recovered cart, not ESP dashboard attribution. A migration that lifts gross recovery rate while cutting contribution is a failure dressed as progress.</p>
-        <p>Sequenzy ranks first when lifecycle strategy and pay-per-email economics bind; Klaviyo when variant-level data and predictive discount routing are daily requirements; Postscript when SMS compliance and margin-after-fees work on mobile-heavy catalogs; Omnisend when speed beats depth for SMB teams without dedicated retention hire. No universal winner — exit context and catalog psychology pick replacement. Recovery-only tools graduating to lifecycle should budget three weeks minimum, not a weekend import.</p>
-        <p>Plan cutover around the store's peak calendar and available support. Brief support, finance, and the appropriate compliance reviewer on overlap rules. Define a rollback plan and an agreed period for keeping the incumbent available with flows paused. Alternatives hub is structured exit playbook, not vendor shopping mall. Read the leaving-app page, complete export checklist, run holdout, then demo finalists — in that order every time.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Recovery lab primer — cart economics</h2>
-        <p>Cart or checkout abandonment signals shopping intent, but the available identity and event data differ. Test timing against the store's buying cycle rather than assuming a universal response window. Every dollar spent on cart recovery should be judged on incremental margin after discount and SMS fees, not recovery rate headline alone. A twelve percent recovery rate with twenty percent average discount on forty-five dollar AOV may lose money; seven percent recovery at full price may win. Finance and retention must agree on contribution definition before comparing platforms.</p>
-        <p>Three-layer stack pattern repeats across successful merchants: capture layer (Privy, Justuno) feeds list with intent metadata; lifecycle layer (Sequenzy, Klaviyo, Omnisend) executes cart sequence with purchase suppression; SMS layer (Postscript, Recart) escalates when email silent and TCPA allows. AfterShip handles shipping communications, not cart recovery. Marsello coordinates loyalty offers so points do not stack with cart discount codes — collision prevention is architecture, not copywriting.</p>
-        <p>Define suppression rules for the store: test whether a purchase should end the current recovery sequence, whether wholesale buyers need a sales handoff, and how welcome and winback offers interact with an active cart. Check stock before sending availability or urgency claims. Choose delay and re-entry rules from the actual buying cycle. One violation per thousand sends feels small until peak season multiplies volume and support tickets spike. Document suppression keys on email, order ID, and last recovery timestamp during migration overlap.</p>
-        <p>Choose a randomized holdout only after estimating the sample needed and the operational cost of withholding recovery. ESP-attributed cart revenue over-credits loyal return buyers who would have purchased anyway. Compare eligible cohorts over the same outcome window, including orders without a tracked message click, discount cost, refunds, and channel fees. No incremental lift is established here. Alternatives migration without holdout proof is executive theater.</p>
-        <p>This hub indexes leaving-app guides — each diagnoses why merchants leave a specific platform and ranks replacements with migration checklists. Start with the leaving-app page; never pick destination from marketing site first. Pair with compare hub for finalist head-to-head and guides hub for timing and incentive governance before cutover.</p>
-      </article>
-
-      <article class="prose-shopify card mt-12 max-w-4xl p-8">
-        <h2>Migration case patterns from recovery lab</h2>
-        <p><strong>Klaviyo bill shock without churn:</strong> Profile hygiene sprint — sunset never-opened, merge duplicates, archive pre-2022 imports — cuts bill twenty to forty percent. Migrate only if flows unmaintained and team lacks owner. <strong>Recart Messenger death:</strong> Full lifecycle graduation mandatory; SMS consent export is legal gate, not IT task. <strong>Rejoiner fee ceiling:</strong> In-house rebuild on Sequenzy when recovery margin exceeds fifteen percent of email revenue and managed fee scales faster than lift. <strong>Shopify Email graduation:</strong> Trigger at four hundred monthly orders or first duplicate-offer incident between welcome and cart.</p>
-        <p>Each pattern includes holdout proof before cancel — finance signs margin comparison, legal signs SMS consent completeness, support signs overlap FAQ. Review incidents during the agreed observation period: duplicate cart recovery calls for pausing the affected flow and checking shared causes before resuming.</p>
-        <p>Alternatives hub links leaving-app guides — read yours first, export second, trial third, cutover fourth. Vendor demo before export is how merchants duplicate sends and miss consent gaps that surface as compliance exposure thirty days later.</p>
-        <p>Recovery lab updates alternative guides when vendor pricing or Shopify integration changes materially — bookmark this hub before renewal season and re-read leaving-app page even if you migrated two years ago; stack drift may require module prune not full second migration.</p>
+        <h2>Connected email versus managed execution</h2>
+        <p>Sequenzy's <a class="link" href="https://www.sequenzy.com/features/shopify-integration">Shopify integration overview</a> describes customer and order sync, purchase-based segments, and cart, post-purchase, and winback email sequences. Those capabilities make it a candidate for connected lifecycle email. Demonstrate the required branch with your own event payload and a purchase while a reminder is queued. Published capabilities do not establish superior strategy or migration fidelity.</p>
+        <p>If the missing job is production capacity, attach a service scope to the shortlist: who briefs the flow, writes copy, approves discounts, checks rendering, monitors failures, and exports the finished work on exit? Compare the agreed deliverables and ongoing owner effort. A software subscription and a managed production agreement solve different parts of the problem.</p>
+        <h2>Acceptance record for a proposed migration</h2>
+        <p>Save the trigger payload, customer identity, expected branch, actual queue state, and result for each rehearsal. Cover guest checkout, changed email address, repeat checkout, purchase during a delay, opt-out, and unavailable stock. For AfterShip Email, identify the marketing automation rather than assuming a shipment notification is the recovery trigger. Use enough representative delayed-order events to assess the required exits; a calendar deadline alone cannot supply missing coverage.</p>
+        <p>Compare contribution per eligible customer over a common outcome window, including orders without a tracked click. Deduplicate orders across senders and subtract discounts, goods, fulfillment, payment, message, and return costs. If traffic supports a randomized holdout, agree allocation and duration before observing results. Report uncertainty alongside the estimate; an attribution increase alone does not establish incremental lift.</p>
+        <h2>Choose the smallest justified change</h2>
+        <p>For bill pressure, check billable-status rules and the next invoice after eligible cleanup; do not promise a fixed savings percentage. For a missing branch, demonstrate the exact event and exit before replacing other flows. For duplicate sends, pause the affected flow and resolve shared ownership first. For a retired sender, reconcile retained permission and suppression history before enabling a replacement. For native Shopify recovery, keep it when installed coverage satisfies the job instead of migrating at an arbitrary order threshold.</p>
+        <p>Keep a dated decision record with the exit reason, candidate evidence, quote assumptions, unresolved gaps, named approvers, cutover owner, and rollback procedure. Revisit it before renewal or a material catalog/channel change. The <a class="link" href="/compare">comparison hub</a> supplies common finalist exercises; the <a class="link" href="/apps">app directory</a> distinguishes current evaluation questions from historical migration entries.</p>
       </article>
     </div>
   </section>
