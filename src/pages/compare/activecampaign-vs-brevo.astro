@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleSchema from '../../components/ArticleSchema.astro';
-import TldrBox from '../../components/TldrBox.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { site, description, pageTitle } from '../../content';
 
@@ -10,45 +9,33 @@ const title = pageTitle(site, path.slice(1));
 const desc = description(site, path.slice(1));
 const faqs = [
   {
-    question: 'Which is better for Shopify cart recovery?',
-    answer: 'ActiveCampaign is stronger when cart recovery must branch into CRM, sales, or account logic. Brevo is a practical choice when the store wants straightforward campaigns and a broader send platform. Test the same cart, purchaser suppression, and incentive rules in both.',
+    "question": "Which setup should we evaluate first?",
+    "answer": "Evaluate ActiveCampaign when a cart needs an accountable sales or account handoff. Evaluate Brevo PushOwl when Shopify campaigns and store-connected messaging are the main job. Demonstrate the required workflow in each; neither is an automatic winner."
   },
   {
-    question: 'Is ActiveCampaign or Brevo cheaper?',
-    answer: 'That depends on contacts, sends, seats, and channel usage. Build a twelve-month model with real list growth and seasonal volume. A free or low starting tier is not the same as the cost of operating the required workflows.',
+    "question": "Does Brevo only support broadcasts?",
+    "answer": "No. Its Shopify guide documents customer, product and order sync, onsite tracking and automations including abandonment. Verify your account mapping and the events used by the proposed flow."
   },
   {
-    question: 'Which has deeper Shopify automation?',
-    answer: 'ActiveCampaign generally offers more branching and CRM-oriented automation. Brevo can be easier for practical campaigns and volume-oriented sending. Verify the exact Shopify event mapping and delay for the workflows that matter to your store.',
+    "question": "Can both handle guest checkout?",
+    "answer": "An email address alone does not establish recovery eligibility. ActiveCampaign documents a Shopify checkout-stage requirement; in either setup verify identity, permission, event arrival and the return link with a fresh guest checkout."
   },
   {
-    question: 'Can I migrate from one to the other?',
-    answer: 'Yes, but migrate one workflow at a time. Export consent and suppression state, rebuild welcome and cart first, pause the old automation before activating the new one, and use a holdout to separate migration effects from seasonal demand.',
+    "question": "Is purchaser suppression identical?",
+    "answer": "Use the same acceptance requirement, not an assumption of identical behavior: a purchase must prevent the next recovery message, including one already queued. Demonstrate it in the installed setup."
   },
   {
-    question: 'Which pricing lens fits cart recovery floods?',
-    answer: 'Check both contact limits and email volume, along with plan features and channels; their billing units are not interchangeable. Price abandons as a share of your list, validate duplicate-contact merging behavior in a seed test, then compare monthly totals at your abandon-to-purchase ratio — not at list size alone. Treat published tiers as buying-shape notes, not quotes.',
+    "question": "Which is cheaper to operate?",
+    "answer": "Quote the required connection, contacts, sends, seats, channels and implementation work. Record the time your operator needs to change and validate a flow; no universal maintenance advantage is established here."
   },
   {
-    question: 'ActiveCampaign versus Brevo versus a Shopify-native stack?',
-    answer: 'Carts are margin-adjacent for both: neither is primarily catalog-native suppression architecture. If the store runs lifecycle playbooks governed by welcome and winback rules on shopify, treat either as execution layer and re-run the four-test protocol before an annual contract.',
+    "question": "What is the first automation to rebuild post-migration?",
+    "answer": "Choose by dependency. If welcome owns the shared incentive or contact eligibility, validate it before cart recovery. If cart recovery is independent and its purchase exits pass, it can move first. Reconcile each queue and pause the old sender before enabling its replacement."
   },
   {
-    question: 'What breaks cart recovery when teams pick wrong?',
-    answer: 'Instant discounts on email one, no purchaser suppression, parallel SMS without TCPA proof, and recovery texting that ignores OOS variants. Both candidates can cause these; governance — not tier choice — usually decides.',
-  },
-  {
-    question: 'How do I run a fair trial?',
-    answer: 'Fourteen days, identical delay and discount caps, five percent holdout, and a documented scorecard. Compare contribution margin after discount and message fees, not ESP-attributed revenue.',
-  },
-  {
-    question: 'Do both handle guest-checkout abandons?',
-    answer: 'Only if the checkout captures an email — recovery for guest carts depends on identity capture quality, not platform brand. Track the reachable-abandon percentage monthly in either stack.',
-  },
-  {
-    question: 'What is the first automation to rebuild post-migration?',
-    answer: 'Cart recovery with strict purchaser suppression, then welcome, then winback. Never migrate during peak; staggered rebuilds with fourteen-day parallel checks beat weekend imports.',
-  },
+    "question": "How long should a fair trial run?",
+    "answer": "First pass the event and queue acceptance cases. Then choose any holdout allocation and observation window from eligible traffic, purchase delay and the contribution difference worth detecting. Fourteen days and five percent are not universal requirements."
+  }
 ];
 ---
 
@@ -60,7 +47,7 @@ const faqs = [
       <header class="max-w-4xl mt-6">
         <p class="editorial-kicker">Head-to-head · Shopify cart recovery</p>
         <h1 class="hero-title mt-5">ActiveCampaign vs Brevo for Shopify</h1>
-        <p class="mt-7 text-xl leading-9 text-[#4a2d17]">This comparison is about a specific operating decision: should a Shopify store use ActiveCampaign’s branching automation and CRM context, or Brevo’s practical campaign and sending stack? The answer changes with order value, margin, sales involvement, and how much event governance the team can maintain.</p>
+        <p class="mt-7 text-xl leading-9 text-[#4a2d17]">This comparison is about a specific operating decision: should a Shopify store use ActiveCampaign’s automation and CRM context, or Brevo PushOwl’s Shopify campaign and messaging connection? The answer changes with order value, margin, sales involvement, and how much event governance the team can maintain.</p>
         <p class="mt-5 text-lg leading-8 text-[#4a2d17]">Use this proposed scorecard for cart timing, purchaser suppression, incentive control, Shopify data, reporting, and the time required to change a flow before a promotion. The same workflow should be tested in both tools; platform-attributed recovery alone is not evidence of incremental revenue.</p>
       </header>
       <div class="mt-10 card overflow-x-auto">
@@ -73,143 +60,55 @@ const faqs = [
             <tr><td>Cart recovery</td><td>Conditional branches, tags, and sales context</td><td>Clear campaigns and automation for common paths</td></tr>
             <tr><td>Shopify evaluation</td><td>Event mapping and customer context</td><td>Event availability and timing must be verified</td></tr>
             <tr><td>Pricing lens</td><td>Contacts, plan tier, seats, and features</td><td>Send volume, contacts, and channel features</td></tr>
-            <tr><td>Operational risk</td><td>More governance and maintenance</td><td>Less CRM depth for complex account journeys</td></tr>
+            <tr><td>Operational risk</td><td>Demonstrate account ownership and branch maintenance</td><td>Demonstrate the required handoff and campaign changes</td></tr>
           </tbody>
         </table>
       </div>
       <article class="prose-shopify mt-14 max-w-4xl">
-        <h2>ActiveCampaign for Shopify cart recovery</h2>
-        <p>ActiveCampaign earns the shortlist when an abandoned cart is more than a simple reminder. A wholesale buyer may need sales follow-up instead of a discount; a returning customer may deserve a no-discount branch; and a high-value account may need a task for a representative. Conditional logic, tags, and CRM stages can express those differences.</p>
-        <p>The cost is ownership. Someone must audit event names, duplicate contacts, purchaser exits, consent, and branches after every Shopify or checkout change. A sophisticated flow that no one can safely edit during a sale is less useful than a smaller flow the team understands.</p>
+        <h2>Start with the handoff the store actually needs</h2>
+        <p>A wholesale buyer with an open deal may need a representative rather than a consumer code. A returning DTC buyer may need reassurance without an incentive. ActiveCampaign is worth evaluating when these are different owned journeys: require a cart event to select the right contact, account and deal, create one assigned task, and record whether the representative acted before another reminder is sent. CRM context earns its place only if someone uses the handoff.</p>
+        <p>For a campaign-led store, evaluate whether Brevo PushOwl lets the campaign operator maintain recovery alongside broadcasts and other store messages. Its <a class="link" href="https://help.brevo.com/hc/en-us/articles/360014912879-Brevo-PushOwl-app-for-Shopify-Connect-your-Shopify-store-with-Brevo-PushOwl">current Shopify guide</a> documents customer, product and order sync, onsite tracking and abandonment automations. This is more than a contact import. A simple reminder is not evidence that the store needs a deal pipeline; an existing Brevo account still needs the correct store connection.</p>
+        <p>Compare the actual editing work: ask the assigned operator to change a branch, revise a campaign exclusion and pause a queued send. Record access required, manual steps and elapsed operator time. Treat operating burden as an outcome of that exercise, not an inherent advantage of either brand.</p>
 
-        <h2>Brevo for Shopify cart recovery</h2>
-        <p>Brevo is a reasonable fit for stores that want a more direct campaign and sending workflow. It can be attractive when the marketing team values familiar broadcasts, volume planning, and a broader messaging platform more than CRM-linked branching.</p>
-        <p>Do not assume a broad platform has every commerce signal needed for cart recovery. Confirm whether cart, checkout, purchase, refund, and product events arrive with the fields and delay your suppression rules require. The practical pilot matters more than a marketplace feature list.</p>
+        <h2>Establish the event boundary before comparing branches</h2>
+        <p><a class="link" href="https://help.activecampaign.com/hc/en-us/articles/360001045964-Abandoned-cart-overview">ActiveCampaign’s abandoned-cart documentation</a> describes a store/product/category/value trigger and a product content block with a return link. It also specifies a Shopify checkout-stage requirement for synced abandoned-cart data. A known email or product-page visit alone does not prove that event exists. Separate the integration wait from the automation delay when checking delivery timing.</p>
+        <p>For Brevo PushOwl, demonstrate the current tracker and store connection with a fresh checkout rather than treating historical customer sync as live abandonment. In both candidates, inspect event time, customer identity, basket lines, currency and destination URL. Repeat as a guest, an existing customer and a customer who changes their basket before the reminder. Identity, permission and event eligibility are separate checks.</p>
+        <p>Keep Shopify’s working recovery as the baseline. <a class="link" href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/migrate-abandoned-checkout">Shopify documents abandoned-checkout automation in Messaging</a>, including channel restrictions and recipient settings. Inventory that sender before adding another one. A replacement should solve a demonstrated handoff or campaign requirement while preserving the eligible recovery already in place.</p>
 
-        <h2>Workflow test: a $73 cart at 55% margin</h2>
-        <p>These workflow examples, timings and holdout sizes are proposed test settings, not observed results. Contribution assumes unchanged product cost: cart value × (gross margin rate − discount rate); contribution lost is cart value × discount rate. Verify channel- and purpose-specific permission, identity eligibility and current integration behavior before messaging.</p>
-        <p>Start with a no-discount reminder that states the product and resolves one likely objection. Exit immediately on purchase. Only then test an incentive branch against a matched holdout. A 19% code reduces contribution from $40.15 to $26.28 before considering app cost, returns, and customers who would have purchased anyway.</p>
-        <p>ActiveCampaign should be judged on branch accuracy and CRM handoff; Brevo should be judged on timing, event freshness, and campaign operation. Both should pass purchaser suppression and frequency-cap tests.</p>
-
-        <h2>Workflow test: a $342 cart at 39% margin</h2>
-        <p>High-value carts need a different experiment. A blanket discount can destroy more contribution than it recovers. Test reassurance, shipping information, product proof, and support access before escalating to a code. Keep the incentive decision explicit so the tool does not receive credit for margin it gave away.</p>
-        <p>For ActiveCampaign, add a sales or account branch only if the store actually has an owner for that handoff. For Brevo, keep the flow narrow and inspect whether the customer and order data needed for the branch is available without manual exports.</p>
-
-        <h2>Tables and reporting that matter</h2>
+        <h2>One acceptance matrix, with different reasons to pass</h2>
+        <p>These are proposed acceptance cases, not observed vendor results or promises of identical suppression. Set the allowable event delay from the next scheduled touch and the store’s service commitment; record event receipt, queue state and actual inbox arrival.</p>
         <table>
-          <thead>
-            <tr><th>Metric</th><th>Why it matters</th><th>Pass condition</th></tr>
-          </thead>
+          <thead><tr><th>Fixture</th><th>Required observation</th><th>Decision it resolves</th></tr></thead>
           <tbody>
-            <tr><td>Incremental contribution</td><td>Separates recovery from discounts and would-have-purchased orders</td><td>Positive versus a holdout after margin and returns</td></tr>
-            <tr><td>Purchaser exit time</td><td>Prevents a cart email after checkout</td><td>Exit occurs before the next scheduled touch</td></tr>
-            <tr><td>Event freshness</td><td>Stale carts create irrelevant reminders</td><td>Observed delay matches the documented SLA</td></tr>
-            <tr><td>Complaint and unsubscribe rate</td><td>Shows message fatigue and poor targeting</td><td>No material increase versus control</td></tr>
+            <tr><td>Wholesale contact with an open deal</td><td>One assigned rep task; consumer incentive excluded; rep action changes the next step</td><td>Whether CRM context justifies the ActiveCampaign workflow</td></tr>
+            <tr><td>Returning DTC buyer in a campaign audience</td><td>Correct incentive branch and broadcast exclusion after an operator edits the campaign</td><td>Whether the campaign team can own the Brevo workflow without extra reconciliation</td></tr>
+            <tr><td>Purchase while a reminder is queued</td><td>The next recovery send is cancelled or excluded before delivery</td><td>Whether purchase exits work across the actual queue boundary</td></tr>
+            <tr><td>Refund, sold-out variant or changed basket</td><td>Apply the agreed refund policy; pause unavailable-product urgency; use current basket content</td><td>Whether event fields support the store’s policy rather than stale copy</td></tr>
+            <tr><td>Open support ticket and service caller</td><td>The service tool’s caller or webhook supplies a usable status; an owner pauses recovery and records resumption</td><td>Whether a service handoff is feasible, including any external integration</td></tr>
+            <tr><td>Replayed event and two recovery senders</td><td>One eligible enrollment and one queue owner per channel; no duplicate reminder</td><td>Whether cutover can preserve recovery without overlapping sends</td></tr>
           </tbody>
         </table>
+        <p>If SMS is in scope, separately demonstrate permission, quiet hours, sender coverage, message fees and cross-channel exclusions. Do not infer coordination from the presence of both channel buttons. A contact import, a rep task or a service webhook is not proof that an already queued email was cancelled.</p>
 
-        <h2>Pricing and migration</h2>
-        <p>Model both platforms with the store’s real contact growth, send calendar, SMS or transactional requirements, seats, and implementation time. ActiveCampaign’s value can justify a higher operating burden when CRM logic changes the sale. Brevo can win when sending simplicity and predictable campaign execution are the priority.</p>
-        <p>For migration, export channel- and purpose-specific consent provenance, suppression, tags, and recent purchase state. Assign one owner to each send queue, reconcile scheduled messages and deduplicate replayed events before activating the replacement. Rebuild welcome first, cart second, and win-back last. Pause the old flow before activating the new one, and keep a rollback copy until the new event path has passed real inbox tests.</p>
+        <h2>Keep the incentive decision separate from the platform decision</h2>
+        <p>Illustrative $73 basket at 55% gross margin: unchanged goods cost is $32.85 and full-price gross profit is $40.15. A 19% code costs $13.87 and leaves $26.28 gross profit before fulfillment, payment, messaging and returns. Those costs must be subtracted before calling the remainder contribution. The arithmetic establishes no recovery result.</p>
+        <p>For 1,000 eligible abandoned baskets, a hypothetical 5% purchase rate is 50 orders. If all used that code, gross profit would be $1,314 before other variable costs. This is not incremental profit: compare against orders in a randomized no-message group where feasible, normalized per eligible shopper over the same observation window.</p>
+        <p>At $342 and 39% gross margin, full-price gross profit is $133.38. The same illustrative 19% code costs $64.98 and leaves $68.40 before other variable costs. Use this high-value fixture to compare a rep handoff with reassurance, shipping information and support access. A sales branch needs an available owner; a campaign branch needs the relevant customer and order fields. Neither earns credit merely for issuing a discount.</p>
+        <p>Retain meaningful basket variants in that exercise: bundles need intact bundle value, pre-orders need a known shipping promise, gift carts need delivery information, subscription carts need cadence and recurring-price clarity, and international carts need landed-cost information. These are content and event requirements to demonstrate, not claims that either supplier automatically diagnoses the reason for abandonment.</p>
 
-        <h2>Channel escalation and suppression stakes</h2>
-        <p>Email carries narrative and proof; SMS is an escalation branch when email is silent and consent is documented — never a parallel discount blast. ActiveCampaign handles branching cleanly once tags and pipelines are defined, but the team owns the collision calendar with welcome and winback. Brevo users should verify quiet-hours handling and per-message economics before switching a high-AOV cart segment into a text flow.</p>
-        <p>Suppression is identical in both: purchasers exit within minutes, refunded orders exit before the second touch, OOS variants pause urgency copy, and recent wholesale buyers route away from consumer codes. If a finalist cannot demonstrate suppression through seed orders, the next fifteen lines of feature comparison do not matter.</p>
+        <h2>Price the demonstrated workflow</h2>
+        <p>Use <a class="link" href="https://www.activecampaign.com/pricing">ActiveCampaign pricing</a>, <a class="link" href="https://www.brevo.com/pricing/">Brevo pricing</a> and the <a class="link" href="https://pushowl.com/pricing">PushOwl plan page</a> linked by the Shopify guide to obtain the allowances for your chosen connection. Record contacts, email volume, seats, channels, CRM features and any service integration as separate quote inputs. Confirm which account and plan the store will actually use.</p>
+        <p>Model monthly eligible abandonments × planned touches, then add broadcasts and other lifecycle sends. For example, 1,000 eligible abandonments with at most three touches creates an upper bound of 3,000 recovery sends before purchase exits. Add seasonal volume and contact growth, then include setup and the operator time measured in the acceptance exercise. Do not infer a lower total from a starting tier or assume the same billing units.</p>
 
-        <h2>Attribution caution for this pair</h2>
-        <p>Hold out five percent of eligible abandoners monthly and report incremental contribution after discounts, message fees, and refunds. Platform-attributed recovery can include orders that would have happened without a message; no measured overstatement range is established here. Finance should see the holdout comparison before either platform is signed annually.</p>
+        <h2>Migrate in dependency order, with one owner per queue</h2>
+        <p>Export consent provenance by channel and purpose, opt-outs, tags, recent purchases, account/deal mappings and pending sends. Draw dependencies before choosing the first flow. If welcome owns shared eligibility or the incentive promise, validate it before cart recovery. If cart recovery is independent and its purchase exits pass, it can move first. Win-back can move independently only after its historical purchase and exclusion data are ready. There is no universal welcome-first or cart-first order.</p>
+        <p>For each flow, reconcile pending messages and replayed events, pause the old sender, then enable its replacement after seeded inbox and purchase-exit checks. Keep a rollback copy, credentials and a named operator for as long as the agreed observation window requires. Check Shopify’s own queue too. Do not run duplicate live recovery sends as a substitute for parallel validation.</p>
+        <p>Re-test affected cases immediately after a checkout, subscription, catalog or market change. A new wholesale channel warrants the account/deal fixture; a new SMS branch warrants permission and collision checks. Schedule review from those dependencies and actual traffic rather than a fixed ninety-day delay.</p>
 
-        <h2>Lifecycle adjacency: where this pair sits</h2>
-        <p>Neither tool owns a governed cart-recovery strategy layer out of the box the way a playbook-first lifecycle stack does. Both are sending and automation platforms; the discount ceiling, value-band branches, and welcome-collision rules are configuration you build. Read the <a class="link" href="/guides">timing playbook</a> and <a class="link" href="/guides">margin-safe incentives guide</a> before copying any app default.</p>
-
-        <h2>Who should choose which?</h2>
-        <p><strong>Choose ActiveCampaign</strong> when Shopify marketing overlaps with wholesale, sales follow-up, account stages, or complex branching. <strong>Choose Brevo</strong> when the store needs practical campaigns, broad sending, and a smaller automation surface. If both are plausible, run the same five-job pilot rather than choosing from a feature grid.</p>
-
-        <h2>Fit decision table by store profile</h2>
-        <table>
-          <thead>
-            <tr><th>Store profile</th><th>Better candidate</th><th>Why</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Wholesale plus DTC hybrid</td><td>ActiveCampaign</td><td>Rep routing and account stages need tags and CRM branches</td></tr>
-            <tr><td>High-AOV B2C, few branches</td><td>Either</td><td>Simple cart proof beats either platform’s differentiators</td></tr>
-            <tr><td>Campaign-led newsletter store</td><td>Brevo</td><td>Familiar broadcasts without CRM surface cost</td></tr>
-            <tr><td>Multi-brand with shared ESP</td><td>Either</td><td>Pick on how cleanly brand-level suppression is expressed</td></tr>
-            <tr><td>Budget-capped small team</td><td>Brevo</td><td>Lower maintenance overhead at modest complexity</td></tr>
-            <tr><td>Ledger-driven finance review</td><td>Either</td><td>Verify available exclusion and reporting tools; document holdout assignment and governance</td></tr>
-          </tbody>
-        </table>
-
-        <h2>Margin math deep dive</h2>
-        <p>Cart recovery math is platform-agnostic until billing enters it. Example (illustrative): $73 cart at 55% margin yields $40.15 full-price contribution. A 19% code costs $13.87 and leaves $26.28 before other variable costs; recovered orders that would have purchased anyway amplify the loss. At 5% recovery on 1,000 abandoning carts, margin-after-incentive is the number both pilots must report — not ESP-attributed revenue, which can include purchases that would have happened without messaging; no measured overstatement range is established here.</p>
-        <p>High-value carts invert the logic: at $342 and 39% margin, an unmetered code can turn an otherwise positive recovery negative. ActiveCampaign makes branch-level caps natural via deal stages; Brevo requires disciplined segmentation and a documented discount ladder. Either way the finance sheet must see margin after discount, refund, and app cost before the annual signature.</p>
-
-        <h2>Cost model deep dive (hedged)</h2>
-        <p>Plan sources to check against your required allowances: <a class="link" href="https://www.brevo.com/pricing/">Brevo pricing</a> and <a class="link" href="https://www.activecampaign.com/pricing">ActiveCampaign pricing</a>. These links do not establish a quote or a verified integration.</p>
-        <p>Published tiers change; here is the buying shape, not a quote. Compare contact allowances, send volume and feature tiers separately. Brevo offers volume-based email plans with contact limits; ActiveCampaign pricing also depends on contacts and plan features. Several touches per cart add email volume, but their billing effect depends on the selected allowance. The 30–40% abandon-rate range is an illustrative modeling input, not a measured benchmark. Model: abandoning profiles as a share of list, three-touch email per abandon, SMS fees if a branch exists, duplicate-contact behavior in seed tests, then compare totals at your real catalog numbers against current plan pages before budgeting anything.</p>
-
-        <h2>Operational contrast</h2>
-        <p>ActiveCampaign operators live in branching trees and contact-scoring dashboards: powerful once built, dangerous when nobody owns maintenance mid-promo. Document every flow with trigger, delay ladder, exclusions, and holdout status; unknown flows die silently during checkout changes.</p>
-        <p>Brevo operators live in the campaign calendar and transactional boundaries. Speed to live is the compensation for a lighter commerce data layer. Cart segments need refresh schedules; stale audiences turn urgency copy into irrelevant reminders faster than most teams notice.</p>
-
-        <h2>Fourteen-day pilot plan</h2>
-        <table>
-          <thead>
-            <tr><th>Days</th><th>Work</th><th>Pass condition</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1–3</td><td>Connect Shopify, seed cart and purchase events</td><td>Events arrive with documented delay and matching fields</td></tr>
-            <tr><td>4–7</td><td>Build one cart flow with suppression and no email-one discount</td><td>Purchaser refunds and OOS variants exit correctly</td></tr>
-            <tr><td>8–10</td><td>Seed mixed-SKU cart, repeat buyer, OOS variants</td><td>Suppression and branch accuracy observed</td></tr>
-            <tr><td>11–14</td><td>Holdout five percent, report contribution margin</td><td>Finance sees incremental margin, not attributed revenue</td></tr>
-          </tbody>
-        </table>
-
-        <h2>Cross-links for the decision</h2>
-        <p>Pair with the <a class="link" href="/guides">attribution guide</a>, <a class="link" href="/guides">consent and compliance guide</a>, and the <a class="link" href="/use-cases/abandoned-cart">abandoned-cart use case</a> so whichever winner you pick gets implemented with the timeline and incentive caps that governance requires.</p>
-
-        <h2>Abandon-type taxonomy both pilots must pass</h2>
-        <table>
-          <thead>
-            <tr><th>Abandon type</th><th>Expected handling</th><th>Failure to watch</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Compare-shopping exit</td><td>Proof and differentiation, not deeper discount</td><td>Blinking urgency copy for a browser</td></tr>
-            <tr><td>Shipping sticker shock</td><td>Policy transparency block</td><td>Flat ten percent code that trains wait-for-code</td></tr>
-            <tr><td>Payment failure or 3DS drop</td><td>Confidence and retry guidance</td><td>Discount that penalizes real intent</td></tr>
-            <tr><td>OOS variant in cart</td><td>Suppress or swap before send</td><td>Last-chance urgency for a sold-out size</td></tr>
-            <tr><td>Recent purchaser</td><td>Exit within minutes</td><td>Reminder arriving after checkout confirmation</td></tr>
-          </tbody>
-        </table>
-
-        <h2>Edge cases the sales deck skips</h2>
-        <p>Pre-order carts: delay urgency until a ship date is known. Bundle carts: recover full bundle value rather than discounting a partial line. Gift-message carts: recovery emphasizes delivery date and presentation, not upsell paths. Subscription toggles: cadence education beats stacked one-time codes on a first box.</p>
-        <p>International abandons at duty estimates respond to landed-cost FAQ blocks, not discount blasts. Holiday volume spikes compress delays but only for engaged segments — cold profiles stay suppressed no matter how loud the November calendar gets.</p>
-
-        <h2>Scorecard weights for this matchup</h2>
-        <p>Weight branch accuracy, purchaser suppression timing, OOS handling, and holdout feasibility highest; template count and inbox-warmth anecdotes lowest. A 4.5-weighted score at double the operating hours loses to a 4.0-weighted stack your team can maintain on a Thursday before a drop — that is the tie-break principle from the recovery lab, and it applies to both finalists here.</p>
-        <p>Practical scoring rhythm: score each finalist after the fourteen-day pilot in a shared wiki with date, sample cart size, and score. Re-run when catalog structure changes — a wholesale channel, a subscription app, or an SMS addition all shift which branching features you actually exercise.</p>
-
-        <h2>Recovery lab editorial note</h2>
-        <p>Pairwise comparisons in this lab are margin instruments, not brand referendums. If the pilot shows the low-cost option matches contribution while costing fewer ops hours, choose it — complexity without an owner is the most expensive tier of all. Neither ActiveCampaign nor Brevo is a cart-recovery religion; both can shrink the store’s recovery leak if the timing playbook and discount governance govern what ships.</p>
-
-        <h2>Reading order before the pilot</h2>
-        <p>Open the <a class="link" href="/compare">compare hub</a> and the <a class="link" href="/apps">apps index</a> first, then run the timing and incentive guides as pilot governance. Competitor pages on this site — <a class="link" href="/compare/activecampaign-vs-rejoiner">ActiveCampaign vs Rejoiner</a> and <a class="link" href="/compare/mailchimp-vs-brevo">Brevo variations</a> in the pairs list below the hub — are designed to be read after finalists are shortlisted so pairwise results are judged on your catalog, not on marketing claims.</p>
-
-        <h2>Two cleanup items most teams forget</h2>
-        <p>First, suppress cart recovery for open support tickets in either platform — a delivery complaint plus a discount blast is the classic unsubscribe trigger. Second, freeze discount depth changes during peak; experiments run November through December rarely isolate variables, and January attribution becomes guesswork for both stacks.</p>
-
-        <h2>Guest checkout and identity-match notes</h2>
-        <p>Guest abandons only recoverable when a checkout email exists — identity stitching quality is a store property, not a platform claim. Track recoverable cart percentage monthly in either stack; the gap between total abandons and reachable abandons is revenue the wrong platform switch will never fix.</p>
-
-        <h2>Peak-season drift check</h2>
-        <p>Re-run the pilot ninety days after any major Shopify change — checkout extensibility rebuild, new subscription app, or a markets launch all shift event payloads. A verdict valid in March can quietly break by October when a webhook field renames; ninety-day re-tests are cheaper than discovering suppression failure from customer complaints.</p>
-
-        <h2>Rollback discipline</h2>
-        <p>Whichever platform wins, keep the loser connected but paused for thirty days with a documented rollback path. Rollback is rare when migration is disciplined — but the absence of a rollback plan is how recovery programs go dark mid-peak while support tickets pile up.</p>
-
-        <h2>Verdict</h2>
-        <p>ActiveCampaign is the better fit for CRM-linked Shopify lifecycle logic. Brevo is the better fit for straightforward campaign operation and a broad sending stack. Neither wins universally: the winner is the one that passes event accuracy, suppression, margin, and maintenance tests for the store’s actual cart journey.</p>
+        <h2>Make the CRM-versus-campaign decision</h2>
+        <p>Shortlist ActiveCampaign if the account/deal fixture produces an actionable handoff that your team will maintain. Shortlist Brevo PushOwl if store-connected automation and campaign changes pass with an accountable operator. If both pass, compare total cost and measured editing effort. If neither adds a needed capability over the Shopify baseline, keep that baseline while resolving the missing requirement.</p>
+        <p>Only after operational acceptance should you evaluate incremental contribution. Choose holdout size and duration from traffic, purchase delay and the smallest worthwhile contribution difference; report uncertainty when volume is insufficient. A fourteen-day trial or five-percent holdout does not by itself establish a winner.</p>
+        <p>Use the <a class="link" href="/guides">guides</a> and <a class="link" href="/use-cases/abandoned-cart">abandoned-cart use case</a> for implementation context. The <a class="link" href="/compare">comparison hub</a> and <a class="link" href="/apps">apps index</a> help shortlist alternatives. <a class="link" href="/compare/activecampaign-vs-rejoiner">ActiveCampaign vs Rejoiner</a> addresses internal ownership versus a managed handoff; <a class="link" href="/compare/mailchimp-vs-brevo">Mailchimp vs Brevo</a> addresses audience migration and permission precedence. This page’s deciding case is whether cart recovery needs an owned CRM handoff or a campaign operator.</p>
       </article>
     </div>
   </section>
