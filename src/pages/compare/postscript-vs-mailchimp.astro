@@ -118,7 +118,7 @@ const faqs = [
       <p><a href="https://postscript.io/features">Postscript’s feature page</a> describes an SMS program and connections with email providers. <a href="https://mailchimp.com/help/connect-shopify/">Mailchimp’s Shopify connection guide</a> documents linking a store to a Mailchimp audience. These sources support evaluating connected workflows; they do not establish that a specific two-sender cancellation or coupon handoff works in the merchant’s setup. The cases above are proposed acceptance checks.</p>
       <p>This guide considers adding SMS alongside existing email; it does not claim either product is restricted to that channel or that either can replace every function of the other. Obtain current plan, country and channel eligibility and a matched quote for the intended scope. No static rating, entry price or vendor revenue claim determines the choice here.</p>
     </div>
-    <FaqSection faqs={faqs} title="{a.name} vs {b.name} FAQ" />
+    <FaqSection faqs={faqs} title={`${a.name} vs ${b.name} FAQ`} />
     </div>
   </section>
 </BaseLayout>
