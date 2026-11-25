@@ -11,7 +11,7 @@ const desc = description(site, 'alternatives/aftership-email-alternative');
 const faqs = [
     {
     question: 'Why replace AfterShip Email?',
-    answer: 'The usual reasons are a need for deeper ecommerce segmentation, broader lifecycle automation, a dedicated SMS program, or a different operating model. Staying can still be sensible when simple delivery and tracking-adjacent messages are all the store needs.',
+    answer: 'The usual reasons are a need for deeper ecommerce segmentation, broader lifecycle automation, a dedicated SMS program, or a different operating model. Staying can be sensible when its existing behavior-triggered marketing and recovery flows meet the store’s requirements.',
   },
     {
     question: 'Which alternative is best for a small Shopify store?',
@@ -23,7 +23,7 @@ const faqs = [
   },
     {
     question: 'How long should a migration pilot run?',
-    answer: 'A 14-day pilot is enough to validate event mapping, consent, suppression, rendering, and early operational issues. Use a randomized holdout for performance conclusions and keep the old flow recoverable.',
+    answer: 'Use coverage gates rather than a fixed duration: map required events, audit consent, test every purchase exit, and inspect messages and links. Performance evaluation also needs adequate eligible carts and time for delayed orders; extend an inconclusive holdout and keep the old flow recoverable.',
   },
 ];
 
@@ -32,7 +32,7 @@ const tools = [
     name: 'Klaviyo', 
     slug: 'klaviyo', 
     best: 'Stores that need detailed Shopify event data and advanced lifecycle segmentation.', 
-    p1: 'Klaviyo is the most natural alternative when AfterShip Email is too narrow for a retention program built around product, order, browsing, and customer properties. Its Shopify-focused data model gives operators more room to split high-intent carts from low-value or already-engaged shoppers.', 
+    p1: 'Klaviyo’s Shopify data reference documents order and checkout events and customer data; onsite browsing events require their own tracking setup. Evaluate it when a specific missing property or event prevents the branch you need in AfterShip Email. Reproduce that branch with actual payloads before deciding that a larger platform solves the gap.',
     p2: 'That flexibility creates governance work. Before migrating, map every trigger, profile merge rule, purchase exit, and discount branch; a larger canvas only helps when someone owns QA and ongoing list hygiene.', 
     pros: 'Deep behavior segmentation; broad lifecycle coverage; mature ecommerce ecosystem.', 
     cons: 'More setup and potentially higher profile/message spend; easy to overbuild.', 
@@ -86,7 +86,7 @@ const tools = [
     name: 'Shopify Email', 
     slug: 'shopify-email', 
     best: 'Small stores that want native campaigns and a low-friction recovery bridge.', 
-    p1: 'Shopify Email is the cleanest simplification when the store mainly needs product-led campaigns and a modest cart reminder program. Keeping the work inside Shopify reduces integration surface and makes ownership obvious for a lean merchant team.', 
+    p1: 'Shopify Email (now Shopify Messaging) is a candidate for simplification when the store mainly needs product-led campaigns and a modest cart reminder program. Keeping the work inside Shopify reduces integration surface and makes ownership obvious for a lean merchant team.',
     p2: 'It is not a like-for-like replacement for complex branching, deep behavioral reporting, or a large SMS operation. Use it as a deliberate simplification and confirm the current automation limits before retiring a broader system.', 
     pros: 'Native Shopify workflow; low operational overhead; easy product selection.', 
     cons: 'Less advanced automation and segmentation; limited multichannel depth.', 
@@ -223,9 +223,9 @@ const official: Record<string, string> = {
         <tr><td>Economics</td><td>Holdout reports incremental contribution after costs</td><td>Attributed revenue is mistaken for incremental revenue</td></tr>
       </tbody></table>
 
-      <h2>A proposed 14-day implementation pilot</h2>
-      <p>The schedule below is a planning example, not a guarantee that fourteen days is sufficient. Event coverage, consent records, message rendering, and purchase exits must pass their own checks. Performance decisions need enough eligible carts, conversions, and time for delayed purchases; extend the randomized holdout when the sample is inconclusive. The FAQ’s fixed-duration wording below should be read with this limitation.</p>
-      <p><strong>Product status checks:</strong> <a class="link" href="https://www.aftership.com/email/email-marketing-automation">AfterShip’s marketing automation documentation</a> describes behavior-triggered and cart recovery email. <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">Yotpo’s migration notice</a> and <a class="link" href="https://email-and-sms.yotpo.com/">decommissioned product page</a> explain why its former sender is excluded. Shopify now presents its native email offering as <a class="link" href="https://www.shopify.com/email-marketing">Shopify Messaging</a>; confirm the available channels and automation requirements for the store.</p>
+      <h2>A proposed implementation schedule with coverage gates</h2>
+      <p>The two-week schedule below is an illustrative work plan; unfinished checks move forward with the work. Event coverage, consent records, message rendering, and purchase exits must pass their own checks. Performance decisions need enough eligible carts, conversions, and time for delayed purchases; extend the randomized holdout when the sample is inconclusive. Define the required branch coverage before starting; elapsed days alone cannot close an untested failure case.</p>
+      <p><strong>Primary sources checked November 25, 2026:</strong> Klaviyo’s <a href="https://help.klaviyo.com/hc/en-us/articles/115005080447">Shopify data reference</a> and <a href="https://help.klaviyo.com/hc/en-us/articles/4425956184731">onsite tracking instructions</a> explain the candidate event coverage and setup requirements. <strong>Product status checks:</strong> <a class="link" href="https://www.aftership.com/email/email-marketing-automation">AfterShip’s marketing automation documentation</a> describes behavior-triggered and cart recovery email. <a class="link" href="https://www.yotpo.com/blog/email-sms-migration-partners/">Yotpo’s migration notice</a> and <a class="link" href="https://email-and-sms.yotpo.com/">decommissioned product page</a> explain why its former sender is excluded. Shopify now presents its native email offering as <a class="link" href="https://www.shopify.com/email-marketing">Shopify Messaging</a>; confirm the available channels and automation requirements for the store.</p>
       <p>Keep the AfterShip Email flow recoverable while testing one representative cart segment. Export consent and suppression rules, connect Shopify, rebuild one email path and one optional SMS branch, and use seed orders to test identity, deep links, discount exclusions, inventory, quiet hours, and purchase exits. Do not expand until the new flow passes operational QA and a holdout is ready.</p>
       <table><thead><tr><th>Days</th><th>Work</th><th>Pass condition</th></tr></thead><tbody>
         <tr><td>1–3</td><td>Inventory events, consent, costs, owners, and rollback path</td><td>Written mapping approved by marketing and operations</td></tr>

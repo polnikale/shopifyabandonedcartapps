@@ -27,12 +27,12 @@ const tools = [
   {
     name: 'Sequenzy', 
     slug: 'sequenzy', 
-    best: 'Lean lifecycle teams that want cart recovery plus a guided automation layer.', 
-    profile: 'Sequenzy is the strongest fit when the reason for leaving is not data capability but operational sprawl. Its value is a strategy-led lifecycle layer: cart, welcome, post-purchase, replenishment, and winback can share suppression and measurement rules instead of becoming isolated campaigns.', 
-    second: 'Validate the Shopify event connection and any SMS handoff before committing. It is a better candidate for a small team that needs repeatable playbooks than for a large organization whose buying requirement is a mature enterprise CDP.', 
-    pros: 'Strategy-led flows; pay-per-email positioning; lifecycle breadth.', 
-    cons: 'Shopify-native depth and ecosystem may be lighter than Klaviyo.', 
-    price: 'Check current plan and usage terms; do not assume a contact-based or email-only bill.' },
+    best: 'Teams evaluating connected Shopify email sequences against their existing Klaviyo flows.',
+    profile: 'Sequenzy’s Shopify integration overview describes customer and order sync, purchase-based segments, and cart, post-purchase, and winback email sequences. These are useful reasons to evaluate connected lifecycle work; they do not establish that Sequenzy supplies better strategy or reduces the work of migrating an existing Klaviyo account.',
+    second: 'Rebuild one branch using the same event, identity, purchase exit, and consent requirements as the installed flow. Ask who owns copy, QA, reporting, and ongoing changes; distinguish software access from any separately agreed managed service.',
+    pros: 'Published Shopify sync and email-sequence capabilities; send-volume pricing positioning.',
+    cons: 'Migration fidelity, operator effort, and cross-channel exits need store-specific demonstration.',
+    price: 'The current pricing page positions email billing by sends; price SMS, services, and required add-ons separately.'  },
   {
     name: 'Omnisend', 
     slug: 'omnisend', 
@@ -73,10 +73,10 @@ const tools = [
     name: 'Shopify Email', 
     slug: 'shopify-email', 
     best: 'Small stores that need native campaigns and a low-friction bridge.', 
-    profile: 'Shopify Email is the sensible downgrade when the store mainly sends launches and occasional cart reminders and does not use Klaviyo’s advanced segmentation. Keeping the sender inside Shopify reduces integration surface while the team proves whether a deeper lifecycle platform is actually needed.', 
+    profile: 'Shopify Email (now Shopify Messaging) is a candidate for simplification when the store mainly sends launches and occasional cart reminders and does not use Klaviyo’s advanced segmentation. Keeping the sender inside Shopify reduces integration surface while the team proves whether a deeper lifecycle platform is actually needed.',
     second: 'It is not a like-for-like replacement for complex predictive segments, multi-branch journeys, or a large SMS program. Treat it as a controlled simplification or bridge, not as an automatic feature match.', 
     pros: 'Native admin experience; low operational overhead; product-aware campaigns.', 
-    cons: 'Limited automation depth; not a full multichannel lifecycle suite.', 
+    cons: 'Demonstrate the required branches and channel availability; native administration alone does not prove parity.',
     price: 'Shopify includes a monthly allowance and then charges by usage; check the current Shopify rate card.' },
   {
     name: 'Privy', 
@@ -108,12 +108,12 @@ const tools = [
   {
     name: 'Yotpo Email & SMS', 
     slug: 'yotpo-email-sms', 
-    best: 'Stores already invested in reviews, loyalty, or UGC within Yotpo.', 
-    profile: 'Yotpo is a rational migration path when Klaviyo is one part of a broader retention stack and the store wants loyalty, reviews, UGC, email, and SMS to share context. The upside is fewer disconnected modules for a retention team already using Yotpo products.', 
-    second: 'The pilot should include loyalty-point and review-status exclusions, not just a cart email. Suite consolidation is only cheaper when the modules you activate replace tools you would otherwise keep.', 
-    pros: 'Retention-suite context; reviews and loyalty connections; multichannel coverage.', 
-    cons: 'Module breadth adds complexity; value depends on existing Yotpo adoption.', 
-    price: 'Module and usage pricing vary; request a bundle quote and price each active product.' },
+    best: 'Legacy dependency audits for stores that previously used Yotpo Email & SMS.',
+    profile: 'Yotpo announced Email and SMS deprecation for December 31, 2025; its product endpoint now reports decommissioning. This is a retired sender to exclude from a new shortlist, not a current Klaviyo replacement.',
+    second: 'Inventory retained consent exports, loyalty fields, review requests, and purchase exclusions before moving legacy branches. Existing reviews or loyalty products do not establish that the former sender remains available.',
+    pros: 'Useful historical context for finding dependencies on reviews and loyalty.',
+    cons: 'Retired email/SMS sender; unavailable as a new replacement.',
+    price: 'Budget replacement and legacy-data work rather than seeking a current sender quote.'  },
   {
     name: 'ActiveCampaign', 
     slug: 'activecampaign', 
@@ -160,6 +160,24 @@ const tools = [
     cons: 'Push can become noisy; less depth than leading lifecycle suites.', 
     price: 'Plans and message/impression allowances vary; verify channel-specific limits.' },
 ];
+const official: Record<string, string> = {
+  'sequenzy': 'https://www.sequenzy.com/features/shopify-integration',
+  'klaviyo': 'https://www.klaviyo.com/pricing',
+  'omnisend': 'https://www.omnisend.com/pricing',
+  'recart': 'https://recart.com/',
+  'postscript': 'https://postscript.io/pricing',
+  'sendlane': 'https://www.sendlane.com/pricing',
+  'brevo': 'https://www.brevo.com/pricing/',
+  'shopify-email': 'https://www.shopify.com/email-marketing',
+  'yotpo-email-sms': 'https://email-and-sms.yotpo.com/',
+  'privy': 'https://www.privy.com/pricing',
+  'drip': 'https://www.drip.com/pricing',
+  'activecampaign': 'https://www.activecampaign.com/pricing',
+  'mailchimp': 'https://mailchimp.com/pricing/',
+  'attentive': 'https://www.attentive.com/',
+  'rejoiner': 'https://rejoiner.com/',
+  'firepush': 'https://firepush.io/',
+};
 ---
 
 <BaseLayout title={title} description={desc} site={site} path={path}>
@@ -167,12 +185,12 @@ const tools = [
   <section class="container py-16 md:py-24">
     <a href="/alternatives" class="link text-sm font-bold">← All alternatives</a>
     <p class="editorial-kicker mt-6">Migration decision guide</p>
-    <h1 class="hero-title mt-5">14 Klaviyo alternatives for Shopify cart recovery</h1>
+    <h1 class="hero-title mt-5">Klaviyo alternatives and a retired sender to exclude</h1>
     <p class="mt-7 max-w-3xl text-xl text-slate-700">A Klaviyo exit only makes sense when the replacement preserves purchase suppression, consent, event fidelity, and incremental contribution—not just the email editor.</p>
     <TldrBox title="Shortlist by exit reason" picks={[{
-          label: 'Lean lifecycle',
+          label: 'Connected email',
           tool: 'Sequenzy',
-          reason: 'Guided recovery and broader lifecycle playbooks.',
+          reason: 'Evaluate Shopify sync and connected email sequences.',
         }, {
           label: 'Fast multichannel',
           tool: 'Omnisend',
@@ -195,8 +213,8 @@ const tools = [
       <table><thead><tr><th>Exit signal</th><th>First shortlist</th><th>Pilot question</th></tr></thead><tbody>
         <tr><td>Too much platform for a small team</td><td>Shopify Email, Omnisend, Brevo</td><td>Can one owner launch cart, welcome, and suppression QA?</td></tr>
         <tr><td>SMS is the main recovery channel</td><td>Postscript, Recart, Attentive</td><td>Does SMS add contribution after message and compliance costs?</td></tr>
-        <tr><td>Capture is the bottleneck</td><td>Privy, Justuno</td><td>Can capture intent flow into one lifecycle sender?</td></tr>
-        <tr><td>Lifecycle ownership is missing</td><td>Sendlane, Rejoiner, Sequenzy</td><td>Who briefs, builds, approves, and learns from the flow?</td></tr>
+        <tr><td>Capture is the bottleneck</td><td>Privy</td><td>Can capture intent flow into one lifecycle sender?</td></tr>
+        <tr><td>Lifecycle ownership is missing</td><td>Sendlane, Rejoiner</td><td>Who briefs, builds, approves, and learns from the flow?</td></tr>
       </tbody></table>
 
       <h2>Alternative-by-alternative analysis</h2>
@@ -206,9 +224,11 @@ const tools = [
         <p>{tool.profile}</p>
         <p>{tool.second}</p>
         <p><strong>Pros:</strong> {tool.pros} <strong>Cons:</strong> {tool.cons} <strong>Pricing caveat:</strong> {tool.price}</p>
-        <p><strong>Official checks:</strong> <a class="link" href={tool.slug === 'shopify-email' ? 'https://www.shopify.com/email-marketing' : `https://${tool.slug === 'yotpo-email-sms' ? 'www.yotpo.com/products/email-sms' : `${tool.slug}.com/pricing`}`} rel="nofollow">product or pricing page</a>.</p>
+        <p><strong>Official checks:</strong> <a class="link" href={official[tool.slug]} rel="nofollow">product or pricing page</a>.</p>
       </section>)}
 
+      <h2>Published capabilities versus migration evidence</h2>
+      <p>Sources checked November 25, 2026: Sequenzy’s <a href="https://www.sequenzy.com/features/shopify-integration">Shopify integration overview</a> and <a href="https://www.sequenzy.com/pricing">pricing page</a> support the scoped description above. Klaviyo’s <a href="https://help.klaviyo.com/hc/en-us/articles/115005080447">Shopify data reference</a> is the baseline for mapping the events you already use. Shopify’s <a href="https://www.shopify.com/email-marketing">Messaging overview</a> describes native email, SMS campaigns, and customizable automations. Yotpo’s <a href="https://www.yotpo.com/blog/email-sms-migration-partners/">migration notice</a> and <a href="https://email-and-sms.yotpo.com/">decommissioning notice</a> establish its retired status. These supplier descriptions establish evaluation candidates, not measured recovery lift.</p>
       <h2>Capability and migration checks</h2>
       <table><thead><tr><th>Capability</th><th>Must preserve</th><th>Evidence to collect</th></tr></thead><tbody>
         <tr><td>Cart event</td><td>Cart ID, line items, value, timestamp</td><td>Test event payload and one recovery link on mobile.</td></tr>
@@ -217,12 +237,12 @@ const tools = [
         <tr><td>Economics</td><td>Discount, message fee, refund, support cost</td><td>Compare incremental contribution against a holdout.</td></tr>
       </tbody></table>
 
-      <h2>A bounded implementation pilot</h2>
-      <p>Run a 14-day pilot on one representative cart segment, not the whole store. Export consent and suppression rules; connect Shopify; rebuild one email cart path and one optional SMS branch; then test identity, deep links, discount exclusions, quiet hours, inventory, and purchase exits with seed orders. Keep Klaviyo’s flows paused but recoverable, and assign one owner who can stop the new flow immediately.</p>
-      <table><thead><tr><th>Day</th><th>Action</th><th>Pass condition</th></tr></thead><tbody>
-        <tr><td>1–3</td><td>Inventory events, consent, discounts, and owners</td><td>Written mapping and rollback path approved.</td></tr>
-        <tr><td>4–7</td><td>Build email cart flow; add SMS only for documented opt-in</td><td>No duplicate, post-purchase, OOS, or quiet-hour sends.</td></tr>
-        <tr><td>8–14</td><td>Run a randomized holdout and compare contribution</td><td>Finance sees incremental margin, not attributed revenue alone.</td></tr>
+      <h2>A coverage-led migration pilot</h2>
+      <p>Start with one representative cart segment and define completion by event coverage, not a fixed number of days. Export consent and suppression rules; connect Shopify; rebuild one email cart path and one optional SMS branch; then test identity, deep links, discount exclusions, quiet hours, inventory, and purchase exits with seed orders. Keep Klaviyo’s flows paused but recoverable, and assign one owner who can stop the new flow immediately.</p>
+      <table><thead><tr><th>Stage</th><th>Action</th><th>Pass condition</th></tr></thead><tbody>
+        <tr><td>Map</td><td>Inventory events, consent, discounts, and owners</td><td>Written mapping and rollback path approved.</td></tr>
+        <tr><td>Rebuild and inspect</td><td>Build email cart flow; add SMS only for documented opt-in</td><td>No duplicate, post-purchase, OOS, or quiet-hour sends.</td></tr>
+        <tr><td>Measure after operational QA</td><td>Run a randomized holdout and compare contribution</td><td>Predefine eligible carts, allocation, conversion window, and a decision threshold; extend an inconclusive test instead of declaring a winner.</td></tr>
       </tbody></table>
       <p>Use the site’s <a class="link" href="/guides">attribution guide</a> and <a class="link" href="/guides">flow-collision guide</a> for the measurement and suppression details. Compare finalists in the <a class="link" href="/compare">comparison hub</a>; do not cancel the old platform until the export, holdout, and rollback checks pass.</p>
     </article>
